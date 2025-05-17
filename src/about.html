@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.scss" />
+    <title>About | My Charts & Maps Lab with scss syntax</title>
+    <!-- Google Fonts (Preloaded for better performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./scripts/index.js" type="module" defer></script>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="navbar header">
+        <div class="container">
+          <!-- Logo och företagsnamn -->
+          <a
+            href="./index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Återgå till startsidan"
+            ><picture class="logo">
+              <!-- AVIF-format för bästa komprimering -->
+              <source
+                srcset="
+                  ./images/developer-800x800.avif 800w,
+                  ./images/developer-600x600.avif 600w,
+                  ./images/developer-400x400.avif 400w,
+                  ./images/developer-200x200.avif 200w
+                "
+                sizes="(min-width: 1200px) 800px, (min-width: 768px) 600px, (min-width: 480px) 400px, 200px"
+                type="image/avif"
+              />
+              <!-- WebP-format som alternativ -->
+              <source
+                srcset="
+                  ./images/developer-800x800.webp 800w,
+                  ./images/developer-600x600.webp 600w,
+                  ./images/developer-400x400.webp 400w,
+                  ./images/developer-200x200.webp 200w
+                "
+                sizes="(min-width: 1200px) 800px, (min-width: 768px) 600px, (min-width: 480px) 400px, 200px"
+                type="image/webp"
+              />
+              <!-- JPG som fallback för äldre webbläsare -->
+              <img
+                src="./images/developer-400x400.jpg"
+                srcset="
+                  ./images/developer-800x800.jpg 800w,
+                  ./images/developer-600x600.jpg 600w,
+                  ./images/developer-400x400.jpg 400w,
+                  ./images/developer-200x200.jpg 200w
+                "
+                sizes="(min-width: 1200px) 800px, (min-width: 768px) 600px, (min-width: 480px) 400px, 200px"
+                alt="Sara, webbutvecklaren bakom denna webbplats"
+                width="100"
+                height="100"
+              />
+            </picture>
+            <span class="company-name">Sara<wbr />Tech<wbr />Trender</span>
+          </a>
+
+          <!-- Sökfält -->
+          <!-- <div class="search-container">
+            <input type="text" class="search-input" placeholder="Sök..." />
+          </div> -->
+
+          <!-- Hamburgermeny-knapp -->
+          <button
+            class="menu-toggle"
+            aria-label="Öppna meny"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+          <!-- Navigationsmeny -->
+          <nav class="nav">
+            <ul class="menu">
+              <li class="menu-item"><a href="./index.html">Home</a></li>
+              <li class="menu-item active"><a href="#">About</a></li>
+
+              <li class="dropdown">
+                <a href="#">Portfolio items ▾</a>
+                <ul class="dropdown-menu">
+                  <li class="menu-item">
+                    <a
+                      href="https://ai-poems-generator.netlify.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Open AI Poem Generator in a new tab"
+                    >
+                      AI Poem Generator 🔗
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a
+                      href="https://climasense.netlify.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Open Weather App in a new tab"
+                    >
+                      Weather App 🔗
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a
+                      href="https://timezonesclocks.netlify.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Open Time Zone Converter in a new tab"
+                    >
+                      Time Zone Converter 🔗
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <button class="primary button" id="theme-toggle">🌙 Dark Mode</button>
+      </header>
+      <main id="about-page">
+        <section class="hero">
+          <div class="hero-content">
+            <h1>About me</h1>
+            <p>
+              Hi! I'm Sara Sjödin Scolari, a passionate full-stack web developer
+              specializing in modern web solutions. With expertise in HTML, CSS,
+              JavaScript, SCSS, and SQL databases, I craft fast, responsive, and
+              visually engaging websites. I also focus on image and video
+              optimization and leverage cutting-edge build tools like Parcel and
+              Vite to enhance performance and user experience.
+            </p>
+          </div>
+        </section>
+        <section class="features">
+          <div>
+            <h2>Why Choose Me?</h2>
+            <ul>
+              <li>
+                <strong>✔ Pixel-perfect design</strong><br />I transform ideas
+                into responsive websites.
+              </li>
+              <li>
+                <strong>✔ Performance and SEO optimization</strong><br />Fast
+                loading times and search engine-friendly structures.
+              </li>
+              <li>
+                <strong>✔ Dark Mode and Light Mode</strong><br />Modern and
+                user-friendly design for all devices.
+              </li>
+              <li>
+                <strong>✔ SASS and CSS preprocessors</strong><br />Efficient
+                code structure and scalable solutions.
+              </li>
+              <li>
+                <strong>✔ Charts, Maps & Data Visualization</strong><br />
+                Turning data into interactive, insightful visuals.
+              </li>
+              <li>
+                <strong>✔ Animations and UI effects</strong><br />Creating an
+                engaging experience with smooth effects.
+              </li>
+              <li>
+                <strong>✔ User-centered approach</strong><br />Websites that are
+                accessible, responsive, and user-friendly.
+              </li>
+              <li>
+                <strong>✔ JSDoc for clear documentation</strong><br />
+                I use JSDoc to improve code readability, structure, and editor
+                support.
+              </li>
+            </ul>
+            <p>Let's create something amazing together!</p>
+            <p>
+              <a
+                href="https://it.linkedin.com/in/sjodinscolari"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Besök Saras LinkedIn-sida"
+                >Contact me on LinkedIn</a
+              >
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="legal-footer-section">
+          <div>
+            <h2>Sara<br />Sjoedin Scolari</h2>
+            <p>@2025 All rights reserved</p>
+          </div>
+          <div class="logo-container">
+            <a
+              href="https://it.linkedin.com/in/sjodinscolari"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Besök Saras LinkedIn-sida"
+              ><picture>
+                <!-- AVIF-format för bästa komprimering -->
+                <source
+                  srcset="
+                    ./images/developer-800x800.avif 800w,
+                    ./images/developer-600x600.avif 600w,
+                    ./images/developer-400x400.avif 400w,
+                    ./images/developer-200x200.avif 200w
+                  "
+                  sizes="(min-width: 1200px) 800px, (min-width: 768px) 600px, (min-width: 480px) 400px, 200px"
+                  type="image/avif"
+                />
+                <!-- WebP-format som alternativ -->
+                <source
+                  srcset="
+                    ./images/developer-800x800.webp 800w,
+                    ./images/developer-600x600.webp 600w,
+                    ./images/developer-400x400.webp 400w,
+                    ./images/developer-200x200.webp 200w
+                  "
+                  sizes="(min-width: 1200px) 800px, (min-width: 768px) 600px, (min-width: 480px) 400px, 200px"
+                  type="image/webp"
+                />
+                <!-- JPG som fallback för äldre webbläsare -->
+                <img
+                  src="./images/developer-400x400.jpg"
+                  srcset="
+                    ./images/developer-800x800.jpg 800w,
+                    ./images/developer-600x600.jpg 600w,
+                    ./images/developer-400x400.jpg 400w,
+                    ./images/developer-200x200.jpg 200w
+                  "
+                  sizes="(min-width: 1200px) 800px, (min-width: 768px) 600px, (min-width: 480px) 400px, 200px"
+                  alt="Sara, webbutvecklaren bakom denna webbplats"
+                  width="175"
+                  height="175"
+                /> </picture
+            ></a>
+          </div>
+        </div>
+        <div class="company-footer-info">
+          <h2>Places I call home</h2>
+          <address>
+            <h3>Italy</h3>
+            <ul>
+              <li>Milano</li>
+              <li>Valpiana, Vercelli, Piemonte</li>
+            </ul>
+            <h3>Sweden</h3>
+            <ul>
+              <li>Stockholm</li>
+              <li>Myckelgensjö, Västernorrland</li>
+              <li>Örebro</li>
+            </ul>
+          </address>
+        </div>
+
+        <div class="company-footer-contact">
+          <h2>Email me</h2>
+          <address>
+            <ul>
+              <li>
+                <a href="mailto:sara@sarasjodin.com">sara@sarasjodin.com</a>
+              </li>
+            </ul>
+          </address>
+
+          <h2>Call me</h2>
+          <address>
+            <ul>
+              <li>
+                <a
+                  id="phone-link"
+                  href="#"
+                  aria-label="Call Sara at international number +39 345 4171 570"
+                >
+                  📞 Click to reveal number
+                </a>
+              </li>
+            </ul>
+          </address>
+
+          <div class="social-footer-menu">
+            <h2>Follow me</h2>
+            <ul class="social-icons">
+              <!-- Facebook -->
+              <li class="social-icon">
+                <a
+                  class="icon circle icon-white"
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Besök vår Facebook-sida"
+                >
+                  <picture>
+                    <source srcset="./images/facebook.webp" type="image/webp" />
+                    <img
+                      src="./images/facebook.png"
+                      alt="Facebook"
+                      width="32"
+                      height="32"
+                      loading="lazy"
+                    />
+                  </picture>
+                </a>
+              </li>
+
+              <!-- LinkedIn -->
+              <li class="social-icon linkedin">
+                <a
+                  class="icon linkedin square icon-bw"
+                  href="https://it.linkedin.com/in/sjodinscolari"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Besök vår LinkedIn-sida"
+                >
+                  <picture>
+                    <source srcset="./images/linkedin.webp" type="image/webp" />
+                    <img
+                      src="./images/linkedin.png"
+                      alt="LinkedIn"
+                      width="32"
+                      height="32"
+                      loading="lazy"
+                    />
+                  </picture>
+                </a>
+              </li>
+
+              <!-- Instagram -->
+              <li class="social-icon">
+                <a
+                  class="icon square icon-white"
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Besök vår Instagram-sida"
+                >
+                  <picture>
+                    <source
+                      srcset="./images/instagram.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="./images/instagram.png"
+                      alt="Instagram"
+                      width="32"
+                      height="32"
+                      loading="lazy"
+                    />
+                  </picture>
+                </a>
+              </li>
+
+              <!-- X (Tidigare Twitter) -->
+              <!-- <li class="social-icon">
+                <a
+                  class="icon circle icon-white"
+                  href="https://x.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Besök vår X-sida"
+                >
+                  <picture>
+                    <source srcset="./images/x.webp" type="image/webp" />
+                    <img
+                      src="./images/x.png"
+                      alt="X"
+                      width="32"
+                      height="32"
+                      loading="lazy"
+                    />
+                  </picture>
+                </a>
+              </li> -->
+
+              <!-- Pinterest -->
+              <!-- <li class="social-icon pinterest">
+                <a
+                  class="icon circle icon-bw"
+                  href="https://www.pinterest.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Besök vår Pinterest-sida"
+                >
+                  <picture>
+                    <source
+                      srcset="./images/pinterest.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="./images/pinterest.png"
+                      alt="Pinterest"
+                      width="32"
+                      height="32"
+                      loading="lazy"
+                    />
+                  </picture>
+                </a>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="legal-footer-menu">
+          <h2>My policies</h2>
+          <nav aria-label="Legal Policies">
+            <ul class="menu">
+              <li class="menu-item">
+                <a href="./privacy-policy.html">Privacy Policy</a>
+              </li>
+              <li class="menu-item">
+                <a href="./cookie-policy.html">Cookie Policy</a>
+              </li>
+              <li class="menu-item">
+                <a href="./terms-of-service.html">Terms of Service</a>
+              </li>
+              <li class="menu-item">
+                <a href="./accessibility-statement.html"
+                  >Accessibility Statement</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="menu-footer">
+          <h2>Navigation</h2>
+          <nav aria-label="Website Navigation">
+            <ul class="menu">
+              <li class="menu-item"><a href="./index.html">Home</a></li>
+              <li class="menu-item active"><a href="#">About</a></li>
+              <li class="menu-item">
+                <a
+                  href="https://saras-portfolio.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit Sara's portfolio website (opens in a new tab)"
+                >
+                  Sara's Portfolio 🔗</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

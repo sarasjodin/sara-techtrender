@@ -1,0 +1,50 @@
+@use '../abstracts/variables' as vars;
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.color-box {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.saturate .color-box {
+  background: vars.$saturated;
+}
+.desaturate .color-box {
+  background: vars.$desaturated;
+}
+.adjust-hue .color-box {
+  background: vars.$hue-adjusted;
+}
+.rgba .color-box {
+  background: vars.$rgba-color;
+}
+.mix .color-box {
+  background: vars.$mixed-color;
+}
+.invert .color-box {
+  background: vars.$inverted-color;
+}
+
+code {
+  display: block;
+  background: #222;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  width: fit-content;
+}

@@ -1,0 +1,9 @@
+@use '../abstracts/variables' as vars;
+
+#about-page .hero {
+  background: #e5e0e3;
+}
+
+.dark-mode #about-page .hero {
+  background: map-get(vars.$dark-theme, 'bg');
+}

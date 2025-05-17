@@ -1,0 +1,46 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixin;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  border-radius: 8px;
+
+  .hero-content {
+    max-width: 800px;
+  }
+
+  .cta-buttons {
+    margin-top: 20px;
+
+    a {
+      margin-right: 10px;
+    }
+    a:hover {
+      color: white !important;
+    }
+  }
+}
+
+.animations,
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  padding: 50px;
+  border-radius: 8px;
+  padding: 80px 20px;
+
+  .animations-content,
+  .features-content {
+    max-width: 800px;
+  }
+
+  div {
+    max-width: 600px;
+  }
+}

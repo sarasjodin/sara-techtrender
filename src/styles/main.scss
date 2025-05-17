@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+// 0. Vendor-stilar (Externa bibliotek)
+@use 'vendors/normalize';
+
+// 1. Abstrakta moduler (variabler, mixins, functions)
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+@use 'abstracts/functions';
+
+// 2. Basstilar (reset, typografi, grundläggande element)
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/global';
+
+// 3. Layout (grid, header, footer, etc.)
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/grid';
+@use 'layout/sidebar';
+@use 'layout/sections';
+
+// 4. Komponenter (buttons, cards, modals etc.)
+@use 'components/animations';
+@use 'components/buttons';
+@use 'components/menu';
+@use 'components/nav';
+@use 'components/cards';
+@use 'components/forms';
+@use 'components/modals';
+@use 'components/icons';
+@use 'components/keyframes';
+
+// 5. Sid-specifika stilar (om tillämpligt)
+@use 'pages/index';
+@use 'pages/about';
+
+// 6. Teman (valfritt, om du använder teman)
+@use 'themes/theme';

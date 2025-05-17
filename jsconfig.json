@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "checkJs": true, // Aktivera typkontroll för JS-filer (då behöver vi inte heller ange // @ts-check högst upp i varje .js-fil)
+    "allowJs": true, // Tillåt JS-filer i projektet (ej bara TS)
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "include": ["./"] // Inkludera alla filer i projektroten
+}

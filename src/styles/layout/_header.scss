@@ -1,0 +1,51 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixin;
+
+.navbar.header {
+  justify-content: flex-start;
+}
+
+.navbar.header {
+  @include mixin.flex-center;
+  @include mixin.respond-to('md') {
+    padding: 20px;
+  }
+
+  @include mixin.respond-to('lg') {
+    padding: 20px 30px;
+  }
+
+  @include mixin.respond-to('xl') {
+    padding: 20px 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: left;
+    align-items: start;
+    max-width: 1600px;
+    margin: 0 auto;
+
+    .legal-footer-section,
+    .company-footer-info,
+    .company-footer-contact,
+    .social-footer-menu,
+    .legal-footer-menu,
+    .menu-footer {
+      width: 15%;
+    }
+
+    .social-icons {
+      justify-content: flex-start;
+    }
+  }
+
+  @include mixin.respond-to('xxl') {
+    padding: 20px 40px;
+    align-items: center;
+    border-radius: 8px;
+
+    li.dropdown a {
+      align-items: center;
+    }
+  }
+}

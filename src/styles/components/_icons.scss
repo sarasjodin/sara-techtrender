@@ -1,0 +1,81 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixin;
+
+// Bas
+.icon {
+  @include mixin.icon-base(vars.$icon-size, vars.$icon-shape);
+}
+
+.linkedin.icon {
+  @include mixin.icon-base(
+    map-get(vars.$sizes, 'linkedin-icon'),
+    vars.$icon-shape
+  );
+}
+
+// Form
+.circle {
+  @include mixin.icon-base(vars.$icon-size, 'circle');
+}
+
+.square {
+  @include mixin.icon-base(vars.$icon-size, 'square');
+}
+
+// Ikoner för ljust tema (default)
+.icon-white {
+  @include mixin.icon-white(vars.$light-theme);
+}
+
+.icon-bw {
+  @include mixin.icon-bw(vars.$light-theme);
+}
+
+.icon-white.linkedin {
+  width: map-get(vars.$sizes, 'linkedin-width') !important;
+  height: map-get(vars.$sizes, 'linkedin-height') !important;
+}
+
+.icon-bw.linkedin {
+  width: map-get(vars.$sizes, 'linkedin-width') !important;
+  height: map-get(vars.$sizes, 'linkedin-height') !important;
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a.icon {
+  padding: unset;
+}
+
+li.social-icon {
+  padding: 3px;
+}
+
+li.social-icon picture {
+  width: 32px !important;
+  height: 32px !important;
+  display: block;
+}
+
+// Ikoner för mörkt tema (ändras med .dark-mode)
+.dark-mode {
+  .icon-white {
+    @include mixin.icon-white(vars.$dark-theme);
+  }
+
+  .icon-bw {
+    @include mixin.icon-bw(vars.$dark-theme);
+  }
+}
+
+.social-icon {
+  transition: vars.$icon-transition;
+}
+
+.dark-mode .social-icon {
+  transition: vars.$icon-transition;
+}

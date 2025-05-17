@@ -1,0 +1,38 @@
+# Ignorera node_modules-katalogen
+node_modules/
+
+# Ignorera byggfiler och cache
+*.tmp
+dist/
+.cache/
+.parcel-cache/
+/src/dist
+
+# Systemfiler (förhindrar oavsiktliga commits av operativsystemfiler)
+.DS_Store
+Thumbs.db
+
+# Andra tillfälliga filer
+*.log/
+npm-debug.log*
+
+# Miljöfiler
+.env
+.env.local
+.env.*.local
+.env.production
+.env.test
+
+# Editor-filer
+.vscode/
+.idea/
+
+# Konfigureringsfiler med känsliga data
+# som t.ex.:
+# config/*.json
+/bs-config.js
+/open.js
+# secrets/*.key
+
+# JSDoc output folder
+/docs/

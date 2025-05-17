@@ -1,0 +1,318 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixin;
+
+body {
+  background-color: map-get(vars.$light-theme, 'bg');
+  color: map-get(vars.$light-theme, 'text');
+}
+
+// Generic dark mode
+.dark-mode {
+  background-color: map-get(vars.$dark-theme, 'bg');
+  color: map-get(vars.$dark-theme, 'text');
+  /* transition: vars.$default-transition; */
+}
+
+// Typography
+h1,
+h2,
+h3 {
+  color: map-get(vars.$light-theme, 'primary');
+}
+
+.menu-toggle {
+  color: black;
+}
+
+footer h2 {
+  color: black;
+  font-style: bold;
+}
+
+.dark-mode footer h2 {
+  color: white;
+  font-weight: bold;
+}
+
+p,
+li {
+  color: map-get(vars.$light-theme, 'text');
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3 {
+  color: map-get(vars.$dark-theme, 'accent');
+}
+.dark-mode p,
+.dark-mode li {
+  color: map-get(vars.$dark-theme, 'text');
+}
+
+.dark-mode {
+  li a {
+    color: rgb(204, 204, 204);
+  }
+}
+
+// Navbar
+.navbar {
+  background: map-get(vars.$light-theme, 'dark-bg');
+  color: map-get(vars.$light-theme, 'white');
+  .logo {
+    color: map-get(vars.$light-theme, 'white');
+  }
+}
+
+.dark-mode {
+  .features {
+    background-color: map-get(vars.$dark-theme, 'header-bg');
+    color: map-get(vars.$dark-theme, 'header-text');
+  }
+}
+
+.dropdown-menu {
+  background: map-get(vars.$light-theme, 'header-bg');
+}
+
+.dark-mode .dropdown-menu {
+  background-color: map-get(vars.$dark-theme, 'header-bg') !important;
+}
+
+button {
+  transition: vars.$button-transition;
+}
+
+.button {
+  transition: background-color 0.3s ease;
+  text-shadow: vars.$text-shadow;
+  color: white !important;
+
+  &.primary {
+    background-color: map-get(vars.$light-theme, 'primary');
+    color: map-get(vars.$light-theme, 'white');
+
+    &:hover {
+      background-color: darken(map-get(vars.$light-theme, 'primary'), 20%);
+    }
+  }
+
+  &.secondary {
+    background-color: map-get(vars.$light-theme, 'accent');
+    color: map-get(vars.$light-theme, 'white');
+
+    &:hover {
+      background-color: darken(map-get(vars.$light-theme, 'accent'), 10%);
+    }
+  }
+}
+
+.dark-mode .button {
+  transition: background-color 0.3s ease;
+  text-shadow: vars.$text-shadow;
+  color: white !important;
+
+  &.primary {
+    background-color: map-get(vars.$dark-theme, 'primary');
+    color: map-get(vars.$dark-theme, 'white');
+
+    &:hover {
+      background-color: darken(map-get(vars.$dark-theme, 'primary'), 20%);
+    }
+  }
+
+  &.secondary {
+    background-color: map-get(vars.$dark-theme, 'secondary');
+    color: map-get(vars.$dark-theme, 'white');
+
+    &:hover {
+      background-color: darken(map-get(vars.$dark-theme, 'secondary'), 20%);
+    }
+  }
+}
+
+.footer {
+  background-color: #e9e9e9;
+}
+
+.dark-mode .footer {
+  color: #e5e7eb;
+  background-color: #1f2937;
+}
+
+a {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  color: map-get(vars.$light-theme, 'link-color') !important;
+
+  &:hover {
+    color: map-get(vars.$light-theme, 'link-hover-color') !important;
+    text-shadow: vars.$text-shadow;
+  }
+
+  &:active {
+    color: map-get(vars.$light-theme, 'link-active-color');
+  }
+
+  &:focus-visible {
+    outline: 2px dashed map-get(vars.$light-theme, 'focus-color') !important;
+  }
+}
+
+.dark-mode {
+  a {
+    color: map-get(vars.$dark-theme, 'link-color') !important;
+
+    &:hover {
+      color: map-get(vars.$dark-theme, 'link-hover-color') !important;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.371);
+      text-shadow: vars.$text-shadow;
+    }
+
+    &:active {
+      color: map-get(vars.$dark-theme, 'link-active-color');
+    }
+
+    &:active:hover {
+      color: map-get(vars.$dark-theme, 'link-active-hover-color') !important;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.371);
+    }
+
+    &:focus-visible {
+      outline: 2px dashed map-get(vars.$dark-theme, 'focus-color') !important;
+    }
+  }
+}
+
+.menu-item.active a {
+  color: rgb(0, 0, 0) !important;
+}
+
+.dark-mode {
+  .menu-item.active a {
+    color: white !important;
+    text-shadow: vars.$text-shadow;
+  }
+
+  .menu-item a {
+    color: white;
+    text-shadow: vars.$text-shadow;
+  }
+
+  .menu-toggle {
+    color: white;
+  }
+}
+
+.header .nav.active {
+  background-color: map-get(vars.$light-theme, 'header-bg');
+  color: map-get(vars.$light-theme, 'header-text');
+  box-shadow: vars.$box-shadow-light;
+  border-radius: 8px;
+}
+
+.dark-mode .header .nav.active {
+  background-color: map-get(vars.$dark-theme, 'header-bg');
+  color: map-get(vars.$dark-theme, 'header-text');
+  box-shadow: vars.$box-shadow-light;
+  border-radius: 8px;
+}
+
+.navbar.header {
+  background-color: map-get(vars.$light-theme, 'header-bg');
+  color: map-get(vars.$light-theme, 'header-text');
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    color: map-get(vars.$light-theme, 'header-text') !important;
+  }
+}
+
+// Mörkt tema
+.dark-mode .navbar.header {
+  background-color: map-get(vars.$dark-theme, 'header-bg') !important;
+  color: map-get(vars.$dark-theme, 'header-text');
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    color: map-get(vars.$dark-theme, 'header-text') !important;
+  }
+}
+
+.hero {
+  background: map-get(vars.$light-theme, 'gray-200');
+}
+
+.dark-mode .hero {
+  background: map-get(vars.$dark-theme, 'footer-bg');
+}
+
+section.features {
+  &:nth-child(odd) {
+    background: map-get(vars.$light-theme, 'bg');
+  }
+  &:nth-child(even) {
+    background: map-get(vars.$light-theme, 'focus-color-bkg');
+  }
+}
+
+.dark-mode section.features {
+  &:nth-child(odd) {
+    background: map-get(vars.$dark-theme, 'bg');
+  }
+  &:nth-child(even) {
+    background: map-get(vars.$dark-theme, 'section-bg');
+  }
+}
+
+section.animations {
+  background: map-get(vars.$light-theme, 'bg');
+}
+
+.dark-mode section.animations {
+  background: map-get(vars.$dark-theme, 'bg');
+}
+
+@include mixin.respond-to('lg') {
+  .header .nav.active {
+    background-color: map-get(vars.$light-theme, 'header-bg');
+    color: map-get(vars.$light-theme, 'header-text') !important;
+    /* box-shadow: vars.$box-shadow-light; */
+    border-radius: 8px;
+    box-shadow: unset;
+  }
+
+  .dark-mode .header .nav.active {
+    background-color: map-get(vars.$dark-theme, 'header-bg');
+    color: map-get(vars.$dark-theme, 'header-text') !important;
+    /* box-shadow: vars.$box-shadow-light; */
+    border-radius: 8px;
+    box-shadow: unset;
+  }
+}
+
+// Card Styles
+.dark-mode .card {
+  background: rgb(0, 0, 0);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.code {
+  background: #c7c7c7;
+  color: #000000;
+}
+
+.dark-mode .code {
+  color: #c7c7c7;
+  background-color: #000000;
+}

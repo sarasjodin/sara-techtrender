@@ -1,0 +1,76 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixin;
+
+.header .menu {
+  li {
+    position: relative;
+
+    a {
+      text-decoration: none;
+    }
+  }
+  // Stil för dropdown
+  .dropdown {
+    position: relative;
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      padding: 10px 15px;
+      border-radius: 5px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+      min-width: 210px; // Justera bredden
+      list-style: none;
+    }
+
+    .dropdown-menu.show {
+      display: contents;
+    }
+
+    a {
+      display: inline-block;
+    }
+  }
+}
+
+.header .menu {
+  .menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    .menu-item {
+      display: block;
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.footer .menu a {
+  text-decoration: none;
+  display: block;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  display: block;
+}
+
+@include mixin.respond-to('lg') {
+  .header .menu .dropdown .dropdown-menu.show {
+    display: block;
+  }
+}

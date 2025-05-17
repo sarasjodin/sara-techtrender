@@ -1,0 +1,114 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixin;
+
+// Global typografi
+body {
+  font-family: vars.$font-stack;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+// Rubriker med ett särskilt typsnitt
+h1,
+h2,
+h3,
+.heading {
+  font-family: vars.$font-inter;
+  overflow-wrap: break-word;
+}
+
+// Specifika rubrikstilar
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.animations h2 {
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  overflow-wrap: break-word;
+}
+
+footer h2 {
+  overflow-wrap: unset;
+}
+
+h3 {
+  font-size: 1.9rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+li,
+p {
+  font-size: 1.3rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.company-name {
+  font-size: 1.1rem;
+  line-height: 1.2;
+  /* padding-right: 2rem; */
+}
+
+@include mixin.respond-to('xs') {
+  .company-name {
+    font-size: 1.2rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+@include mixin.respond-to('sm') {
+  .company-name {
+    font-size: 1.4rem;
+  }
+}
+
+@include mixin.respond-to('md') {
+  .company-name {
+    font-size: 1.5rem;
+  }
+}
+
+@include mixin.respond-to('lg') {
+  .company-name {
+    white-space: nowrap; // Förhindrar radbrytning
+    word-break: normal; // Återställer normal radbrytning
+    overflow-wrap: normal; // Säkerställer att ord inte bryts
+    font-size: 1.3rem;
+  }
+}
+
+@include mixin.respond-to('xl') {
+  .company-name {
+    font-size: 1.4rem;
+  }
+}
+
+@include mixin.respond-to('xxl') {
+  .company-name {
+    font-size: 1.4rem;
+  }
+}
