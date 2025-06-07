@@ -1,36 +1,31 @@
 {
-  "name": "graphs-and-maps-lab",
+  "name": "sara techtrender",
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "docs": "jsdoc -c jsdoc.conf.json",
-    "dev_old with doc": "parcel serve src/index.html docs/index.html src/about.html src/chart-chartistjs.html src/chart-chartsjs.html src/chart-d3js.html src/chart-highcharts.html src/map-google-api.html src/map-leaflet.html --dist-dir dist",
     "dev": "parcel serve src/index.html src/about.html --dist-dir dist",
-    "parcel-build": "cross-env NODE_OPTIONS=--max_old_space_size=1024 parcel build src/index.html src/about.html --no-cache --log-level verbose --no-source-maps --dist-dir dist --public-url ./ || echo 'Parcel failed'",
-    "copy-docs": "cp -r docs dist/docs || echo 'Docs folder not found, skipping'",
-    "build": "npm run docs && npm run parcel-build && npm run copy-docs",
+    "build": "cross-env NODE_OPTIONS=--max_old_space_size=1024 parcel build src/index.html src/about.html --no-cache --log-level verbose --no-source-maps --dist-dir dist --public-url ./ || echo 'Parcel failed'",
     "clean": "rd /s /q dist && rd /s /q .parcel-cache && rd /s /q node_modules && npm cache clean --force",
+    "reset": "npm run clean && npm install",
     "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "jsdoc src/ -r -d docs && npm run build && echo '✅ Deployment files are now ready in dist/'",
-    "serve": "npx serve dist -s -l 3000",
-    "docs:open": "start docs/index.html && jsdoc src/ -r -d docs",
-    "docs:clean": "rd /s /q docs",
-    "docs:refresh": "npm run docs:clean && jsdoc src/ -r -d docs && npm run docs && npm run docs:open"
+    "deploy": "npm run build && echo '✅ Deployment files are now ready in dist/'",
+    "serve": "npx serve dist -s -l 3000"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sarasjodin/graphs-and-maps-lab.git"
+    "url": "git+https://github.com/sarasjodin/sara-techtrender.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/sarasjodin/graphs-and-maps-lab/issues"
+    "url": "https://github.com/sarasjodin/sara-techtrender/issues"
   },
-  "homepage": "https://github.com/sarasjodin/graphs-and-maps-lab#readme",
+  "homepage": "https://github.com/sarasjodin/sara-techtrender#readme",
   "devDependencies": {
+<<<<<<< Updated upstream
     "@parcel/transformer-image": "2.14.4",
     "@parcel/transformer-sass": "2.14.1",
     "cross-env": "7.0.3",
@@ -45,5 +40,13 @@
     "d3": "7.9.0",
     "highcharts": "12.1.2",
     "leaflet": "1.9.4"
+=======
+    "@parcel/optimizer-htmlnano": "2.15.2",
+    "@parcel/transformer-image": "^2.15.2",
+    "@parcel/transformer-sass": "^2.15.2",
+    "cross-env": "^7.0.3",
+    "parcel": "^2.15.2",
+    "sass": "^1.89.1"
+>>>>>>> Stashed changes
   }
 }

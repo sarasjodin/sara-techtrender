@@ -1,5 +1,7 @@
 # Ignorera node_modules-katalogen
 node_modules/
+# och anda kataloger
+tests/
 
 # Ignorera byggfiler och cache
 *.tmp
@@ -33,6 +35,3 @@ npm-debug.log*
 /bs-config.js
 /open.js
 # secrets/*.key
-
-# JSDoc output folder
-/docs/
