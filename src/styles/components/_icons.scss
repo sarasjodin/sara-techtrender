@@ -1,3 +1,23 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixin;
 
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  color: #000; // Svart för GitHub
+}
+
+h2 {
+  display: flex;
+  align-items: center; // ⬅️ Viktig!
+  gap: 0.5rem;
+
+  .icon-heading {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: block;
+  }
+}
