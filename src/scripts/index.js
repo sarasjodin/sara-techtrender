@@ -4,6 +4,11 @@
  * @author Sara Sjödin Scolari
  */
 
+import { setupSearch } from './search';
+
+setupSearch();
+
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log('index.js loaded');
 
@@ -59,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
       dataGitHub.setAttribute('aria-hidden', 'false');
       dataHacker.classList.add('hidden');
       dataHacker.setAttribute('aria-hidden', 'true');
-      
     } else if (view === 'hacker') {
       btnGitHub.classList.remove('active');
       btnGitHub.setAttribute('aria-pressed', 'false');
