@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "parcel serve src/index.html src/about.html --dist-dir dist",
-    "build": "cross-env NODE_OPTIONS=--max_old_space_size=1024 parcel build src/index.html src/about.html --no-cache --log-level verbose --no-source-maps --dist-dir dist --public-url ./ || echo 'Parcel failed'",
+    "dev": "parcel serve src/index.html --dist-dir dist",
+    "build": "cross-env NODE_OPTIONS=--max_old_space_size=1024 parcel build src/index.html --no-cache --log-level verbose --no-source-maps --dist-dir dist --public-url ./ || echo 'Parcel failed'",
     "clean": "rd /s /q dist && rd /s /q .parcel-cache && rd /s /q node_modules && npm cache clean --force",
     "reset": "npm run clean && npm install",
     "start": "npm run dev",
@@ -31,7 +31,6 @@
     "cross-env": "^7.0.3",
     "parcel": "^2.15.2",
     "sass": "^1.89.1"
-    },
-  "dependencies": {
-  }
+  },
+  "dependencies": {}
 }

@@ -1,87 +1,16 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixin;
 
-div.cta-buttons {
-  display: inline-grid;
+.tab-nav button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.cta-buttons {
-  gap: 15px;
-}
-
-.cta-buttons a.button.secondary,
-.cta-buttons a.button.primary {
-  gap: 15px;
-  padding: 14px 24px;
-}
-
-.menu-toggle {
-  padding-left: calc(0.9rem + (1vw * 1));
-  padding-right: calc(0.9rem + (1vw * 1));
-}
-
-.button {
-  display: inline-block;
-  padding: 0.7rem 0.3rem;
-  font-size: 0.9rem;
-  text-decoration: none;
-  border-radius: 8px;
-}
-
-@include mixin.respond-to('xs') {
-  .menu-toggle {
-    padding-left: calc(1rem + (1vw * 3));
-    padding-right: calc(1rem + (1vw * 3));
-  }
-
-  .button {
-    padding: 0.7rem 0.5rem;
-    font-size: 0.9rem;
-  }
-}
-
-@include mixin.respond-to('sm') {
-  .menu-toggle {
-    padding-left: calc(3rem + (2vw * 7));
-  }
-
-  .button {
-    padding: 0.7rem 0.5rem;
-    font-size: 0.9rem;
-  }
-
-  div.cta-buttons {
-    display: block;
-  }
-}
-
-@include mixin.respond-to('md') {
-  .menu-toggle {
-    padding-left: calc(12rem + (4vw * 6));
-  }
-
-  .button {
-    padding: 0.7rem 0.5rem;
-    font-size: 0.9rem;
-  }
-}
-
-@include mixin.respond-to('lg') {
-  .menu-toggle {
-    display: none !important;
-    padding-left: inherit;
-    padding-right: inherit;
-  }
-}
-
-@include mixin.respond-to('xl') {
-  .menu-toggle {
-    display: none;
-  }
-}
-
-@include mixin.respond-to('xxl') {
-  .menu-toggle {
-    display: none;
-  }
+.tab-nav button.active {
+  background-color: #333; // Fylld cirkel
 }

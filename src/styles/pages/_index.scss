@@ -1,15 +1,5 @@
 @use '../abstracts/variables' as vars;
 
-
-
-.dark-mode .glow-text {
-  font-size: 2.5rem;
-  color: rgb(0, 0, 0);
-  animation: glow 1.5s infinite alternate;
-}
-
-.glow-text {
-  font-size: 2.5rem;
-  color: white;
-  animation: glowing 1.5s infinite alternate;
+.view {
+  padding-top: 3.5rem;
 }

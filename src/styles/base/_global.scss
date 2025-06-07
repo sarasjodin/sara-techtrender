@@ -1,46 +1,4 @@
 @use '../abstracts/variables' as vars;
 
-body {
-  font-family: vars.$font-stack;
-}
 
-main {
-  padding: 10px 400px 50px;
-  text-align: left;
-}
-
-main {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-.animations ol,
-.animations p,
-.features ol,
-.features p {
-  padding: 10px 15px;
-}
-
-.animations ul,
-.features ul {
-  padding: 10px 15px;
-
-  li {
-    padding: 5px 0;
-  }
-}
-
-.features ul > li,
-.animations ul > li {
-  list-style: none;
-}
-
-.animations .portfolio-links li,
-.features .portfolio-links li {
-  list-style: unset;
-}
-
-section {
-  margin-bottom: 40px;
-}
+.hidden { display: none; }

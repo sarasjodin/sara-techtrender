@@ -1,46 +1,43 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixin;
 
-.hero {
+.app-wrapper {
+  max-width: 600px;
+  margin-inline: auto;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 80px 20px;
-  border-radius: 8px;
+  min-height: 100vh;
+  background-color: #f3f3f3;
+}
 
-  .hero-content {
-    max-width: 800px;
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  input {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
   }
 
-  .cta-buttons {
-    margin-top: 20px;
-
-    a {
-      margin-right: 10px;
-    }
-    a:hover {
-      color: white !important;
-    }
+  button {
+    padding: 0.5rem 1rem;
   }
 }
 
-.animations,
-.features {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: left;
-  padding: 50px;
-  border-radius: 8px;
-  padding: 80px 20px;
-
-  .animations-content,
-  .features-content {
-    max-width: 800px;
-  }
-
-  div {
-    max-width: 600px;
-  }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
+
+// @include mixin.respond-to('lg') {
+//   max-width: 800px;
+// }
