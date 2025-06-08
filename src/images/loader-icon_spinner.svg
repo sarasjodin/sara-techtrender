@@ -1,0 +1,25 @@
+<svg
+  class="icon spinner"
+  viewBox="0 0 24 24"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <circle
+    class="spinner-bg"
+    cx="12"
+    cy="12"
+    r="10"
+    stroke="currentColor"
+    stroke-opacity="0.2"
+    stroke-width="4"
+    fill="none"
+  />
+  <path
+    class="spinner-fg"
+    d="M22 12a10 10 0 00-10-10"
+    stroke="currentColor"
+    stroke-width="4"
+    stroke-linecap="round"
+    fill="none"
+  />
+</svg>

@@ -13,6 +13,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500,600&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="./scripts/index.js" type="module" defer></script>
   </head>
@@ -50,69 +54,382 @@
             autocomplete="off"
             required
           />
-          <button type="submit">Search</button>
-        </form>
-        <p>Loading... / 0 hits / 32 hits</p>
-        <div class="source-toggle" role="group" aria-label="Select data source">
-          <button id="btn-github" class="active" aria-pressed="true">
+          <button class="button" type="submit">
             <svg
+              id="Layer_1"
+              data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
-              class="icon"
               viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
+              class="icon"
             >
-              <path
-                d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.513 11.513 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12.004 12.004 0 0024 12c0-6.627-5.373-12-12-12z"
+              <g>
+                <ellipse
+                  cx="9.45"
+                  cy="9.43"
+                  rx="7.95"
+                  ry="7.93"
+                  style="fill: #fff"
+                />
+                <path
+                  d="M9.45,3c3.56,0,6.45,2.89,6.45,6.43s-2.89,6.43-6.45,6.43-6.45-2.89-6.45-6.43,2.89-6.43,6.45-6.43M9.45,0C4.23,0,0,4.22,0,9.43s4.23,9.43,9.45,9.43,9.45-4.22,9.45-9.43S14.67,0,9.45,0h0Z"
+                  style="fill: #231f20"
+                />
+              </g>
+              <line
+                x1="22.83"
+                y1="22.83"
+                x2="14.73"
+                y2="14.7"
+                style="
+                  fill: #fff;
+                  stroke: #231f20;
+                  stroke-miterlimit: 10;
+                  stroke-width: 3px;
+                "
               />
             </svg>
-            GitHub Rest API
           </button>
-          <button id="btn-hacker" aria-pressed="false">
-            <img
-              src="./images/hacker-news_black.svg"
-              alt="THN logotype - The Hacker News"
-              width="24"
-              height="24"
-              class="icon"
-              loading="lazy"
+        </form>
+        <p>
+          <span class="icon">
+            <svg
+              class="icon spinner"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle
+                class="spinner-bg"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-opacity="0.2"
+                stroke-width="4"
+                fill="none"
+              />
+              <path
+                class="spinner-fg"
+                d="M22 12a10 10 0 00-10-10"
+                stroke="currentColor"
+                stroke-width="4"
+                stroke-linecap="round"
+                fill="none"
+              />
+            </svg> </span
+          >Loading... / 0 hits / 32 hits
+        </p>
+
+        <div
+          class="source-toggle"
+          role="radiogroup"
+          aria-label="Välj datakälla"
+        >
+          <label class="button-api button-github">
+            <input
+              type="radio"
+              name="source"
+              value="github"
+              id="github-data"
+              checked
             />
-            Hacker News API
-          </button>
+            <span class="content">
+              <span class="icon github-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.513 11.513 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12.004 12.004 0 0024 12c0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </span>
+              <span class="label">GitHub</span>
+            </span>
+          </label>
+
+          <label class="button-api button-hn">
+            <input type="radio" name="source" value="hn" id="hn-data" />
+            <span class="content">
+              <span class="icon hn-icon"
+                ><svg
+                  fill="currentColor"
+                  id="Layer_1"
+                  data-name="Layer 1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  aria-hidden="false"
+                >
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill: #fff;
+                      }
+
+                      .cls-2 {
+                        fill: currentColor;
+                      }
+                    </style>
+                  </defs>
+                  <g>
+                    <path
+                      class="cls-2"
+                      d="M12,23C5.93,23,1,18.07,1,12S5.93,1,12,1s11,4.93,11,11-4.93,11-11,11Z"
+                    />
+                    <path
+                      class="cls-1"
+                      d="M12,2c5.51,0,10,4.49,10,10s-4.49,10-10,10S2,17.51,2,12,6.49,2,12,2M12,0C5.37,0,0,5.37,0,12s5.37,12,12,12,12-5.37,12-12S18.63,0,12,0h0Z"
+                    />
+                  </g>
+                  <path
+                    class="cls-1"
+                    d="M13.28,13.98v4.4c0,.06-.02.12-.06.17-.04.05-.11.09-.21.13-.1.03-.23.06-.39.08s-.37.03-.61.03-.46-.01-.62-.03-.29-.04-.39-.08c-.1-.03-.17-.07-.21-.13s-.06-.11-.06-.17v-4.4l-3.42-6.82c-.12-.24-.2-.42-.24-.56-.04-.13-.02-.23.06-.3s.21-.11.41-.13c.2-.02.48-.02.83-.02.3,0,.53,0,.71.02.18.01.32.04.42.07.1.04.18.08.23.14s.1.13.14.22l1.39,3.07c.13.3.27.61.4.94s.27.67.4,1.03h.02c.12-.35.25-.69.38-1.01s.26-.64.38-.94l1.37-3.06c.03-.1.07-.18.12-.25.05-.06.12-.11.22-.15s.23-.06.4-.08c.17-.01.39-.02.67-.02.37,0,.65,0,.86.02s.34.06.42.13.09.17.05.31-.12.32-.23.55l-3.42,6.82h0Z"
+                  />
+                </svg>
+              </span>
+              <span class="label">Hacker News</span>
+            </span>
+          </label>
         </div>
 
         <!-- Rubriker: visa bara en åt gången -->
-        <h2 class="icon-heading" id="github-heading">
-          <span class="icon" aria-hidden="true"></span
-          ><img
-            src="./images/star_black.svg"
-            alt="THN logotype - The Hacker News"
-            width="24"
-            height="24"
-            class="icon"
-            loading="lazy"
-          />Popular Repositories
+        <h2 class="icon-heading hidden" id="github-heading">
+          <span class="icon" aria-hidden="true"
+            ><img
+              src="./images/star_black.svg"
+              alt="Star icon for Popular repos"
+              width="24"
+              height="24"
+              class="icon"
+              loading="lazy" /></span
+          >Popular Repositories
         </h2>
-        <h2 id="hacker-heading" class="icon-heading hidden" aria-hidden="true">
-          <span class="icon" aria-hidden="true"></span
-          ><img
-            src="./images/news.svg"
-            alt="Hacker News"
-            class="icon"
-            width="24"
-            height="24"
-            loading="lazy"
-          />
+        <h2 id="hacker-heading" class="icon-heading">
+          <span class="icon" aria-hidden="false"
+            ><img
+              src="./images/news.svg"
+              alt="Hacker News"
+              class="icon"
+              width="24"
+              height="24"
+              loading="lazy"
+          /></span>
           Trending Articles
         </h2>
 
-        <div id="github-data" class="data-section">
+        <div id="github-data" class="data-section" aria-hidden="true">
           <!-- Visa GitHub-data här -->
         </div>
 
-        <div id="hackernews-data" class="data-section hidden">
+        <div
+          id="hackernews-data"
+          class="data-section hidden"
+          aria-hidden="false"
+        >
           <!-- Visa Hacker News-data här -->
         </div>
+
+        <article
+          class="card repo-card"
+          tabindex="0"
+          aria-labelledby="repo-name"
+        >
+          <header>
+            <h2 id="repo-name">awesome-project</h2>
+            <p class="owner">by <span>user123</span></p>
+          </header>
+          <p class="description">
+            A modern tool for building scalable applications efficiently.
+          </p>
+          <ul class="repo-info">
+            <li>
+              <svg
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 54.84 52.77"
+              >
+                <defs>
+                  <filter
+                    id="drop-shadow-1"
+                    x="-75.89"
+                    y="50.22"
+                    width="97.68"
+                    height="75.6"
+                    filterUnits="userSpaceOnUse"
+                  >
+                    <feOffset dx="4" dy="4" />
+                    <feGaussianBlur result="blur" stdDeviation="10" />
+                    <feFlood flood-color="#000" flood-opacity=".85" />
+                    <feComposite in2="blur" operator="in" />
+                    <feComposite in="SourceGraphic" />
+                  </filter>
+                </defs>
+                <polygon
+                  points="27.43 .03 33.9 19.95 54.84 19.95 37.9 32.26 44.37 52.18 27.43 39.87 10.48 52.18 16.95 32.26 0 19.95 20.95 19.95 27.43 .03"
+                  style="fill: #ffe817"
+                />
+                <polygon
+                  points="0 19.95 27.55 28.81 20.88 19.95 0 19.95"
+                  style="fill: #ffda17"
+                />
+                <polyline
+                  points="33.91 19.95 27.43 0 27.55 28.81"
+                  style="fill: #ffc717"
+                />
+                <polyline
+                  points="37.89 32.26 54.84 19.95 27.55 28.81"
+                  style="fill: #ffae17"
+                />
+                <polyline
+                  points="27.43 39.91 44.47 52.29 27.55 28.81"
+                  style="fill: #ffda17"
+                />
+                <polyline
+                  points="16.81 32.26 10.15 52.77 27.55 28.81"
+                  style="fill: #fff; opacity: 0.45"
+                />
+                <polyline
+                  points="20.95 19.95 27.43 .03 27.55 28.81"
+                  style="fill: #fff; opacity: 0.45"
+                />
+              </svg>
+              Text1
+            </li>
+            <li>
+              <svg
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 54.84 52.77"
+              >
+                <defs>
+                  <filter
+                    id="drop-shadow-1"
+                    x="-75.89"
+                    y="50.22"
+                    width="97.68"
+                    height="75.6"
+                    filterUnits="userSpaceOnUse"
+                  >
+                    <feOffset dx="4" dy="4" />
+                    <feGaussianBlur result="blur" stdDeviation="10" />
+                    <feFlood flood-color="#000" flood-opacity=".85" />
+                    <feComposite in2="blur" operator="in" />
+                    <feComposite in="SourceGraphic" />
+                  </filter>
+                </defs>
+                <polygon
+                  points="27.43 .03 33.9 19.95 54.84 19.95 37.9 32.26 44.37 52.18 27.43 39.87 10.48 52.18 16.95 32.26 0 19.95 20.95 19.95 27.43 .03"
+                  style="fill: #ffe817"
+                />
+                <polygon
+                  points="0 19.95 27.55 28.81 20.88 19.95 0 19.95"
+                  style="fill: #ffda17"
+                />
+                <polyline
+                  points="33.91 19.95 27.43 0 27.55 28.81"
+                  style="fill: #ffc717"
+                />
+                <polyline
+                  points="37.89 32.26 54.84 19.95 27.55 28.81"
+                  style="fill: #ffae17"
+                />
+                <polyline
+                  points="27.43 39.91 44.47 52.29 27.55 28.81"
+                  style="fill: #ffda17"
+                />
+                <polyline
+                  points="16.81 32.26 10.15 52.77 27.55 28.81"
+                  style="fill: #fff; opacity: 0.45"
+                />
+                <polyline
+                  points="20.95 19.95 27.43 .03 27.55 28.81"
+                  style="fill: #fff; opacity: 0.45"
+                />
+              </svg>
+              Text2
+            </li>
+            <li>
+              <svg
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 54.84 52.77"
+              >
+                <defs>
+                  <filter
+                    id="drop-shadow-1"
+                    x="-75.89"
+                    y="50.22"
+                    width="97.68"
+                    height="75.6"
+                    filterUnits="userSpaceOnUse"
+                  >
+                    <feOffset dx="4" dy="4" />
+                    <feGaussianBlur result="blur" stdDeviation="10" />
+                    <feFlood flood-color="#000" flood-opacity=".85" />
+                    <feComposite in2="blur" operator="in" />
+                    <feComposite in="SourceGraphic" />
+                  </filter>
+                </defs>
+                <polygon
+                  points="27.43 .03 33.9 19.95 54.84 19.95 37.9 32.26 44.37 52.18 27.43 39.87 10.48 52.18 16.95 32.26 0 19.95 20.95 19.95 27.43 .03"
+                  style="fill: #ffe817"
+                />
+                <polygon
+                  points="0 19.95 27.55 28.81 20.88 19.95 0 19.95"
+                  style="fill: #ffda17"
+                />
+                <polyline
+                  points="33.91 19.95 27.43 0 27.55 28.81"
+                  style="fill: #ffc717"
+                />
+                <polyline
+                  points="37.89 32.26 54.84 19.95 27.55 28.81"
+                  style="fill: #ffae17"
+                />
+                <polyline
+                  points="27.43 39.91 44.47 52.29 27.55 28.81"
+                  style="fill: #ffda17"
+                />
+                <polyline
+                  points="16.81 32.26 10.15 52.77 27.55 28.81"
+                  style="fill: #fff; opacity: 0.45"
+                />
+                <polyline
+                  points="20.95 19.95 27.43 .03 27.55 28.81"
+                  style="fill: #fff; opacity: 0.45"
+                />
+              </svg>
+              Text3
+            </li>
+          </ul>
+          <a
+            href="https://github.com/user123/awesome-project"
+            class="repo-link"
+            aria-label="View repository on GitHub"
+            >View on GitHub</a
+          >
+        </article>
+
+        <article class="card hn-card" tabindex="0" aria-labelledby="hn-title">
+          <header>
+            <h2 id="hn-title">New AI model solves complex math problems</h2>
+          </header>
+          <p class="meta">
+            Posted by <strong>alice42</strong> • 134 points • 42 comments
+          </p>
+          <a
+            href="https://news.ycombinator.com/item?id=12345678"
+            class="hn-link"
+            aria-label="Read full Hacker News discussion"
+            >Read on Hacker News</a
+          >
+        </article>
       </section>
       <section id="about-view" class="view hidden">
         <h2>About TechTrends</h2>

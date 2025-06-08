@@ -7,3 +7,18 @@ $font-inter: 'Inter', 'Roboto', sans-serif;
 
 // Som generell fontstack används
 $font-stack: $font-poppins;
+
+$primary-color: #2563eb;
+$primary-hover: darken($primary-color, 7%);
+$primary-active: darken($primary-color, 15%);
+$hn-primary-color: #f60;
+$hn-secondary-color: #404040;
+$secondary-color: #404040;
+$gh-primary-color: #959595;
+$gh-secondary-color: #404040;
+$secondary-hover: darken($secondary-color, 10%);
+$secondary-active: darken($secondary-color, 20%);
+$disabled-bg: #d1d5db;
+$disabled-text: #9ca3af;
+$white: #ffffff;
+$focus: #6b7280;

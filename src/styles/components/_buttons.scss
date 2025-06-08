@@ -1,6 +1,8 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixin;
 
+// The two "bullet buttons" top right, to navigate the views
+
 .tab-nav button {
   width: 12px;
   height: 12px;
@@ -13,4 +15,190 @@
 
 .tab-nav button.active {
   background-color: #333; // Fylld cirkel
+}
+
+// Basstil for the search button
+.button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.button-api {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 1.1rem;
+  // font-weight: 600;
+  border-radius: 9999px;
+  border: 2px solid vars.$white;
+  background-color: vars.$gh-secondary-color;
+  color: vars.$white;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  .content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .icon {
+    fill: vars.$white;
+    display: inline-block;
+    transition: fill 0.3s ease;
+    margin-right: 5px;
+  }
+
+  .label {
+    display: inline-block;
+    line-height: 1.2;
+  }
+
+  &:hover {
+    background-color: vars.$white;
+    color: vars.$gh-secondary-color;
+    border: 2px solid vars.$gh-secondary-color;
+
+    .icon {
+      fill: vars.$gh-secondary-color;
+    }
+  }
+
+  &:focus {
+    outline: 2px solid vars.$focus;
+    outline-offset: 2px;
+  }
+
+  .active {
+    border: 2px solid vars.$white;
+    background-color: vars.$gh-primary-color;
+    color: vars.$white;
+
+    .icon {
+      fill: vars.$white;
+    }
+  }
+}
+
+.button-github {
+  fill: vars.$gh-primary-color;
+  margin-right: 5px;
+
+  &:hover {
+    background-color: vars.$white;
+    color: vars.$gh-secondary-color;
+
+    .icon {
+      fill: vars.$gh-secondary-color;
+    }
+  }
+
+  &:not(.active) {
+    background-color: white;
+    color: vars.$gh-secondary-color;
+
+    .icon {
+      fill: vars.$gh-secondary-color;
+    }
+  }
+}
+
+.button-hn {
+  fill: vars.$hn-primary-color;
+  background-color: vars.$hn-primary-color;
+
+  .icon {
+    fill: vars.$gh-secondary-color;
+    .cls-2 {
+      color: vars.$hn-primary-color;
+    }
+  }
+
+  .active {
+    border: 2px solid vars.$white;
+    background-color: vars.$hn-primary-color;
+    color: vars.$white;
+
+    .icon {
+      fill: vars.$white;
+
+      .cls-2 {
+        color: vars.$hn-primary-color;
+      }
+    }
+  }
+
+  &:not(.active) {
+    background-color: white;
+    color: vars.$hn-primary-color;
+    border: 2px solid vars.$hn-primary-color;
+
+    .icon {
+      fill: vars.$hn-primary-color;
+    }
+  }
+
+  &:hover {
+    background-color: vars.$white;
+    color: vars.$hn-secondary-color;
+    border: 2px solid vars.$hn-secondary-color;
+
+    .icon {
+      fill: vars.$hn-secondary-color;
+
+      .cls-2 {
+        color: vars.$hn-secondary-color;
+      }
+    }
+  }
+}
+
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  pointer-events: none;
+} */
+
+/* input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+} */
+
+input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  cursor: pointer;
 }

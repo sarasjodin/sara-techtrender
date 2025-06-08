@@ -4,6 +4,8 @@
  * @author Sara Sjödin Scolari
  */
 
+// index.js
+
 import { setupSearch } from './search';
 
 setupSearch();
@@ -11,103 +13,102 @@ setupSearch();
 document.addEventListener('DOMContentLoaded', () => {
   console.log('index.js loaded');
 
-  const buttons = document.querySelectorAll('.tab-nav button');
+  // Views & nav buttons
   const views = document.querySelectorAll('.view');
+  const navButtons = document.querySelectorAll('.tab-nav button');
 
-  const btnGitHub = document.getElementById('btn-github');
-  const btnHacker = document.getElementById('btn-hacker');
+  // Data source radio inputs
+  const radioInputs = document.querySelectorAll('input[name="source"]');
+  const labels = document.querySelectorAll('.button-api');
 
+  // Elements for GitHub and Hacker News views
+  const btnGitHub = document.querySelector('button[data-target="index-view"]');
+  const btnAbout = document.querySelector('button[data-target="about-view"]');
+
+  const dataGitHub = document.getElementById('github-data');
+  const dataHacker = document.getElementById('hackernews-data');
   const headingGitHub = document.getElementById('github-heading');
   const headingHacker = document.getElementById('hacker-heading');
 
-  const dataGitHub = document.getElementById('github-data');
-  const dataHacker = document.getElementById('hacker-data');
+  function showView(targetId) {
+    views.forEach((view) => {
+      view.classList.toggle('hidden', view.id !== targetId);
+    });
 
-  buttons.forEach((btn) => {
+    navButtons.forEach((btn) => {
+      const isActive = btn.getAttribute('data-target') === targetId;
+      btn.classList.toggle('active', isActive);
+    });
+  }
+
+  navButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      console.log('Klickade på knapp');
-
       const targetId = btn.getAttribute('data-target');
-      if (!targetId) return;
-
-      // Dölj alla vyer
-      views.forEach((view) => {
-        view.classList.add('hidden');
-      });
-
-      // Visa den valda vyn
-      const targetView = document.getElementById(targetId);
-      if (targetView) {
-        targetView.classList.remove('hidden');
-      }
-
-      // Uppdatera aktiv knapp
-      buttons.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
+      if (targetId) showView(targetId);
     });
   });
 
-  function showView(view) {
-    if (view === 'github') {
-      btnGitHub.classList.add('active');
-      btnGitHub.setAttribute('aria-pressed', 'true');
-      btnHacker.classList.remove('active');
-      btnHacker.setAttribute('aria-pressed', 'false');
+  function showDataSource(view) {
+    const isGitHub = view === 'github';
 
-      headingGitHub.classList.remove('hidden');
-      headingGitHub.setAttribute('aria-hidden', 'false');
-      headingHacker.classList.add('hidden');
-      headingHacker.setAttribute('aria-hidden', 'true');
+    dataGitHub.classList.toggle('hidden', !isGitHub);
+    headingGitHub.classList.toggle('hidden', !isGitHub);
+    dataHacker.classList.toggle('hidden', isGitHub);
+    headingHacker.classList.toggle('hidden', isGitHub);
 
-      dataGitHub.classList.remove('hidden');
-      dataGitHub.setAttribute('aria-hidden', 'false');
-      dataHacker.classList.add('hidden');
-      dataHacker.setAttribute('aria-hidden', 'true');
-    } else if (view === 'hacker') {
-      btnGitHub.classList.remove('active');
-      btnGitHub.setAttribute('aria-pressed', 'false');
-      btnHacker.classList.add('active');
-      btnHacker.setAttribute('aria-pressed', 'true');
+    dataGitHub.setAttribute('aria-hidden', String(!isGitHub));
+    headingGitHub.setAttribute('aria-hidden', String(!isGitHub));
+    dataHacker.setAttribute('aria-hidden', String(isGitHub));
+    headingHacker.setAttribute('aria-hidden', String(isGitHub));
 
-      headingGitHub.classList.add('hidden');
-      headingGitHub.setAttribute('aria-hidden', 'true');
-      headingHacker.classList.remove('hidden');
-      headingHacker.setAttribute('aria-hidden', 'false');
-
-      dataGitHub.classList.add('hidden');
-      dataGitHub.setAttribute('aria-hidden', 'true');
-      dataHacker.classList.remove('hidden');
-      dataHacker.setAttribute('aria-hidden', 'false');
-    }
+    labels.forEach((label) => {
+      const input = label.querySelector('input[type="radio"]');
+      if (input instanceof HTMLInputElement) {
+        const isActive = input.value === view;
+        input.checked = isActive;
+        console.log(input.value, isActive);
+        label.classList.toggle('active', isActive);
+      }
+    });
   }
 
-  btnGitHub.addEventListener('click', () => showView('github'));
-  btnHacker.addEventListener('click', () => showView('hacker'));
-});
+  const checkedInput = document.querySelector('input[name="source"]:checked');
+  if (checkedInput instanceof HTMLInputElement) {
+    showDataSource(checkedInput.value);
+  }
 
-const questions = [
-  'What’s hot on GitHub right now?',
-  'Explore tech trends around the world?',
-  'Curious about what devs love?',
-  'Where is TypeScript trending now?',
-  'Discover today’s hottest languages?',
-  'Explore repos from every region?',
-  'What’s trending this very moment?',
-  'Find out where Rust is booming?',
-  'Is Python still on top this week?',
-  'Search and see what’s rising?',
-  'Where is Go gaining stars today?',
-  'Want to explore dev trends now?',
-  'Find global dev buzz in seconds?',
-  'Which tech rules the world today?',
-  'What’s popular in open source?'
-];
+  radioInputs.forEach((inputEl) => {
+    if (inputEl instanceof HTMLInputElement) {
+      inputEl.addEventListener('change', () => {
+        if (inputEl.checked) {
+          showDataSource(inputEl.value);
+        }
+      });
+    }
+  });
 
-function showRandomQuestion() {
+  // Citatslumpare
+  const questions = [
+    'What’s hot on GitHub right now?',
+    'Explore tech trends around the world?',
+    'Curious about what devs love?',
+    'Where is TypeScript trending now?',
+    'Discover today’s hottest languages?',
+    'Explore repos from every region?',
+    'What’s trending this very moment?',
+    'Find out where Rust is booming?',
+    'Is Python still on top this week?',
+    'Search and see what’s rising?',
+    'Where is Go gaining stars today?',
+    'Want to explore dev trends now?',
+    'Find global dev buzz in seconds?',
+    'Which tech rules the world today?',
+    'What’s popular in open source?'
+  ];
+
   const citat = document.querySelector('.citat');
-  const index = Math.floor(Math.random() * questions.length);
-  citat.textContent = questions[index];
-}
-
-// Kör vid sidladdning
-document.addEventListener('DOMContentLoaded', showRandomQuestion);
+  if (citat) {
+    const index = Math.floor(Math.random() * questions.length);
+    citat.textContent = questions[index];
+  }
+});
