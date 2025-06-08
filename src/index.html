@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/main.scss" />
-    <title>Home | My TechTrend MashUp</title>
+    <title>Home | My TechTrends MashUp</title>
     <!-- Google Fonts (Preloaded for better performance) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,25 +18,26 @@
   </head>
   <body>
     <div class="app-wrapper">
-      <nav class="tab-nav">
-        <h1 class="title">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.513 11.513 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12.004 12.004 0 0024 12c0-6.627-5.373-12-12-12z"
+      <div class="nav-container">
+        <nav class="tab-nav">
+          <h1 class="title">
+            <img
+              src="./images/einstein.png"
+              alt="App icon"
+              class="top-icon"
+              height="36px"
+              weight="36px"
             />
-          </svg>
-          TechTrends
-        </h1>
-        <button data-target="index-view" class="active"></button>
-        <button data-target="about-view"></button>
-      </nav>
+            TechTrends
+          </h1>
+          <div class="nav-buttons">
+            <button data-target="index-view" class="active"></button>
+            <button data-target="about-view"></button>
+          </div>
+        </nav>
+      </div>
       <section id="index-view" class="view">
+        <p class="citat">Wondering where TypeScript is growing fastest?</p>
         <!-- Search bar -->
         <form id="search-form" class="search-bar" role="search">
           <label for="search-input" class="visually-hidden">Search term</label>
@@ -51,6 +52,7 @@
           />
           <button type="submit">Search</button>
         </form>
+        <p>Loading... / 0 hits / 32 hits</p>
         <div class="source-toggle" role="group" aria-label="Select data source">
           <button id="btn-github" class="active" aria-pressed="true">
             <svg
@@ -64,42 +66,44 @@
                 d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.513 11.513 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12.004 12.004 0 0024 12c0-6.627-5.373-12-12-12z"
               />
             </svg>
-            GitHub
+            GitHub Rest API
           </button>
           <button id="btn-hacker" aria-pressed="false">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
+            <img
+              src="./images/hacker-news_black.svg"
+              alt="THN logotype - The Hacker News"
+              width="24"
+              height="24"
               class="icon"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.513 11.513 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12.004 12.004 0 0024 12c0-6.627-5.373-12-12-12z"
-              />
-            </svg>
-            Hacker News
+              loading="lazy"
+            />
+            Hacker News API
           </button>
         </div>
 
         <!-- Rubriker: visa bara en åt gången -->
         <h2 class="icon-heading" id="github-heading">
-          <span class="icon" aria-hidden="true"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.513 11.513 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12.004 12.004 0 0024 12c0-6.627-5.373-12-12-12z"
-              /></svg></span
-          >Popular GitHub repos
+          <span class="icon" aria-hidden="true"></span
+          ><img
+            src="./images/star_black.svg"
+            alt="THN logotype - The Hacker News"
+            width="24"
+            height="24"
+            class="icon"
+            loading="lazy"
+          />Popular Repositories
         </h2>
         <h2 id="hacker-heading" class="icon-heading hidden" aria-hidden="true">
-          <span class="icon" aria-hidden="true"></span>
-          Trending Discussions
+          <span class="icon" aria-hidden="true"></span
+          ><img
+            src="./images/news.svg"
+            alt="Hacker News"
+            class="icon"
+            width="24"
+            height="24"
+            loading="lazy"
+          />
+          Trending Articles
         </h2>
 
         <div id="github-data" class="data-section">
@@ -111,23 +115,60 @@
         </div>
       </section>
       <section id="about-view" class="view hidden">
-        <h2>About my Mashup</h2>
-        <h3>What is a Mashup?</h3>
+        <h2>About TechTrends</h2>
+        <p>
+          TechTrends is a mashup web app that reveals where in the world
+          programming languages are trending, based on GitHub activity and
+          Hacker News discussions. It's built with real-time data and aims to
+          inspire developers to explore what's hot, where, and why.
+        </p>
+        <h3>
+          A Mashup
+          <img
+            src="./images/questionmark.svg"
+            alt="Ett frågetecken"
+            class="icon"
+            width="24"
+            height="24"
+            loading="lazy"
+          />
+        </h3>
         <p>
           A mashup is a web app that blends data from multiple sources into a
           new, interactive experience. It feels like one unified tool, even
           though the data comes from elsewhere.
         </p>
-        <p>This mashup uses:</p>
+        <h3>This mashup uses:</h3>
         <ul>
-          <li>GitHub REST API</li>
-          <li>Hacker News API</li>
+          <li>
+            GitHub REST API
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.513 11.513 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12.004 12.004 0 0024 12c0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </li>
+          <li>
+            Hacker News API
+            <img
+              src="./images/hacker-news_black.svg"
+              alt="THN logotype - The Hacker News"
+              width="24"
+              height="24"
+              class="icon"
+              loading="lazy"
+            />
+          </li>
         </ul>
         <p>
           <strong>GitHub</strong> is a platform where developers share and
-          collaborate on code.
-        </p>
-        <p>
+          collaborate on code. <br />
           <strong>Hacker News</strong> is a tech-focused news site where people
           share and discuss trends in programming and startups.
         </p>
@@ -135,8 +176,8 @@
         <p>
           I'm Sara Sjodin Scolari, a developer with a passion for exploring how
           data can be visualized and combined in meaningful ways. This mashup
-          was built to experiment with APIs, design, and responsive layouts
-          using modern web tools like Parcel and SCSS.
+          was built to experiment with secure API handling, design, and
+          responsive layouts using modern web tools like Parcel and SCSS.
         </p>
         <figure>
           <img
@@ -147,6 +188,13 @@
             loading="lazy"
           />
           <figcaption>
+            <img
+              src="./images/sara_the-programmer.png"
+              alt="Ett frågetecken"
+              width="38"
+              height="47"
+              loading="lazy"
+            />
             I'm Sara, a developer with a passion for exploring how data can be
             visualized and combined in meaningful ways.
           </figcaption>

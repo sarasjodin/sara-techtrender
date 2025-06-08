@@ -6,6 +6,10 @@
   margin: 0px !important;
 }
 
+#about-view p {
+  padding: 1rem 2rem 2rem;
+}
+
 // Specifika rubrikstilar
 
 //@include mixin.respond-to('xl') {

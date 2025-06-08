@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 54.84 52.77">
+  <defs>
+    <filter id="drop-shadow-1" x="-75.89" y="50.22" width="97.68" height="75.6" filterUnits="userSpaceOnUse">
+      <feOffset dx="4" dy="4"/>
+      <feGaussianBlur result="blur" stdDeviation="10"/>
+      <feFlood flood-color="#000" flood-opacity=".85"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <polygon points="27.43 .03 33.9 19.95 54.84 19.95 37.9 32.26 44.37 52.18 27.43 39.87 10.48 52.18 16.95 32.26 0 19.95 20.95 19.95 27.43 .03" style="fill: #ffe817;"/>
+  <polygon points="0 19.95 27.55 28.81 20.88 19.95 0 19.95" style="fill: #ffda17;"/>
+  <polyline points="33.91 19.95 27.43 0 27.55 28.81" style="fill: #ffc717;"/>
+  <polyline points="37.89 32.26 54.84 19.95 27.55 28.81" style="fill: #ffae17;"/>
+  <polyline points="27.43 39.91 44.47 52.29 27.55 28.81" style="fill: #ffda17;"/>
+  <polyline points="16.81 32.26 10.15 52.77 27.55 28.81" style="fill: #fff; opacity: .45;"/>
+  <polyline points="20.95 19.95 27.43 .03 27.55 28.81" style="fill: #fff; opacity: .45;"/>
+</svg>

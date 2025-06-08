@@ -8,7 +8,6 @@ import { setupSearch } from './search';
 
 setupSearch();
 
-
 document.addEventListener('DOMContentLoaded', () => {
   console.log('index.js loaded');
 
@@ -85,3 +84,30 @@ document.addEventListener('DOMContentLoaded', () => {
   btnGitHub.addEventListener('click', () => showView('github'));
   btnHacker.addEventListener('click', () => showView('hacker'));
 });
+
+const questions = [
+  'What’s hot on GitHub right now?',
+  'Explore tech trends around the world?',
+  'Curious about what devs love?',
+  'Where is TypeScript trending now?',
+  'Discover today’s hottest languages?',
+  'Explore repos from every region?',
+  'What’s trending this very moment?',
+  'Find out where Rust is booming?',
+  'Is Python still on top this week?',
+  'Search and see what’s rising?',
+  'Where is Go gaining stars today?',
+  'Want to explore dev trends now?',
+  'Find global dev buzz in seconds?',
+  'Which tech rules the world today?',
+  'What’s popular in open source?'
+];
+
+function showRandomQuestion() {
+  const citat = document.querySelector('.citat');
+  const index = Math.floor(Math.random() * questions.length);
+  citat.textContent = questions[index];
+}
+
+// Kör vid sidladdning
+document.addEventListener('DOMContentLoaded', showRandomQuestion);

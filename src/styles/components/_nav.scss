@@ -1,18 +1,29 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixin;
 
-.tab-nav {
+.nav-container {
+  display: flex;
+  justify-content: normal;
+  width: 100%;
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  z-index: 1000;
+  background-color: transparent;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem 1rem 1rem;
+}
+
+.tab-nav {
   width: 100%;
+  max-width: 600px;
   background-color: #fff;
   display: flex;
-  justify-content: flex-end; // flex-end eller space-between
-  // align-items: center;
-  padding: 0.75rem 1rem;
+  justify-content: center;
+  padding: 0.5rem 1rem 0.15rem 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
   gap: 0.5rem;
 }
