@@ -119,12 +119,12 @@
   border: 2px solid vars.$white;
 
   .icon .cls-2 {
-    fill: vars.$white;
+    fill: vars.$hn-primary-color;
   }
 
   &.active {
-    background-color: vars.$hn-primary-color;
-    color: vars.$white;
+    background-color: vars.$white;
+    color: vars.$hn-primary-color;
     border: 2px solid vars.$hn-primary-color;
 
     .icon .cls-2 {
