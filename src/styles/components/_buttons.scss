@@ -127,7 +127,8 @@
   .active {
     border: 2px solid vars.$white;
     background-color: vars.$hn-primary-color;
-    color: vars.$white;
+    /* color: vars.$white; */
+    color: vars.$hn-primary-color;
 
     .icon {
       fill: vars.$white;
@@ -172,7 +173,6 @@
     transform: rotate(360deg);
   }
 }
-
 
 input[type='radio'] {
   position: absolute;
