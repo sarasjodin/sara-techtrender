@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "parcel serve src/index.html --dist-dir dist",
-    "build": "cross-env NODE_OPTIONS=--max_old_space_size=1024 parcel build src/index.html --no-cache --log-level verbose --no-source-maps --dist-dir dist --public-url ./ || echo 'Parcel failed'",
+    "build": "cross-env NODE_OPTIONS=--max_old_space_size=1024 parcel build src/index.html --no-cache --log-level verbose --no-source-maps --dist-dir dist --public-url ./ && copy _redirects dist\\_redirects || echo 'Parcel failed'",
     "clean": "rd /s /q dist && rd /s /q .parcel-cache && rd /s /q node_modules && npm cache clean --force",
     "reset": "npm run clean && npm install",
     "start": "npm run dev",
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/sarasjodin/sara-techtrender#readme",
   "devDependencies": {
     "@parcel/optimizer-htmlnano": "2.15.2",
+    "@parcel/rust": "2.15.2",
     "@parcel/transformer-image": "^2.15.2",
     "@parcel/transformer-sass": "^2.15.2",
     "cross-env": "^7.0.3",
@@ -34,3 +35,4 @@
     "svgo": "3.3.2"
   }
 }
+  

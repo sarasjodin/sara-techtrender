@@ -2,5 +2,10 @@
   command = "npm run build"
   publish = "dist"
 
-[build.environment]
-  NODE_OPTIONS = "--max_old_space_size=1024"
+[environment]
+  PARCEL_FORCE_BUILD_RUST = "true"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

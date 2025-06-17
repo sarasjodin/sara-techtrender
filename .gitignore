@@ -35,3 +35,6 @@ npm-debug.log*
 /bs-config.js
 /open.js
 # secrets/*.key
+
+# Local Netlify folder
+.netlify
