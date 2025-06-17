@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     'Find out where Rust is booming?',
     'Is Python still on top this week?',
     'Search and see what’s rising?',
-    'Where is Go gaining stars today?',
     'Want to explore dev trends now?',
     'Find global dev buzz in seconds?',
     'Which tech rules the world today?',
