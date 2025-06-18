@@ -6,29 +6,23 @@
 
 // index.js
 
-import { setupSearch } from './search';
+import { setupSearch } from './search.js';
 
-setupSearch();
+// Views & nav buttons
+const views = document.querySelectorAll('.view');
+const navButtons = document.querySelectorAll('.tab-nav button');
+
+// Data source radio inputs
+const radioInputs = document.querySelectorAll('input[name="source"]');
+const labels = document.querySelectorAll('.button-api');
+
+const dataGitHub = document.getElementById('githubdata');
+const headingGitHub = document.getElementById('githubheading');
+const dataHacker = document.getElementById('hackernewsdata');
+const headingHacker = document.getElementById('hackerheading');
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('index.js loaded');
-
-  // Views & nav buttons
-  const views = document.querySelectorAll('.view');
-  const navButtons = document.querySelectorAll('.tab-nav button');
-
-  // Data source radio inputs
-  const radioInputs = document.querySelectorAll('input[name="source"]');
-  const labels = document.querySelectorAll('.button-api');
-
-  // Elements for GitHub and Hacker News views
-  const btnGitHub = document.querySelector('button[data-target="index-view"]');
-  const btnAbout = document.querySelector('button[data-target="about-view"]');
-
-  const dataGitHub = document.getElementById('github-data');
-  const dataHacker = document.getElementById('hackernews-data');
-  const headingGitHub = document.getElementById('github-heading');
-  const headingHacker = document.getElementById('hacker-heading');
+  setupSearch();
 
   function showView(targetId) {
     views.forEach((view) => {

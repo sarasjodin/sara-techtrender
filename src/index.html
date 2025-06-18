@@ -6,19 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/main.scss" />
     <title>Home | My TechTrends MashUp</title>
-    <!-- Google Fonts (Preloaded for better performance) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500,600&display=swap"
-      rel="stylesheet"
-    />
-
-    <script src="./scripts/index.js" type="module" defer></script>
+    <script type="module" src="./scripts/index.js"></script>
   </head>
   <body>
     <div class="app-wrapper">
@@ -47,14 +35,14 @@
           <label for="search-input" class="visually-hidden">Search term</label>
           <input
             type="text"
-            id="search-input"
+            id="searchinput"
             class="search-input"
             name="query"
             placeholder="Search for Tech"
             autocomplete="off"
             required
           />
-          <button class="button" type="submit">
+          <button id="searchbutton" class="search-button" type="submit">
             <svg
               id="Layer_1"
               data-name="Layer 1"
@@ -196,7 +184,7 @@
         </div>
 
         <!-- Rubriker: visa bara en åt gången -->
-        <h2 class="icon-heading hidden" id="github-heading">
+        <h2 class="icon-heading hidden" id="githubheading">
           <span class="icon" aria-hidden="true"
             ><img
               src="./images/star_black.svg"
@@ -207,7 +195,7 @@
               loading="lazy" /></span
           >Popular Repositories
         </h2>
-        <h2 id="hacker-heading" class="icon-heading">
+        <h2 id="hackerheading" class="icon-heading">
           <span class="icon" aria-hidden="false"
             ><img
               src="./images/news.svg"
@@ -220,12 +208,12 @@
           Trending Articles
         </h2>
 
-        <div id="github-data" class="data-section" aria-hidden="true">
+        <div id="githubdata" class="data-section" aria-hidden="true">
           <!-- Visa GitHub-data här -->
         </div>
 
         <div
-          id="hackernews-data"
+          id="hackernewsdata"
           class="data-section hidden"
           aria-hidden="false"
         >
@@ -413,7 +401,28 @@
             class="repo-link"
             aria-label="View repository on GitHub"
             >View on GitHub</a
-          >
+          ><img
+            src="./images/star_black.svg"
+            alt="Star icon for Popular repos"
+            width="24"
+            height="24"
+            class="icon"
+            loading="lazy"
+          /><img
+            src="./images/star_black.svg"
+            alt="Star icon for Popular repos"
+            width="24"
+            height="24"
+            class="icon"
+            loading="lazy"
+          /><img
+            src="./images/star_black.svg"
+            alt="Star icon for Popular repos"
+            width="24"
+            height="24"
+            class="icon"
+            loading="lazy"
+          />
         </article>
 
         <article class="card hn-card" tabindex="0" aria-labelledby="hn-title">
@@ -516,6 +525,141 @@
             visualized and combined in meaningful ways.
           </figcaption>
         </figure>
+        <article>
+          <h2>API structures</h2>
+          <h3>GitHub</h3>
+          <pre>
+          <code>
+          📂 <a href="https://api.github.com/search/repositories?q=java">GitHub API link searching for "Java"</a>
+          ├── total_count: (number - total matching repositories)
+          ├── incomplete_results: (boolean - true if some results are missing)
+          ├── items: (array of repository objects)
+          │   ├── id: (number - unique repo ID)
+          │   ├── node_id: (string - global GraphQL ID)
+          │   ├── name: (string - repo name, e.g. "react")
+          │   ├── full_name: (string - "owner/repo", e.g. "facebook/react")
+          │   ├── owner: (object)
+          │   │   ├── login: (string - username)
+          │   │   ├── id: (number)
+          │   │   ├── avatar_url: (string - image URL)
+          │   │   └── html_url: (string - link to profile)
+          │   ├── html_url: (string - link to repo)
+          │   ├── description: (string - repo description)
+          │   ├── fork: (boolean - true if it's a fork)
+          │   ├── created_at: (string - ISO 8601 date)
+          │   ├── updated_at: (string - ISO 8601 date)
+          │   ├── pushed_at: (string - ISO 8601 date)
+          │   ├── stargazers_count: (number - stars)
+          │   ├── watchers_count: (number - watchers)
+          │   ├── language: (string - main language, e.g. "Java")
+          │   ├── forks_count: (number)
+          │   ├── open_issues_count: (number)
+          │   ├── license: (object or null)
+          │   │   ├── name: (string - license name)
+          │   └── topics: (array of strings - requires preview header to show)
+          </code>
+          </pre>
+        </article>
+        <article>
+          <h3>Hacker News</h3>
+          <pre>
+          <code>
+          📂<a href="https://hn.algolia.com/api/v1/search?query=java">Algolia API link searching for "Java"</a>
+          ├── hits: (array of objects)
+          │   ├─  _highlightResult
+          │   │     ├── author: object
+          │   │     ├── title: object
+          │   │     └── url: object
+          │   ├── _tags: (array of strings)
+          │   ├── author: (string)
+          │   ├── children: (array of numbers)
+          │   ├── created_at: (string - ISO 8601 date)
+          │   ├── created_at_i: (number - Unix timestamp)
+          │   ├── num_comments: (number)
+          │   ├── objectID: (string)
+          │   ├── points: (number)
+          │   ├── story_id: (number)
+          │   ├── title: (string)
+          │   ├── updated_at: (string - ISO 8601 date)
+          │   └── url: (string)
+          ├── hitsPerPage: (number - max 20 hits per page)
+          ├── nbHits: (number - total results that match the search)
+          ├── nbPages: (number - total max pages = 50)
+          ├── page: (number - current page index)
+          ├── params: (string - search string parameters)
+          ├── processingTimeMS: (number - milliseconds to process search)
+          └── query: (string - the actual search word used)
+          </code>
+        </pre>
+        </article>
+        <article>
+          <h3>Wikipedia</h3>
+          <pre>
+          <code>
+          📂 <a href="https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=java">Wikipedia API link searching for "Java"</a>
+          ├── batchcomplete: (string - "true" if batch is complete)
+          ├── continue: (object - for pagination)
+          │   └── sroffset: (number - offset for next page)
+          ├── query
+          │   └── search: (array of search result objects)
+          │       ├── ns: (number - namespace, 0 = main/articles)
+          │       ├── title: (string - article title)
+          │       ├── pageid: (number - unique ID for the page)
+          │       ├── size: (number - page size in bytes)
+          │       ├── wordcount: (number - number of words)
+          │       ├── snippet: (string - HTML fragment of matched text)
+          │       ├── timestamp: (string - ISO 8601 date last edited)
+          </code>
+          </pre>
+        </article>
+        <article>
+          <h3>StackOverflow</h3>
+          <pre>
+          <code>
+          📂 <a href="https://api.stackexchange.com/2.3/search?intitle=java&site=stackoverflow">StackOverflow API link searching for "Java"</a>
+          ├── items: (array of question objects)
+          │   ├── tags: (array of strings)
+          │   ├── owner: (object)
+          │   │   ├── user_id: (number)
+          │   │   ├── display_name: (string)
+          │   │   ├── profile_image: (string - avatar URL)
+          │   │   └── link: (string - profile URL)
+          │   ├── is_answered: (boolean)
+          │   ├── view_count: (number)
+          │   ├── answer_count: (number)
+          │   ├── score: (number)
+          │   ├── last_activity_date: (number - Unix timestamp)
+          │   ├── creation_date: (number - Unix timestamp)
+          │   ├── question_id: (number)
+          │   ├── title: (string)
+          │   └── link: (string - question URL)
+          ├── has_more: (boolean - if more results exist)
+          ├── quota_max: (number - max allowed requests)
+          ├── quota_remaining: (number - remaining quota)
+          </code>
+          </pre>
+        </article>
+        <article>
+          <h3>OpenLibrary</h3>
+          <pre>
+          <code>
+          📂 <a href="https://openlibrary.org/search.json?q=java">Open Library API link searching for "Java"</a>
+          ├── numFound: (number - total results)
+          ├── start: (number - offset)
+          ├── docs: (array of book objects)
+          │   ├── title: (string)
+          │   ├── author_name: (array of strings)
+          │   ├── first_publish_year: (number)
+          │   ├── edition_count: (number)
+          │   ├── subject: (array of strings)
+          │   ├── key: (string - e.g. "/works/OL12345W")
+          │   ├── isbn: (array of strings)
+          │   ├── publish_year: (array of numbers)
+          │   ├── publisher: (array of strings)
+          │   └── language: (array of strings - e.g. "eng")
+          </code>
+          </pre>
+        </article>
       </section>
     </div>
   </body>

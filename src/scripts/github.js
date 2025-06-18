@@ -3,11 +3,22 @@
  * @description Fetches and renders GitHub data
  * @author Sara Sjödin Scolari
  */
-export async function fetchGitHub(query) {
-  githubContainer.innerHTML = '';
-}
 
-const githubContainer = document.getElementById('github-data');
+/**
+ * Searches for GitHub repositories matching the query.
+ * @param {string} query - The search term.
+ * @returns {Promise<Array>} A list of repository objects.
+ */
+export async function searchGitHubRepos(query) {
+  console.log('Query sent to github');
+  const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(
+    query
+  )}+in:name&sort=updated&order=desc`;
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log('Fetched GitHub data:', data.items);
+  return data.items || [];
+}
 
 function extractCountryCode(location = '') {
   if (!location) return null;
