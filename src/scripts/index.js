@@ -40,6 +40,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  navButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const view = btn.getAttribute('data-target');
+      if (view) {
+        showView(view);
+        updateView(view);
+        console.log(view);
+      }
+    });
+  });
+
   function showDataSource(view) {
     const isGitHub = view === 'github';
 
@@ -103,3 +114,19 @@ document.addEventListener('DOMContentLoaded', () => {
     citat.textContent = questions[index];
   }
 });
+
+function updateView(view) {
+  const startImg = document.querySelector('.startpage');
+  const aboutImg = document.querySelector('.aboutpage');
+
+  if (!startImg || !aboutImg) return;
+
+  startImg.classList.remove('show');
+  aboutImg.classList.remove('show');
+
+  if (view === 'index-view') {
+    aboutImg.classList.add('show');
+  } else if (view === 'about-view') {
+    startImg.classList.add('show');
+  }
+}

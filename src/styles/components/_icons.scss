@@ -2,8 +2,8 @@
 @use '../abstracts/mixins' as mixin;
 
 .top-icon {
-  width: 36px;
-  height: 36px;
+  width: 88px;
+  height: 88px;
   margin-right: 0.5rem;
   flex-shrink: 0;
   border-radius: 50%;
@@ -14,6 +14,36 @@
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+}
+
+.page-icon {
+  width: 120px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.startpage,
+.aboutpage {
+  display: none;
+}
+
+.startpage.show,
+.aboutpage.show {
+  display: block;
+}
+
+.view-indicator {
+  position: relative;
+}
+
+.view-indicator img {
+  pointer-events: none;
+  z-index: 1;
+  max-width: 100px;
+  position: absolute;
+  top: -10px;
+  right: -60px;
+  opacity: 0.6;
 }
 
 h2 {

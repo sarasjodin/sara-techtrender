@@ -4,10 +4,11 @@
  */
 import { getUserLocation, extractCountryCode } from './github.js';
 import { flagMap } from './flags.js';
-import globalIcon from '../assets/images/global.svg';
+import codeIcon from '../assets/images/code_icon.svg';
+import geoCodeIcon from '../assets/images/geo_code_icon.svg';
 import starIcon from '../assets/images/star.svg';
 
-/* console.log('globalIcon:', globalIcon);
+/* console.log('geoCodeIcon:', geoCodeIcon);
  */
 export async function renderGitHubResults(repos) {
   const container = document.getElementById('githubdata');
@@ -28,6 +29,7 @@ export async function renderGitHubResults(repos) {
   for (const repo of repos) {
     const name = repo.name;
     const owner = repo.owner.login;
+    const avatar = repo.owner.avatar_url;
     const description = repo.description || 'No description provided.';
     const repoUrl = repo.html_url;
 
@@ -47,7 +49,7 @@ export async function renderGitHubResults(repos) {
     const flagSrc =
       rawFlag && typeof rawFlag === 'object' && rawFlag.default
         ? rawFlag.default
-        : rawFlag || globalIcon;
+        : rawFlag || geoCodeIcon;
 
     const flag = `<img src="${flagSrc}" alt="Flag of ${
       countryCode || 'Unknown'
@@ -57,25 +59,26 @@ export async function renderGitHubResults(repos) {
       <article class="card repo-card" tabindex="0" aria-labelledby="repo-name-${name}">
         <header>
           <h2 id="repo-name-${name}">${name}</h2>
-          <p class="owner">by <span>${owner}</span> Language code: ${
+          <p class="owner"><img src="${avatar}" alt="Repo user ${owner}'s avatar from GitHub" class="icon">Repo owner: <span>${owner}</span></p><p>${flag} Geographic location: ${
       countryCode || 'N/A'
-    } ${flag}</p>
+    }</p>
         </header>
         <p class="description">${description}</p>
-        <ul class="repo-info">
-          <li><img src="${starIcon}" alt="text" class="icon"> Stars: ${
+  <ul class="repo-info">
+    <li><img src="${starIcon}" alt="text" class="icon"> Stars: ${
       repo.stargazers_count
     }</li>
-          <li><img src="${starIcon}" alt="text" class="icon"> Language: ${
+    <li><img src="${codeIcon}" alt="text" class="icon"> 1st programming language: ${
       repo.language || 'N/A'
     }</li>
-        </ul>
-        <a href="${repoUrl}" class="repo-link" target="_blank" aria-label="View repository on GitHub">View on GitHub</a>
-        <img src="${starIcon}" alt="Wikipedia search" class="icon" data-api="wikipedia" data-title="${name}" />
-        <img src="${starIcon}" alt="StackOverflow search" class="icon" data-api="stackoverflow" data-title="${name}" />
-        <img src="${starIcon}" alt="OpenLibrary search" class="icon" data-api="openlibrary" data-title="${name}" />
-
-      </article>
+    </ul>
+    <a href="${repoUrl}" class="repo-link" target="_blank" rel="noopener noreferrer" aria-label="View repository on GitHub">View on GitHub</a>
+    <ul class="more-searches">
+    <li><img src="${starIcon}" alt="Wikipedia search" class="icon" data-api="wikipedia" data-title="${name}" /></li>
+    <li><img src="${starIcon}" alt="StackOverflow search" class="icon" data-api="stackoverflow" data-title="${name}" /></li>
+    <li><img src="${starIcon}" alt="OpenLibrary search" class="icon" data-api="openlibrary" data-title="${name}" /></li>
+  </ul>
+</article>
     `;
     /* console.log('starIcon är:', starIcon); */
     container.insertAdjacentHTML('beforeend', cardHTML);
@@ -100,7 +103,7 @@ export function renderHackerNewsResults(posts) {
   container.innerHTML = posts
     .map(
       (post) => `
-      <p><a href="${post.url}" target="_blank">${post.title}</a></p>
+      <p><a href="${post.url}" target="_blank" rel="noopener noreferrer">${post.title}</a></p>
     `
     )
     .join('');
