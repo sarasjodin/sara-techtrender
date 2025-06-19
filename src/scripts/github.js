@@ -4,23 +4,43 @@
  * @author Sara Sjödin Scolari
  */
 
+
 /**
  * Searches for GitHub repositories matching the query.
  * @param {string} query - The search term.
  * @returns {Promise<Array>} A list of repository objects.
  */
+const GITHUB_TOKEN = process.env.GITHUB_KEY_1;
+
 export async function searchGitHubRepos(query) {
-  console.log('Query sent to github');
+  /* console.log('Query sent to github'); */
   const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(
     query
   )}+in:name&sort=updated&order=desc`;
   const response = await fetch(url);
   const data = await response.json();
-  console.log('Fetched GitHub data:', data.items);
+  /* console.log('Fetched GitHub data:', data.items); */
   return data.items || [];
 }
 
-function extractCountryCode(location = '') {
+export async function getUserLocation(apiUrl) {
+  const response = await fetch(apiUrl, {
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`
+    }
+  });
+
+  if (!response.ok) {
+    console.error('GitHub API error:', response.status);
+    return null;
+  }
+
+  const data = await response.json();
+  /* console.log('Fetched UserLocation:', data.location); */
+  return data.location || null;
+}
+
+export function extractCountryCode(location = '') {
   if (!location) return null;
 
   const lower = location.toLowerCase();

@@ -2,6 +2,7 @@
   "name": "sara-techtrender",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
     "dev": "parcel serve src/index.html --dist-dir dist",
     "build": "cross-env NODE_OPTIONS=--max_old_space_size=1024 parcel build src/index.html --no-cache --log-level verbose --no-source-maps --dist-dir dist --public-url ./ && copy _redirects dist\\_redirects || echo 'Parcel failed'",
@@ -19,7 +20,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/sarasjodin/sara-techtrender/issues"
   },
@@ -29,10 +29,21 @@
     "@parcel/rust": "2.15.2",
     "@parcel/transformer-image": "^2.15.2",
     "@parcel/transformer-sass": "^2.15.2",
+    "buffer": "6.0.3",
     "cross-env": "^7.0.3",
+    "crypto-browserify": "3.12.1",
+    "events": "3.3.0",
+    "os-browserify": "0.3.0",
     "parcel": "^2.15.2",
+    "path-browserify": "1.0.1",
+    "process": "0.11.10",
     "sass": "^1.89.1",
-    "svgo": "3.3.2"
+    "stream-browserify": "3.0.0",
+    "string_decoder": "1.3.0",
+    "svgo": "3.3.2",
+    "vm-browserify": "1.1.2"
+  },
+  "dependencies": {
+    "dotenv": "16.5.0"
   }
 }
-  

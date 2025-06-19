@@ -4,8 +4,6 @@
  * @author Sara Sjödin Scolari
  */
 
-// index.js
-
 import { setupSearch } from './search.js';
 
 // Views & nav buttons
@@ -60,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (input instanceof HTMLInputElement) {
         const isActive = input.value === view;
         input.checked = isActive;
-        console.log(input.value, isActive);
+        /* console.log(input.value, isActive); */
         label.classList.toggle('active', isActive);
       }
     });
