@@ -57,6 +57,16 @@
 }
 
 @media screen and (min-width: 540px) {
+  .nav-container {
+    display: flex;
+    justify-content: normal;
+    width: 650px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: transparent;
+  }
+
   .nav-buttons {
     display: flex;
     gap: 1.2rem;

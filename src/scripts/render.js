@@ -7,6 +7,9 @@ import { flagMap } from './flags.js';
 import codeIcon from '../assets/images/code_icon.svg';
 import geoCodeIcon from '../assets/images/geo_code_icon.svg';
 import starIcon from '../assets/images/star.svg';
+import repoIcon from '../assets/images/repo_icon.svg';
+import userProfileIcon from '../assets/images/user_profile_icon.svg';
+import externalIcon from '../assets/images/external_icon.svg';
 
 /* console.log('geoCodeIcon:', geoCodeIcon);
  */
@@ -55,32 +58,65 @@ export async function renderGitHubResults(repos) {
       countryCode || 'Unknown'
     }" class="flag" width="24" height="24" />`;
 
-    const cardHTML = `
-      <article class="card repo-card" tabindex="0" aria-labelledby="repo-name-${name}">
-        <header>
-          <h2 id="repo-name-${name}">${name}</h2>
-          <p class="owner"><img src="${avatar}" alt="Repo user ${owner}'s avatar from GitHub" class="icon">Repo owner: <span>${owner}</span></p><p>${flag} Geographic location: ${
-      countryCode || 'N/A'
-    }</p>
-        </header>
-        <p class="description">${description}</p>
-  <ul class="repo-info">
-    <li><img src="${starIcon}" alt="text" class="icon"> Stars: ${
-      repo.stargazers_count
-    }</li>
-    <li><img src="${codeIcon}" alt="text" class="icon"> 1st programming language: ${
-      repo.language || 'N/A'
-    }</li>
-    </ul>
-    <a href="${repoUrl}" class="repo-link" target="_blank" rel="noopener noreferrer" aria-label="View repository on GitHub">View on GitHub</a>
-    <ul class="more-searches">
-    <li><img src="${starIcon}" alt="Wikipedia search" class="icon" data-api="wikipedia" data-title="${name}" /></li>
-    <li><img src="${starIcon}" alt="StackOverflow search" class="icon" data-api="stackoverflow" data-title="${name}" /></li>
-    <li><img src="${starIcon}" alt="OpenLibrary search" class="icon" data-api="openlibrary" data-title="${name}" /></li>
-  </ul>
-</article>
-    `;
-    /* console.log('starIcon är:', starIcon); */
+    const cardHTML = `<article class="repo-card">
+  <div class="repo-header">
+    <img
+      src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+      alt="GitHub logo"
+      width="32"
+    />
+    ${repo.name}
+  </div>
+
+  <div class="repo-sections">
+    <section class="repo-section">
+      <h3>Owner</h3>
+      <div class="info-row">
+        <img src="${repo.owner.avatar_url}" alt="Avatar of ${
+      repo.owner.login
+    }" class="avatar" width="24"/>
+        <span><strong>User name:</strong> ${repo.owner.login}</span>
+      </div>
+      <div class="info-row">
+        <img src="${geoCodeIcon || ''}" alt="" aria-hidden="true" width="24"/>
+        <span><strong>Geographic location:</strong> ${location || 'N/A'}</span>
+      </div>
+    </section>
+
+    <section class="repo-section">
+      <h3>Repository</h3>
+      <div class="info-row">
+        <img src="${starIcon}" alt="" aria-hidden="true" width="24"/>
+        <span><strong>Stars:</strong> ${repo.stargazers_count}</span>
+      </div>
+      <div class="info-row">
+        <img src="${codeIcon}" alt="" aria-hidden="true" width="24"/>
+        <span><strong>Primary language:</strong> ${
+          repo.language || 'N/A'
+        }</span>
+      </div>
+    </section>
+  </div>
+
+  <div class="action-buttons profile">
+    <a
+      href="${repo.owner.html_url}"
+      class="action-button profile"
+      target="_blank"
+      aria-label="View GitHub profile of ${repo.owner.login}"
+    >
+      <img src="${userProfileIcon}" alt="" class="avatar" width="24"/> GitHub Profile page
+    <img src="${externalIcon}" alt="" width="24" /></a>
+    <a
+      href="${repo.html_url}"
+      class="action-button"
+      target="_blank"
+      aria-label="View repository ${repo.name} on GitHub"
+    >
+      <img src="${repoIcon}" alt="" width="24" /> GitHub Repository
+    <img src="${externalIcon}" alt="" width="24" /></a>
+  </div>
+</article>`;
     container.insertAdjacentHTML('beforeend', cardHTML);
   }
 
