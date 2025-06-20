@@ -5,6 +5,7 @@
  */
 
 import { setupSearch } from './search.js';
+import { showDataSource } from './ui.js';
 
 // Views & nav buttons
 const views = document.querySelectorAll('.view');
@@ -18,6 +19,9 @@ const dataGitHub = document.getElementById('githubdata');
 const headingGitHub = document.getElementById('githubheading');
 const dataHacker = document.getElementById('hackernewsdata');
 const headingHacker = document.getElementById('hackerheading');
+const checkedInput = document.querySelector('input[name="source"]:checked');
+const source =
+  checkedInput instanceof HTMLInputElement ? checkedInput.value : null;
 
 document.addEventListener('DOMContentLoaded', () => {
   setupSearch();
@@ -51,35 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  function showDataSource(view) {
-    const isGitHub = view === 'github';
-
-    dataGitHub.classList.toggle('hidden', !isGitHub);
-    headingGitHub.classList.toggle('hidden', !isGitHub);
-    dataHacker.classList.toggle('hidden', isGitHub);
-    headingHacker.classList.toggle('hidden', isGitHub);
-
-    dataGitHub.setAttribute('aria-hidden', String(!isGitHub));
-    headingGitHub.setAttribute('aria-hidden', String(!isGitHub));
-    dataHacker.setAttribute('aria-hidden', String(isGitHub));
-    headingHacker.setAttribute('aria-hidden', String(isGitHub));
-
-    labels.forEach((label) => {
-      const input = label.querySelector('input[type="radio"]');
-      if (input instanceof HTMLInputElement) {
-        const isActive = input.value === view;
-        input.checked = isActive;
-        /* console.log(input.value, isActive); */
-        label.classList.toggle('active', isActive);
-      }
-    });
-  }
-
   const checkedInput = document.querySelector('input[name="source"]:checked');
-  if (checkedInput instanceof HTMLInputElement) {
+  /* if (checkedInput instanceof HTMLInputElement) {
     showDataSource(checkedInput.value);
   }
-
+ */
   radioInputs.forEach((inputEl) => {
     if (inputEl instanceof HTMLInputElement) {
       inputEl.addEventListener('change', () => {

@@ -37,6 +37,10 @@ export function setupSearch() {
 
     if (!query) return;
 
+    const checkedInput = document.querySelector('input[name="source"]:checked');
+    const source =
+      checkedInput instanceof HTMLInputElement ? checkedInput.value : null;
+
     /* button.addEventListener('click', async (e) => {
     e.preventDefault();
     console.log('Search button clicked');
@@ -44,13 +48,27 @@ export function setupSearch() {
     if (!query) return; */
 
     try {
-      const [repos, posts] = await Promise.all([
+      const [repos, hits] = await Promise.all([
         searchGitHubRepos(query),
         searchHackerNews(query)
       ]);
 
+      // Always render both repos and hits
       renderGitHubResults(repos);
-      renderHackerNewsResults(posts);
+      renderHackerNewsResults(hits);
+
+      // Afterwards hide the non active source
+      if (source === 'github') {
+        document.getElementById('githubdata')?.classList.remove('hidden');
+        document.getElementById('githubheading')?.classList.remove('hidden');
+        document.getElementById('hackernewsdata')?.classList.add('hidden');
+        document.getElementById('hackerheading')?.classList.add('hidden');
+      } else {
+        document.getElementById('githubdata')?.classList.add('hidden');
+        document.getElementById('githubheading')?.classList.add('hidden');
+        document.getElementById('hackernewsdata')?.classList.remove('hidden');
+        document.getElementById('hackerheading')?.classList.remove('hidden');
+      }
     } catch (error) {
       console.error('Search failed:', error);
     }

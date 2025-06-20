@@ -121,7 +121,8 @@
         </p>
 
         <div
-          class="source-toggle"
+          id="sourcetoggle"
+          class="source-toggle hidden"
           role="radiogroup"
           aria-label="Välj datakälla"
         >
@@ -131,6 +132,7 @@
               name="source"
               value="github"
               id="github-data"
+              aria-hidden="true"
               checked
             />
             <span class="content">
@@ -140,7 +142,6 @@
                   class="icon"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  aria-hidden="true"
                 >
                   <path
                     d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.513 11.513 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12.004 12.004 0 0024 12c0-6.627-5.373-12-12-12z"
@@ -161,7 +162,7 @@
                   data-name="Layer 1"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  aria-hidden="false"
+                  aria-hidden="true"
                 >
                   <defs>
                     <style>
@@ -195,7 +196,7 @@
           </label>
         </div>
 
-        <!-- Rubriker: visa bara en åt gången -->
+        <!-- Titles: Once title at a time -->
         <h2 class="icon-heading hidden" id="githubheading">
           <span class="icon" aria-hidden="true"
             ><img
@@ -207,8 +208,8 @@
               loading="lazy" /></span
           >Popular Repositories
         </h2>
-        <h2 id="hackerheading" class="icon-heading">
-          <span class="icon" aria-hidden="false"
+        <h2 id="hackerheading" class="icon-heading hidden">
+          <span class="icon" aria-hidden="true"
             ><img
               src="assets/images/news.svg"
               alt="Hacker News"
@@ -220,32 +221,13 @@
           Trending Articles
         </h2>
 
-        <div id="githubdata" class="data-section" aria-hidden="true">
+        <div id="githubdata" class="data-section hidden" aria-hidden="true">
           <!-- Show GitHub-data here -->
         </div>
 
-        <div
-          id="hackernewsdata"
-          class="data-section hidden"
-          aria-hidden="false"
-        >
+        <div id="hackernewsdata" class="data-section hidden" aria-hidden="true">
           <!-- Show Hacker News-data here -->
         </div>
-
-        <article class="card hn-card" tabindex="0" aria-labelledby="hn-title">
-          <header>
-            <h2 id="hn-title">New AI model solves complex math problems</h2>
-          </header>
-          <p class="meta">
-            Posted by <strong>alice42</strong> • 134 points • 42 comments
-          </p>
-          <a
-            href="https://news.ycombinator.com/item?id=12345678"
-            class="hn-link"
-            aria-label="Read full Hacker News discussion"
-            >Read on Hacker News</a
-          >
-        </article>
       </section>
       <section id="about-view" class="view hidden">
         <h2>About TechTrends</h2>

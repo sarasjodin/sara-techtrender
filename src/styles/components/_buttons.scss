@@ -173,3 +173,7 @@ input[type='radio'] {
   pointer-events: none;
   cursor: pointer;
 }
+
+.hidden {
+  display: none !important;
+}

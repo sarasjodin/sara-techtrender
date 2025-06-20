@@ -4,30 +4,43 @@
  */
 import { getUserLocation, extractCountryCode } from './github.js';
 import { flagMap } from './flags.js';
+import { showDataSource } from './ui.js';
 import codeIcon from '../assets/images/code_icon.svg';
 import geoCodeIcon from '../assets/images/geo_code_icon.svg';
 import starIcon from '../assets/images/star.svg';
 import repoIcon from '../assets/images/repo_icon.svg';
 import userProfileIcon from '../assets/images/user_profile_icon.svg';
 import externalIcon from '../assets/images/external_icon.svg';
+import hackerNewsIcon from '../assets/images/hacker-news_black.svg';
 
 /* console.log('geoCodeIcon:', geoCodeIcon);
  */
+
 export async function renderGitHubResults(repos) {
   const container = document.getElementById('githubdata');
-  const heading = document.getElementById('githubheading');
+  const headingGitHub = document.getElementById('githubheading');
+  const dataGitHub = document.getElementById('githubdata');
   container.innerHTML = '';
+
+  showDataSource('github');
 
   if (!repos.length) {
     console.warn('Inga GitHub-repos att visa.');
-    heading.classList.add('hidden');
     container.setAttribute('aria-hidden', 'true');
+    headingGitHub.classList.add('hidden');
+    dataGitHub.classList.add('hidden');
+    headingGitHub.setAttribute('aria-hidden', 'true');
+    dataGitHub.setAttribute('aria-hidden', 'true');
+    dataGitHub.innerHTML = '';
     return;
   }
 
   /* console.log(`Börjar rendera ${repos.length} GitHub-repos`); */
-  heading.classList.remove('hidden');
-  container.setAttribute('aria-hidden', 'false');
+  document.getElementById('sourcetoggle')?.classList.remove('hidden');
+  headingGitHub.classList.remove('hidden');
+  dataGitHub.classList.remove('hidden');
+  headingGitHub.setAttribute('aria-hidden', 'false');
+  dataGitHub.setAttribute('aria-hidden', 'false');
 
   for (const repo of repos) {
     const name = repo.name;
@@ -123,24 +136,100 @@ export async function renderGitHubResults(repos) {
   /* console.log('Klar med renderGitHubResults'); */
 }
 
-export function renderHackerNewsResults(posts) {
+export function renderHackerNewsResults(hits) {
   const container = document.getElementById('hackernewsdata');
-  const heading = document.getElementById('hackerheading');
+  const headingHacker = document.getElementById('hackerheading');
+  const dataHacker = document.getElementById('hackernewsdata');
 
-  if (!posts.length) {
-    heading.classList.add('hidden');
+  if (!hits.length) {
+    console.warn('Inga GitHub-repos att visa.');
     container.setAttribute('aria-hidden', 'true');
-    container.innerHTML = '';
+    headingHacker.classList.add('hidden');
+    dataHacker.classList.add('hidden');
+    headingHacker.setAttribute('aria-hidden', 'true');
+    dataHacker.setAttribute('aria-hidden', 'true');
+    dataHacker.innerHTML = '';
     return;
   }
 
-  heading.classList.remove('hidden');
-  container.setAttribute('aria-hidden', 'false');
-  container.innerHTML = posts
-    .map(
-      (post) => `
-      <p><a href="${post.url}" target="_blank" rel="noopener noreferrer">${post.title}</a></p>
-    `
-    )
+  /* console.log(`Börjar rendera ${repos.length} GitHub-repos`); */
+  document.getElementById('sourcetoggle')?.classList.remove('hidden');
+  headingHacker.classList.remove('hidden');
+  dataHacker.classList.remove('hidden');
+  headingHacker.setAttribute('aria-hidden', 'false');
+  dataHacker.setAttribute('aria-hidden', 'false');
+
+  container.innerHTML = hits
+    .map((hit) => {
+      const rawHtml = hit._highlightResult?.story_text?.value || '';
+      const truncatedText = truncateHtmlText(rawHtml, 120);
+
+      return `
+<article class="repo-card">
+  <div class="repo-header">
+    <img src="${hackerNewsIcon}" alt="HackerNews logo" width="32" />
+    ${hit.title || 'No Title'}
+  </div>
+
+  <div class="repo-sections">
+    <section class="repo-section">
+      <h3>Author</h3>
+      <div class="info-row">
+        <img src="${hackerNewsIcon}" alt="" width="20" />
+        <span><strong>Name:</strong> ${hit.author}</span>
+      </div>
+    </section>
+
+    <section class="repo-section">
+      <h3>Article</h3>
+      <div class="info-row">
+        <img src="${hackerNewsIcon}" alt="" width="20" />
+        <span><strong>Created:</strong> ${formatDate(hit.created_at)}</span>
+      </div>
+      <div class="info-row">
+        <img src="${hackerNewsIcon}" alt="" width="20" />
+        <span><strong>Updated:</strong> ${formatDate(hit.updated_at)}</span>
+      </div>
+      <div class="info-row">
+        <img src="${hackerNewsIcon}" alt="" width="20" />
+        <span><strong>Text:</strong></span>
+      </div>
+      <div class="story-text-preview">${truncatedText}</div>
+    </section>
+  </div>
+
+  <div class="action-buttons">
+    <a
+      href="${hit.url || '#'}"
+      class="action-button"
+      target="_blank"
+      aria-label="View article ${hit.title} on Hacker News"
+    >
+      <img src="${repoIcon}" alt="" width="24" /> Hacker News article
+      <img src="${externalIcon}" alt="" width="24" />
+    </a>
+  </div>
+</article>
+`;
+    })
     .join('');
+}
+
+// Strips HTML and limits to X characters
+function truncateHtmlText(htmlString, maxChars) {
+  const div = document.createElement('div');
+  div.innerHTML = htmlString;
+  const text = div.textContent || div.innerText || '';
+  return text.length > maxChars ? text.slice(0, maxChars) + '…' : text;
+}
+
+function formatDate(isoDateStr) {
+  const date = new Date(isoDateStr);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // månader 0–11
+  const day = String(date.getDate()).padStart(2, '0');
+  const hour = String(date.getHours()).padStart(2, '0');
+  const minute = String(date.getMinutes()).padStart(2, '0');
+
+  return `${year}/${month}/${day} ${hour}:${minute}`;
 }
