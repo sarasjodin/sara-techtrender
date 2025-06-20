@@ -1,5 +1,11 @@
 @use '../abstracts/variables' as vars;
 
+.wordclouddiv h2:first-of-type {
+  padding: 9.2rem 2rem 2rem;
+}
+
+
+
 .view {
-  padding: 9rem 0.5rem 0;
+  padding: 2rem 0.5rem;
 }

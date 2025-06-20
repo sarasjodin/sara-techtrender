@@ -12,9 +12,12 @@ import repoIcon from '../assets/images/repo_icon.svg';
 import userProfileIcon from '../assets/images/user_profile_icon.svg';
 import externalIcon from '../assets/images/external_icon.svg';
 import hackerNewsIcon from '../assets/images/hacker-news_black.svg';
+import { generateWordCloud } from './wordcloud.js';
 
 /* console.log('geoCodeIcon:', geoCodeIcon);
  */
+
+generateWordCloud();
 
 export async function renderGitHubResults(repos) {
   const container = document.getElementById('githubdata');
