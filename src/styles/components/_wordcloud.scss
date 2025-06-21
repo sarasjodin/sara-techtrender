@@ -1,7 +1,7 @@
 .wordclouddiv {
   position: relative;
   text-align: center;
-  height: 450px;
+  height: 30rem;
 
   .spinner-wrapper {
     position: absolute;
@@ -40,6 +40,11 @@
     display: block;
     margin: 0 auto;
     z-index: 1;
+    padding-bottom: 1rem;
+  }
+
+  .wordcloud {
+    font-size: smaller;
   }
 }
 

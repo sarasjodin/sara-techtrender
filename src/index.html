@@ -41,7 +41,17 @@
         </nav>
       </div>
       <div class="wordclouddiv">
-        <h2>Trending concepts on GitHub & Hacker News</h2>
+        <h2>
+          <span class="icon" aria-hidden="true"
+            ><img
+              src="assets/images/star_black.svg"
+              alt="Star icon for Popular repos"
+              width="24"
+              height="24"
+              class="icon"
+              loading="lazy" /></span
+          >Trending concepts
+        </h2>
 
         <div id="spinner-wordcloud" class="spinner-wrapper">
           <span class="icon">
@@ -75,15 +85,30 @@
             Loading wordcloud from GitHub & Hacker News…
           </p>
         </div>
-
-        <canvas
-          id="wordcloud"
-          class="wordcloud-canvas"
-          width="600"
-          height="250"
-        ></canvas>
+        <figure>
+          <canvas
+            id="wordcloud"
+            class="wordcloud-canvas"
+            width="600"
+            height="250"
+            aria-label="Word cloud generated from GitHub and Hacker News trends"
+          ></canvas>
+          <figcaption>
+            Popular tech terms collected in real time from GitHub & Hacker News
+          </figcaption>
+        </figure>
       </div>
       <section id="index-view" class="view">
+        <h2>
+          <span class="icon" aria-hidden="true"
+            ><img
+              src="assets/images/magnifier_search.svg"
+              alt="Search icon"
+              width="24"
+              height="24"
+              class="icon" /></span
+          >Search repos and articles
+        </h2>
         <p class="citat">Wondering where TypeScript is growing fastest?</p>
         <!-- Search bar -->
         <form id="search-form" class="search-bar" role="search">
@@ -93,7 +118,7 @@
             id="searchinput"
             class="search-input"
             name="query"
-            placeholder="Search for Tech"
+            placeholder="Search tech keywords like Python, React, or AI"
             autocomplete="off"
             required
           />
@@ -179,16 +204,11 @@
               checked
             />
             <span class="content">
-              <span class="icon github-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
+              <span class="icon github-icon" aria-hidden="true">
+                <svg fill="currentColor" class="icon" viewBox="0 0 24 24">
                   <path
-                    d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.513 11.513 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12.004 12.004 0 0024 12c0-6.627-5.373-12-12-12z"
-                  />
+                    d="M12 0C5.37 0 0 5.373 0 12a12 12 0 0 0 8.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12 12 0 0 0 24 12c0-6.627-5.373-12-12-12"
+                  ></path>
                 </svg>
               </span>
               <span class="label">GitHub</span>
@@ -243,13 +263,12 @@
         <h2 class="icon-heading hidden" id="githubheading">
           <span class="icon" aria-hidden="true"
             ><img
-              src="assets/images/star_black.svg"
-              alt="Star icon for Popular repos"
+              src="assets/images/repo-icon-wo-bkg.svg"
+              alt="Repo icon"
               width="24"
               height="24"
-              class="icon"
-              loading="lazy" /></span
-          >Popular Repositories
+              class="icon" /></span
+          >Recently pushed Repositories
         </h2>
         <h2 id="hackerheading" class="icon-heading hidden">
           <span class="icon" aria-hidden="true"

@@ -1,11 +1,21 @@
 @use '../abstracts/variables' as vars;
 
 .wordclouddiv h2:first-of-type {
-  padding: 9.2rem 2rem 2rem;
+  padding: 9.2rem 2rem 1rem;
 }
 
+figcaption {
+  font-size: small;
+}
 
+/* h2 {
+  padding: 0 0 1rem;
+} */
 
 .view {
-  padding: 2rem 0.5rem;
+  padding: 0 2rem 1rem;
+}
+
+.citat {
+  padding: 1rem 0 0 0;
 }
