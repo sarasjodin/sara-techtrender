@@ -7,7 +7,6 @@
 import { setupSearch } from './search.js';
 import { showDataSource } from './ui.js';
 
-
 // Views & nav buttons
 const views = document.querySelectorAll('.view');
 const navButtons = document.querySelectorAll('.tab-nav button');
@@ -78,15 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
     'Curious about what devs love?',
     'Where is TypeScript trending now?',
     'Discover today’s hottest languages?',
-    'Explore repos from every region?',
-    'What’s trending this very moment?',
     'Find out where Rust is booming?',
     'Is Python still on top this week?',
     'Search and see what’s rising?',
-    'Want to explore dev trends now?',
-    'Find global dev buzz in seconds?',
+    'Want to explore more dev trends?',
+    'Find global dev buzz in seconds!',
     'Which tech rules the world today?',
-    'What’s popular in open source?'
+    'What’s popular in open source?',
+    'Which tech article is trending now?'
   ];
 
   const citat = document.querySelector('.citat');

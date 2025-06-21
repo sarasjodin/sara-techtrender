@@ -1,4 +1,9 @@
 @use '../abstracts/variables' as vars;
 
+html {
+  overflow-y: scroll;
+}
 
-.hidden { display: none; }
+.hidden {
+  display: none;
+}
