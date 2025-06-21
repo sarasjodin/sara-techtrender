@@ -2,6 +2,7 @@
   position: relative;
   text-align: center;
   height: 30rem;
+  border-radius: 8px;
 
   .spinner-wrapper {
     position: absolute;
@@ -36,15 +37,17 @@
     }
   }
 
-  .wordcloud-canvas {
-    display: block;
-    margin: 0 auto;
-    z-index: 1;
-    padding-bottom: 1rem;
-  }
-
   .wordcloud {
     font-size: smaller;
+  }
+
+  .wordcloud-canvas {
+    z-index: 1;
+    margin: 0 auto;
+    padding: 1rem; // ger luft INNANFÖR ramen
+    background-color: #fff; // om du vill ha vit bakgrund
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // valfritt: soft shadow för kontrast
   }
 }
 

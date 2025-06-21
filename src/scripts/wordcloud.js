@@ -36,11 +36,11 @@ export async function generateWordCloud() {
 
   WordCloud(document.getElementById('wordcloud'), {
     list: wordArray,
-    gridSize: 8,
-    weightFactor: 3,
+    gridSize: 4,
+    weightFactor: 8,
     fontFamily: 'Arial',
     color: 'random-dark',
-    backgroundColor: '#f0f0f0'
+    backgroundColor: '#ffffff'
   });
 
   spinner.classList.add('hidden');
