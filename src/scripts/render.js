@@ -14,6 +14,11 @@ import externalIcon from '../assets/images/external_icon.svg';
 import hackerNewsIcon from '../assets/images/hacker-news_black.svg';
 import gitHubBlackIcon from '../assets/images/github-mark_black.svg';
 import { generateWordCloud } from './wordcloud.js';
+import {
+  setSpinnerLoading,
+  setSpinnerResult,
+  setSpinnerError
+} from './spinner.js';
 
 /* console.log('geoCodeIcon:', geoCodeIcon);
  */

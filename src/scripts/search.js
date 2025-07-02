@@ -9,6 +9,12 @@
 import { searchGitHubRepos } from './github.js';
 import { searchHackerNews } from './hackernews.js';
 import { renderGitHubResults, renderHackerNewsResults } from './render.js';
+import {
+  setSpinnerLoading,
+  setSpinnerResult,
+  setSpinnerError,
+  setSpinnerStop
+} from './spinner.js';
 
 /**
  * Sets up the search logic manually.
@@ -56,6 +62,8 @@ export function setupSearch() {
       // Always render both repos and hits
       renderGitHubResults(repos);
       renderHackerNewsResults(hits);
+      setSpinnerLoading('github');
+      setSpinnerLoading('hackernews');
 
       // Afterwards hide the non active source
       if (source === 'github') {
@@ -69,8 +77,14 @@ export function setupSearch() {
         document.getElementById('hackernewsdata')?.classList.remove('hidden');
         document.getElementById('hackerheading')?.classList.remove('hidden');
       }
+      setSpinnerResult('github', 12);
+      setSpinnerResult('hackernews', 5);
+      setSpinnerStop('github');
+      setSpinnerStop('hackernews');
     } catch (error) {
       console.error('Search failed:', error);
+      setSpinnerError('github');
+      setSpinnerError('hackernews');
     }
   });
 }

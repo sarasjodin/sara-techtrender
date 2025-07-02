@@ -19,3 +19,32 @@ figcaption {
 .citat {
   padding: 1rem 0 0 0;
 }
+
+.source-label {
+  font-weight: 700;
+}
+
+.source-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-text {
+  display: flex;
+  gap: 0.3rem;
+  align-items: baseline;
+}
+
+span #source-status {
+  display: inline-flex !important;
+}
+
+#search-status > span:nth-child(2) > span.spinner-wrapper {
+  padding-left: 2rem;
+}
+
+.spinner.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}

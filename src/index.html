@@ -57,6 +57,8 @@
           <span class="icon">
             <svg
               class="icon-spinner"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
@@ -158,35 +160,72 @@
             </svg>
           </button>
         </form>
-        <p id="spinner-results">
-          <span class="icon">
-            <svg
-              class="icon spinner"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <circle
-                class="spinner-bg"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                stroke-opacity="0.2"
-                stroke-width="4"
-                fill="none"
-              />
-              <path
-                class="spinner-fg"
-                d="M22 12a10 10 0 00-10-10"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
-                fill="none"
-              />
-            </svg> </span
-          >Loading... / 0 hits / 32 hits
-        </p>
+        <!-- Search status shows up here -->
+        <div id="search-status" aria-live="polite">
+          <span class="source-status">
+            <span class="spinner-wrapper">
+              <svg
+                class="icon spinner github-spinner"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  class="spinner-bg"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-opacity="0.2"
+                  stroke-width="4"
+                  fill="none"
+                />
+                <path
+                  class="spinner-fg"
+                  d="M22 12a10 10 0 00-10-10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            <span class="source-label">GitHub:</span>
+            <span id="github-result">Loading...</span>
+          </span>
+
+          <span class="source-status">
+            <span class="spinner-wrapper">
+              <svg
+                class="icon spinner hackernews-spinner"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  class="spinner-bg"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-opacity="0.2"
+                  stroke-width="4"
+                  fill="none"
+                />
+                <path
+                  class="spinner-fg"
+                  d="M22 12a10 10 0 00-10-10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            <span class="source-label">Hacker News:</span>
+            <span id="hackernews-result">Loading...</span>
+          </span>
+        </div>
 
         <div
           id="sourcetoggle"
