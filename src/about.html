@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="TechTrends is a student project by Sara Sjödin Scolari that visualizes trending tech topics using real-time API data from sources like GitHub and NewsAPI."
+    />
+    <meta name="author" content="Sara Sjödin Scolari" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Saras TechTrends – Explore API-driven tech insights"
+    />
+    <meta
+      property="og:description"
+      content="A mashup project built with real-time API data from GitHub and the web."
+    />
+    <meta
+      property="og:image"
+      content="https://sara-tech-trends.netlify.app/saras-tech-trends.jpg"
+    />
+    <link rel="stylesheet" href="styles/main.scss" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <title>About | My TechTrends MashUp</title>
+    <script type="module" src="scripts/main.js" defer></script>
+  </head>
+  <body data-page="about">
+    <div class="app-wrapper about-page">
+      <div class="main-container">
+        <div class="header-container">
+          <header class="site-header">
+            <!-- App logo / profile illustration -->
+            <div class="logo-col">
+              <a
+                href="index.html"
+                class="logo-link"
+                aria-label="Go to homepage"
+              >
+                <img
+                  src="assets/images/sara_the_programmer.svg"
+                  alt="App icon"
+                  width="1"
+                  height="1"
+                />
+              </a>
+            </div>
+
+            <!-- Name of app -->
+            <div class="title-col">
+              <h1>
+                <span class="long-title">Sara&rsquo;s TechTrends</span>
+                <span class="title-medium">TechTrends</span>
+                <span class="title-small"> Tech<br />Trends </span>
+              </h1>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-col" aria-label="Site Navigation">
+              <ul>
+                <li class="nav-item">
+                  <a href="index.html">
+                    <span class="link-text">start</span
+                    ><span class="bullet" aria-hidden="true"></span
+                  ></a>
+                </li>
+                <li class="nav-item">
+                  <a href="about.html" aria-current="page">
+                    <span class="link-text">about</span
+                    ><span class="bullet" aria-hidden="true"></span
+                  ></a>
+                </li>
+              </ul>
+            </nav>
+          </header>
+        </div>
+        <section>
+          <h2>About TechTrends</h2>
+          <div class="auto-container">
+            <p class="auto-columns">
+              TechTrends is a mashup web app that reveals what’s trending in the
+              tech world and where, based on real-time GitHub activity and
+              Hacker News discussions. It helps tech enthusiasts discover
+              interesting topics, emerging technologies, relevant news, and
+              recently created code. By combining data from two major developer
+              platforms, TechTrends aims to inspire exploration of what’s hot,
+              where it’s happening, and why it matters.
+            </p>
+          </div>
+        </section>
+        <section>
+          <h2 id="mashup-heading">My Mashup site</h2>
+          <h3>What is a Mashup site?</h3>
+          <div class="auto-container">
+            <p class="auto-columns">
+              A mashup is a type of web app that combines data or functionality
+              from two or more external sources to create something new and
+              useful. Instead of building everything from scratch, it reuses
+              existing APIs and blends them into a seamless, interactive
+              experience. A good mashup feels like a single app, even though
+              it's built by combining several services behind the scenes.
+            </p>
+          </div>
+          <p>This mashup uses the following APIs</p>
+          <div class="auto-container">
+            <ul class="auto-columns">
+              <li>
+                GitHub REST API
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.513 11.513 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12.004 12.004 0 0024 12c0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </li>
+              <li>
+                Hacker News API
+                <img
+                  src="assets/images/hacker-news_black.svg"
+                  alt="THN logotype - The Hacker News"
+                  width="24"
+                  height="24"
+                  class="icon"
+                  loading="lazy"
+                />
+              </li>
+            </ul>
+          </div>
+          <div class="auto-container">
+            <p class="auto-columns">
+              <strong>GitHub</strong> is a platform where developers share and
+              collaborate on code. <br />
+              <strong>Hacker News</strong> is a tech-focused news site where
+              people share and discuss trends in programming and startups.
+            </p>
+          </div>
+        </section>
+        <section aria-labelledby="about-dev-heading">
+          <h2 id="about-dev-heading">About the Programmer</h2>
+          <div class="auto-container">
+            <p class="auto-columns">
+              I'm Sara Sjödin Scolari, a developer passionate about turning
+              complex data into clear, meaningful experiences. This mashup was
+              created as a hands-on exploration of how APIs can be securely
+              combined, visualized, and styled using modern web technologies. It
+              gave me the opportunity to deepen my skills in areas like
+              responsive design, accessibility, and build automation with tools
+              like Parcel, SCSS, and vanilla JavaScript — all without using
+              frontend frameworks.
+            </p>
+          </div>
+          <figure>
+            <img
+              class="profile_pic"
+              src="assets/images/developer-200x200.jpg"
+              alt="Portrait of Sara Sjödin Scolari"
+              width="160"
+              height="160"
+              loading="lazy"
+            />
+            <figcaption>I'm Sara, a passionate developer.</figcaption>
+          </figure>
+        </section>
+        <section aria-labelledby="flowchart-overview">
+          <h2 id="flowchart-overview">
+            Flowcharts – Site Overview and Module Logic
+          </h2>
+
+          <article>
+            <h3>General Site Functionality</h3>
+            <div class="flowcharts">
+              <figure>
+                <img
+                  src="assets/images/general-techtrends-flowchart.png"
+                  alt="Flowchart showing the general functionalities of the TechTrend mashup site"
+                  loading="lazy"
+                />
+                <figcaption>
+                  A high-level overview of how the site loads, handles user
+                  actions, triggers API calls, and renders results.
+                </figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article>
+            <h3>JavaScript Module Flow</h3>
+            <div class="flowcharts">
+              <figure>
+                <img
+                  src="assets/images/general-techtrends-flowchart.png"
+                  alt="Flowchart showing how JavaScript modules are imported and executed in the app"
+                  loading="lazy"
+                />
+                <figcaption>
+                  A technical view of how JS modules are loaded, initialized,
+                  and separated by DOM dependency.
+                </figcaption>
+              </figure>
+            </div>
+          </article>
+        </section>
+        <section aria-labelledby="api-structure-heading">
+          <h2 id="api-structure-heading">API Structures</h2>
+          <article aria-labelledby="github-api">
+            <h3 id="github-api">GitHub</h3>
+            <pre>
+  <code>
+  📂 <a href="https://api.github.com/search/repositories?q=java">GitHub API link searching for "Java"</a>
+  ├── total_count: (number - total matching repositories)
+  ├── incomplete_results: (boolean - true if some results are missing)
+  └── items: (array of repository objects)
+      ├── id: (number - unique repo ID)
+      ├── node_id: (string - global GraphQL ID)
+      ├── name: (string - repo name, e.g. "react")
+      ├── full_name: (string - "owner/repo", e.g. "facebook/react")
+      ├── owner: (object)
+      │   ├── login: (string - username)
+      │   ├── id: (number)
+      │   ├── avatar_url: (string - image URL)
+      │   └── html_url: (string - link to profile)
+      ├── html_url: (string - link to repo)
+      ├── description: (string - repo description)
+      ├── fork: (boolean - true if it's a fork)
+      ├── created_at: (string - ISO 8601 date)
+      ├── updated_at: (string - ISO 8601 date)
+      ├── pushed_at: (string - ISO 8601 date)
+      ├── stargazers_count: (number - stars)
+      ├── watchers_count: (number - watchers)
+      ├── language: (string - main language, e.g. "Java")
+      ├── forks_count: (number)
+      ├── open_issues_count: (number)
+      ├── license: (object or null)
+      │   └── name: (string - license name)
+      └── topics: (array of strings - requires preview header to show)
+  </code>
+  </pre>
+          </article>
+          <article aria-labelledby="hn-api">
+            <h3 id="hn-api">Hacker News</h3>
+            <pre>
+  <code>
+  📂<a href="https://hn.algolia.com/api/v1/search?query=java">Algolia API link searching for "Java"</a>
+  ├── hits: (array of objects)
+  │   ├─  _highlightResult
+  │   │     ├── author: object
+  │   │     ├── title: object
+  │   │     └── url: object
+  │   ├── _tags: (array of strings)
+  │   ├── author: (string)
+  │   ├── children: (array of numbers)
+  │   ├── created_at: (string - ISO 8601 date)
+  │   ├── created_at_i: (number - Unix timestamp)
+  │   ├── num_comments: (number)
+  │   ├── objectID: (string)
+  │   ├── points: (number)
+  │   ├── story_id: (number)
+  │   ├── title: (string)
+  │   ├── updated_at: (string - ISO 8601 date)
+  │   └── url: (string)
+  ├── hitsPerPage: (number - max 20 hits per page)
+  ├── nbHits: (number - total results that match the search)
+  ├── nbPages: (number - total max pages = 50)
+  ├── page: (number - current page index)
+  ├── params: (string - search string parameters)
+  ├── processingTimeMS: (number - milliseconds to process search)
+  └── query: (string - the actual search word used)
+  </code>
+  </pre>
+          </article>
+          <article aria-labelledby="wiki-api">
+            <h3 id="wiki-api">Wikipedia</h3>
+            <pre>
+  <code>
+  📂 <a href="https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=java">Wikipedia API link searching for "Java"</a>
+  ├── batchcomplete: (string - "true" if batch is complete)
+  ├── continue: (object - for pagination)
+  │   └── sroffset: (number - offset for next page)
+  └── query
+      └── search: (array of search result objects)
+          ├── ns: (number - namespace, 0 = main/articles)
+          ├── title: (string - article title)
+          ├── pageid: (number - unique ID for the page)
+          ├── size: (number - page size in bytes)
+          ├── wordcount: (number - number of words)
+          ├── snippet: (string - HTML fragment of matched text)
+          ├── timestamp: (string - ISO 8601 date last edited)
+  </code>
+  </pre>
+          </article>
+          <!-- <article aria-labelledby="so-api">
+            <h3 id="so-api">Stack Overflow</h3>
+            <pre>
+  <code>
+  📂 <a href="https://api.stackexchange.com/2.3/search?intitle=java&site=stackoverflow">StackOverflow API link searching for "Java"</a>
+  ├── items: (array of question objects)
+  │   ├── tags: (array of strings)
+  │   ├── owner: (object)
+  │   │   ├── user_id: (number)
+  │   │   ├── display_name: (string)
+  │   │   ├── profile_image: (string - avatar URL)
+  │   │   └── link: (string - profile URL)
+  │   ├── is_answered: (boolean)
+  │   ├── view_count: (number)
+  │   ├── answer_count: (number)
+  │   ├── score: (number)
+  │   ├── last_activity_date: (number - Unix timestamp)
+  │   ├── creation_date: (number - Unix timestamp)
+  │   ├── question_id: (number)
+  │   ├── title: (string)
+  │   └── link: (string - question URL)
+  ├── has_more: (boolean - if more results exist)
+  ├── quota_max: (number - max allowed requests)
+  └── quota_remaining: (number - remaining quota)
+  </code>
+  </pre>
+          </article>
+          <article aria-labelledby="ol-api">
+            <h3 id="ol-api">Open Library</h3>
+            <pre>
+  <code>
+  📂 <a href="https://openlibrary.org/search.json?q=java">Open Library API link searching for "Java"</a>
+  ├── numFound: (number - total results)
+  ├── start: (number - offset)
+  └── docs: (array of book objects)
+      ├── title: (string)
+      ├── author_name: (array of strings)
+      ├── first_publish_year: (number)
+      ├── edition_count: (number)
+      ├── subject: (array of strings)
+      ├── key: (string - e.g. "/works/OL12345W")
+      ├── isbn: (array of strings)
+      ├── publish_year: (array of numbers)
+      ├── publisher: (array of strings)
+      └── language: (array of strings - e.g. "eng")
+  </code>
+  </pre>
+          </article> -->
+        </section>
+      </div>
+      <footer>
+        <div class="footer-container">
+          <!-- Vänster kolumn -->
+          <div class="footer-col footer-left">
+            <h2>This site</h2>
+            <a href="index.html" class="logo-link" aria-label="Go to homepage">
+              <img
+                src="assets/images/sara_the_programmer.svg"
+                alt="App icon"
+                class="footer-icon"
+                width="1"
+                height="1"
+                loading="lazy"
+            /></a>
+            <p class="footer-app-name">
+              Sara&rsquo;s Tech<wbr />Trends
+              <br />
+              © <span id="current-year"></span> Sara Sjödin Scolari
+            </p>
+            <h3>More Porfolio work</h3>
+            <ul>
+              <li>
+                <a
+                  class="portfolio-links"
+                  href="https://sarasjodin.github.io/my-todo-app/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  My Vite Todo app
+                </a>
+              </li>
+              <li>
+                <a
+                  class="portfolio-links"
+                  href="https://my-angular-api-requests-lab.netlify.app/home"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  >My Angular API course app</a
+                >
+              </li>
+              <li>
+                <a
+                  class="portfolio-links"
+                  href="https://saras-portfolio.netlify.app/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  >Some older portfolio work</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Mittenkolumn -->
+          <div class="footer-col footer-center">
+            <h2>The purpose</h2>
+            <p>
+              This pro&shy;ject was creat&shy;ed as part of my web
+              develop&shy;ment stud&shy;ies at
+              <strong>Mid Sweden Uni&shy;versi&shy;ty</strong>, this course
+              focus was on mash&shy;ups and API-inte&shy;grat&shy;ion.
+            </p>
+            <h2>Technology stack</h2>
+            <p>
+              Powered by JavaScript, SCSS, Parcel, and Git. Includes responsive
+              design, API mashups, and automated deployment.
+            </p>
+          </div>
+
+          <!-- Höger kolumn -->
+          <div class="footer-col footer-right">
+            <h2>Contact me</h2>
+            <p class="icons-container">
+              <a
+                href="mailto:sara@sarasjodin.com"
+                class="icon-wrapper"
+                aria-label="Email"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                  <g class="mailbkg">
+                    <rect width="32" height="32" />
+                  </g>
+                  <g>
+                    <g class="mail">
+                      <rect
+                        x="6.58"
+                        y="9.03"
+                        width="18.83"
+                        height="13.95"
+                        class="stroke-line"
+                      />
+                      <polygon
+                        points="16 18.64 6.58 9.03 25.42 9.03 16 18.64"
+                        class="stroke-line"
+                      />
+                      <line
+                        x1="6.58"
+                        y1="22.97"
+                        x2="14.5"
+                        y2="17.11"
+                        class="stroke-line"
+                      />
+                      <line
+                        x1="25.42"
+                        y1="22.97"
+                        x2="17.5"
+                        y2="17.11"
+                        class="stroke-line"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </a>
+
+              <a
+                href="https://github.com/sarasjodin"
+                class="icon-wrapper"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Sara's GitHub"
+              >
+                <svg
+                  class="github-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    class="gh-logo"
+                    d="M16.01,6.74c-5.21,0-9.42,4.24-9.42,9.49,0,4.2,2.7,7.75,6.44,9.01.47.09.64-.2.64-.46,0-.22-.02-.97-.02-1.76-2.62.57-3.17-1.13-3.17-1.13-.42-1.1-1.05-1.38-1.05-1.38-.86-.58.06-.58.06-.58.95.06,1.45.97,1.45.97.84,1.45,2.2,1.04,2.75.79.08-.61.33-1.04.59-1.27-2.09-.22-4.29-1.04-4.29-4.68,0-1.04.37-1.89.97-2.55-.09-.24-.42-1.21.09-2.52,0,0,.8-.25,2.59.97.77-.21,1.56-.31,2.36-.31.8,0,1.61.11,2.36.31,1.79-1.23,2.59-.97,2.59-.97.52,1.3.19,2.28.09,2.52.61.66.97,1.51.97,2.55,0,3.65-2.2,4.45-4.31,4.68.34.3.64.86.64,1.76,0,1.27-.02,2.29-.02,2.61,0,.25.17.55.64.46,3.74-1.26,6.44-4.81,6.44-9.01.02-5.25-4.21-9.49-9.41-9.49Z"
+                  />
+                  <path
+                    class="gh-bkg"
+                    d="M0,0v32h32V0H0ZM18.97,25.24c-.47.09-.64-.2-.64-.46,0-.31.02-1.34.02-2.61,0-.9-.3-1.46-.64-1.76,2.11-.24,4.31-1.04,4.31-4.68,0-1.04-.36-1.89-.97-2.55.09-.24.42-1.21-.09-2.52,0,0-.8-.25-2.59.97-.75-.2-1.56-.31-2.36-.31-.8,0-1.59.11-2.36.31-1.79-1.23-2.59-.97-2.59-.97-.52,1.3-.19,2.28-.09,2.52-.59.66-.97,1.51-.97,2.55,0,3.65,2.2,4.46,4.29,4.68-.27.24-.52.66-.59,1.27-.55.25-1.9.66-2.75-.79,0,0-.5-.91-1.45-.97,0,0-.92,0-.06.58,0,0,.62.28,1.05,1.38,0,0,.55,1.7,3.17,1.13,0,.79.02,1.54.02,1.76,0,.25-.17.55-.64.46-3.74-1.26-6.44-4.81-6.44-9.01,0-5.25,4.21-9.49,9.42-9.49s9.42,4.24,9.41,9.49c0,4.2-2.7,7.75-6.44,9.01Z"
+                  />
+                </svg>
+              </a>
+            </p>
+
+            <p>Sara Sjödin Scolari</p>
+            <h3>Places I call home:</h3>
+            <ul>
+              <li>Milan, Italy</li>
+              <li>Valpiana, VC, Italy</li>
+              <li>Stockholm, Sweden</li>
+              <li>Myckelgensjö, Sweden</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

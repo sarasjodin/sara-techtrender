@@ -3,7 +3,11 @@
     "checkJs": true, // Aktivera typkontroll för JS-filer (då behöver vi inte heller ange // @ts-check högst upp i varje .js-fil)
     "allowJs": true, // Tillåt JS-filer i projektet (ej bara TS)
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "lib": ["es2015", "dom"]
   },
-  "include": ["./"] // Inkludera alla filer i projektroten
+  "include": [
+    "./", // Inkludera alla filer i projektroten
+    "src/**/*" // Inkludera alla filer i src-mappen
+  ]
 }

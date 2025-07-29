@@ -1,20 +1,31 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixin;
 
-// Global typografi
 .title {
   margin: 0px !important;
 }
 
-h2 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: large;
-  padding-top: 1rem;
+$font-body: 'Open Sans', sans-serif;
+$font-heading: 'Poppins', sans-serif;
+$font-decorative: 'Caveat', cursive;
+
+body {
+  font-family: $font-body;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  line-height: clamp(1.3rem, 4vw, 2.2rem);
+  color: #111;
+  background-color: #fff;
 }
 
-#about-view p {
-  padding: 1rem 2rem 2rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-heading;
+  font-weight: 600;
+  margin-top: clamp(1rem, 3vw, 1.2rem);
 }
 
 .button-api {
@@ -22,10 +33,109 @@ h2 {
   font-weight: 500;
 }
 
-// Specifika rubrikstilar
+.title-col h1 {
+  font-family: $font-heading;
+  font-size: clamp(1.4rem, 4vw, 2.7rem);
+  line-height: clamp(1.3rem, 4vw, 3rem);
+}
 
-//@include mixin.respond-to('xl') {
-//  .company-name {
-//    font-size: 1.4rem;
-//  }
-//}
+h2 {
+  font-family: $font-heading;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: 600;
+  margin-bottom: clamp(0.4rem, 1vw, 1rem);
+}
+
+h3 {
+  font-family: $font-heading;
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
+  font-weight: 400;
+  margin-bottom: clamp(0.4rem, 1vw, 0.6rem);
+}
+
+h3.repo-title,
+.article-header h3 {
+  margin: 0;
+}
+
+h4 {
+  font-family: $font-heading;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: clamp(0.3rem, 1vw, 0.4rem);
+  color: #5d5d5d;
+}
+
+.nav-item {
+  font-family: $font-body;
+  font-weight: 400;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  padding: clamp(0.4rem, 1vw, 1rem) clamp(0.6rem, 2vw, 1.5rem);
+}
+
+footer {
+  font-family: $font-body;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  line-height: clamp(1.8rem, 2vw, 2.2rem);
+  color: #333;
+}
+
+.footer-app-name {
+  font-family: unset;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.footer-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+p {
+  margin-bottom: clamp(1.5rem, 3vw, 1.8rem);
+  margin-top: clamp(0.5rem, 3vw, 0.8rem);
+}
+
+figcaption {
+  font-family: $font-body;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: #666;
+  text-align: center;
+  margin-top: clamp(0.5rem, 3vw, 0.8rem);
+}
+
+span.link-text a {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+#searchinput {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+}
+
+footer h2 {
+  font-family: $font-heading;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-weight: 600;
+  margin-bottom: clamp(0.2rem, 1vw, 0.4rem);
+}
+
+footer h3 {
+  font-family: $font-heading;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-weight: 400;
+  margin-bottom: clamp(0.2rem, 1vw, 0.4rem);
+}
+
+footer p {
+  line-height: clamp(1.8rem, 3vw, 2.3rem);
+}

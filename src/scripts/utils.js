@@ -1,45 +1,86 @@
 /**
- * @file github.js
- * @description Fetches and renders GitHub data
- * @author Sara Sjödin Scolari
+ * Removes all HTML tags from a string and truncates it to a maximum number of characters.
+ *
+ * @function truncateHtmlText
+ * @param {string} htmlString - The input string that may contain HTML.
+ * @param {number} maxChars - The maximum number of characters to return
+ * @returns {string} The cleaned and truncated text with ellipsis (...) if truncated.
  */
+export function truncateHtmlText(htmlString, maxChars) {
+  const div = document.createElement('div');
+  div.innerHTML = htmlString;
 
+  const text = div.textContent || div.innerText || '';
+
+  console.log(`truncateHtmlText() used`);
+
+  return text.length > maxChars ? text.slice(0, maxChars).trim() + '…' : text;
+}
 
 /**
- * Searches for GitHub repositories matching the query.
- * @param {string} query - The search term.
- * @returns {Promise<Array>} A list of repository objects.
+ * Formats an ISO 8601 date string to "YYYY/MM/DD HH:mm".
+ *
+ * @function formatDate
+ * @param {string} isoDateStr An ISO date string (for example "2025-07-25T10:30:00Z").
+ * @returns {string} - The formatted date string "YYYY/MM/DD HH:mm".
  */
-const GITHUB_TOKEN = process.env.GITHUB_KEY_1;
+export function formatDate(isoDateStr) {
+  const date = new Date(isoDateStr);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // months are 0-indexed
+  const day = String(date.getDate()).padStart(2, '0');
+  const hour = String(date.getHours()).padStart(2, '0');
+  const minute = String(date.getMinutes()).padStart(2, '0');
 
-export async function searchGitHubRepos(query) {
-  /* console.log('Query sent to github'); */
-  const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(
-    query
-  )}+in:name&sort=updated&order=desc`;
-  const response = await fetch(url);
-  const data = await response.json();
-  /* console.log('Fetched GitHub data:', data.items); */
-  return data.items || [];
+  console.log(`formatDate() used`);
+
+  return `${year}/${month}/${day} ${hour}:${minute}`;
 }
 
-export async function getUserLocation(apiUrl) {
-  const response = await fetch(apiUrl, {
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN}`
-    }
-  });
+/**
+ * Scales canvas to device resolution for better clarity on retina/high-res screens
+ * @param {HTMLCanvasElement} canvas
+ */
+export function scaleCanvasToDevice(canvas) {
+  const ratio = window.devicePixelRatio || 2;
 
-  if (!response.ok) {
-    console.error('GitHub API error:', response.status);
-    return null;
-  }
+  const cssWidth = canvas.offsetWidth;
+  const cssHeight = canvas.offsetHeight;
 
-  const data = await response.json();
-  /* console.log('Fetched UserLocation:', data.location); */
-  return data.location || null;
+  canvas.width = cssWidth * ratio;
+  canvas.height = cssHeight * ratio;
+
+  canvas.style.width = `${cssWidth}px`;
+  canvas.style.height = `${cssHeight}px`;
+  console.log(`WordCloud canvas scaled to device`);
 }
 
+/**
+ * Cleans up and returns the search query from an input element.
+ * Removes special characters and trims whitespace.
+ *
+ * @param {HTMLInputElement} input - The input element containing the raw query.
+ * @returns {string} The cleaned and lowercase query.
+ */
+export function getSearchQuery(input) {
+  return input.value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]/g, '');
+}
+
+/**
+ * Attempts to extract a 2-letter ISO country code from a free-form location string.
+ *
+ * The function checks if the provided location includes known country names or common variants
+ * ("usa", "united states", "germany") and returns a matching ISO 3166-1 alpha-2 country code ("us", "de").
+ *
+ * If no match is found, it returns null.
+ *
+ * @function extractCountryCode
+ * @param {string} [location=''] - A user-defined location string to analyze
+ * @returns {string|null} A lowercase ISO 3166-1 alpha-2 country code, or null if no match is found.
+ */
 export function extractCountryCode(location = '') {
   if (!location) return null;
 

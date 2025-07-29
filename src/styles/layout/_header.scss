@@ -1,2 +1,36 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixin;
+
+.header-container {
+  width: 100%;
+  background-color: white;
+  padding-top: 2rem;
+  --s: 200px;
+  --c1: #ffffff;
+  --c2: #f5f6f7;
+  --c3: #f1f1f1;
+
+  background: repeating-conic-gradient(
+        from 30deg,
+        #0000 0 120deg,
+        var(--c3) 0 50%
+      )
+      calc(var(--s) / 2) calc(var(--s) * tan(30deg) / 2),
+    repeating-conic-gradient(
+      from 30deg,
+      var(--c1) 0 60deg,
+      var(--c2) 0 120deg,
+      var(--c3) 0 50%
+    );
+  background-size: var(--s) calc(var(--s) * tan(30deg));
+}
+
+header {
+  width: clamp(300px, 90vw, 1200px);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(0.5rem, 2vw, 3rem);
+}

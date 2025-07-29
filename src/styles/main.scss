@@ -21,6 +21,7 @@
 @use 'layout/sections';
 
 // 4. Komponenter (buttons, cards, modals etc.)
+@use 'components/code';
 @use 'components/animations';
 @use 'components/buttons';
 @use 'components/menu';
@@ -31,9 +32,11 @@
 @use 'components/icons';
 @use 'components/keyframes';
 @use 'components/wordcloud';
+@use 'components/flowcharts';
 
 // 5. Sid-specifika stilar (om tillämpligt)
 @use 'pages/index';
+@use 'pages/about';
 
 // 6. Teman (valfritt, om du använder teman)
 @use 'themes/theme';

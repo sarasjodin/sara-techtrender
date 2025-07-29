@@ -1,0 +1,16 @@
+.flowcharts {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: auto;
+  padding: 1rem;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    border-radius: 0.5rem;
+  }
+}

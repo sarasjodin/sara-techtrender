@@ -1,22 +1,6 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixin;
 
-// The two "bullet buttons" top right, to navigate the views
-
-.tab-nav button {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid #333;
-  background-color: transparent;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.tab-nav button.active {
-  background-color: #333; // Filled circle
-}
-
 // Base style for the search button
 .button {
   display: inline-block;
@@ -76,7 +60,7 @@
 
   &:focus {
     outline: 2px solid vars.$focus;
-    outline-offset: 2px;
+    outline-offset: 0;
   }
 
   .active {
@@ -154,5 +138,3 @@
     }
   }
 }
-
-

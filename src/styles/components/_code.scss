@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixin;
+
+pre::before {
+  content: '📂 API Response';
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+  background: #fdfdfd;
+  color: #000;
+  font-size: 0.875rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  line-height: 1.4;
+  white-space: pre;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  -webkit-overflow-scrolling: touch; // mjuk scroll på iOS
+}
+
+code {
+  font-family: 'Courier New', monospace;
+  font-size: inherit;
+}

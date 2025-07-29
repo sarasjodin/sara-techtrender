@@ -1,2 +1,41 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixin;
+
+/* Eventuellt för fade-out effekter när spinner döljs */
+.spinner-wrapper.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.spinner-wrapper {
+  text-align: center;
+}
+
+#status-section .spinner-wrapper {
+  text-align: left;
+}
+
+.status-label {
+  font-weight: bold;
+  color: #535353;
+  font-family: 'Inter', sans-serif;
+}
+
+#status-message-loading-hackernews,
+#status-message-loading-github {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.spinner {
+  animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
