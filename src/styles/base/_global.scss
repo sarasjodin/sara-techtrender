@@ -31,3 +31,29 @@ body {
 .hidden {
   display: none !important;
 }
+
+// message rows to toggle visible/hide
+.message-region:empty {
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.message-region {
+  visibility: visible;
+  transition: all 0.2s ease-in-out;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

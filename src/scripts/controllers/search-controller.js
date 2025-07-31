@@ -5,8 +5,18 @@
  */
 
 import { spinner } from '../components/spinner.js';
-import { showAllSources } from './spinner-controller.js';
 import { generateQuote } from '../components/quotes.js';
+import { fetchGithubRepos, renderGithubCards } from '../api/github-api.js';
+import {
+  fetchHackerNewsArticles,
+  renderHackerNewsList
+} from '../api/hackernews-api.js';
+import {
+  showStatusSection,
+  prepareForSearch,
+  showAfterFetch,
+  toggleDataSource
+} from './ui-controller.js';
 import { getSearchQuery } from '../utils.js';
 
 /**
@@ -19,69 +29,12 @@ import { getSearchQuery } from '../utils.js';
 export function initSearchUI() {
   updatePlaceholder();
   window.addEventListener('resize', updatePlaceholder);
-  console.log('Search placeholder updated när devicestorlek ändras');
 }
 
 /**
- * Updates the search input's placeholder depending on screen size.
- * @returns {void}
- */
-function updatePlaceholder() {
-  const input = document.getElementById('searchinput');
-  if (!input) return;
-  console.log('Search placeholder updated depending on device size');
-  if (window.innerWidth < 600) {
-    input.placeholder = 'Search...';
-  } else {
-    input.placeholder = 'Search tech words like Python, React, or AI';
-  }
-}
-
-/**
- * Returns the value of the selected source radio button.
- * @returns {'github' | 'hn' | null}
- */
-function getSelectedSource() {
-  const checked = document.querySelector('input[name="source"]:checked');
-  return checked instanceof HTMLInputElement ? checked.value : null;
-}
-
-/**
- * Updates the UI to show or hide sections based on the selected source.
+ * Sets up the search functionality by handling user input and search button actions.
  *
- * @param {'github' | 'hn'} source - The data source selected by the user.
- * @returns {void}
- */
-function updateUIAfterSearch(source) {
-  const githubData = document.getElementById('githubdata');
-  const githubHeading = document.getElementById('githubheading');
-  const hnData = document.getElementById('hackernewsdata');
-  const hnHeading = document.getElementById('hackerheading');
-  const toggle = document.getElementById('sourcetoggle');
-  const buttonGithub = document.getElementById('button-github');
-  const buttonHN = document.getElementById('button-hn');
-
-  toggle?.classList.remove('hidden');
-
-  if (source === 'github') {
-    githubData?.classList.remove('hidden');
-    githubHeading?.classList.remove('hidden');
-    hnData?.classList.add('hidden');
-    hnHeading?.classList.add('hidden');
-  } else {
-    buttonGithub?.classList.remove('hidden');
-    buttonHN?.classList.remove('hidden');
-    githubData?.classList.remove('hidden');
-    githubHeading?.classList.add('hidden');
-    hnData?.classList.remove('hidden');
-    hnHeading?.classList.remove('hidden');
-  }
-}
-
-/**
- * Sets up the search input and button functionality.
- * Cleans the input, fetches data, updates UI and shows a new quote.
- *
+ * @function setupSearch
  * @returns {void}
  */
 export function setupSearch() {
@@ -90,24 +43,85 @@ export function setupSearch() {
 
   if (!(input instanceof HTMLInputElement)) return;
 
+  // Search triger with Enter
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      button.click(); // Triggar klick-eventet
+    }
+  });
+
   button.addEventListener('click', async (e) => {
     e.preventDefault();
 
     const query = getSearchQuery(input);
     if (!query) return;
 
-    const source = getSelectedSource();
+    // Prepare UI before rendering
+    prepareForSearch();
 
     try {
-      await showAllSources(query);
-      generateQuote();
-      updateUIAfterSearch(source);
+      const [ghData, hnData] = await Promise.all([
+        fetchGithubRepos(query),
+        fetchHackerNewsArticles(query)
+      ]);
 
-      input.value = ''; // Serach input cleared
+      showAfterFetch(); // Show toggle/data
+      renderGithubCards(ghData);
+      renderHackerNewsList(hnData);
+
+      input.value = ''; // Clear input
+
+      generateQuote();
     } catch (error) {
       console.error('Search failed:', error);
       spinner.error('github');
       spinner.error('hackernews');
     }
+
+    // Add eventlisteners for buttons
+    document.getElementById('radio-github').addEventListener('change', () => {
+      toggleDataSource('github');
+    });
+    document
+      .getElementById('radio-hackernews')
+      .addEventListener('change', () => {
+        toggleDataSource('hackernews');
+      });
   });
+}
+
+/**
+ * Updates the search input's placeholder depending on screen size.,
+ * @function updatePlaceholder
+ * @returns {void}
+ */
+function updatePlaceholder() {
+  const input = document.getElementById('searchinput');
+  if (!input) return;
+  if (window.innerWidth < 600) {
+    input.placeholder = 'Search...';
+  } else {
+    input.placeholder = 'Search tech words like Python, React, or AI';
+  }
+}
+
+/**
+ * Updates the UI after a search - showing the status and resetting the input.
+ * @function updateUIAfterSearch
+ * @param {string} term - The search term to save
+ * @returns {Promise<void>}
+ */
+export function updateUIAfterSearch(term) {
+  const input = document.querySelector('#searchinput');
+
+  // Screenreaders have been included
+  showStatusSection();
+
+  if (input) input.value = '';
+
+  if (!term || typeof term !== 'string' || term.trim().length === 0) {
+    console.warn('[updateUIAfterSearch] No valid term, skipping UI update');
+    return;
+  }
 }

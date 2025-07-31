@@ -12,8 +12,6 @@ export function truncateHtmlText(htmlString, maxChars) {
 
   const text = div.textContent || div.innerText || '';
 
-  console.log(`truncateHtmlText() used`);
-
   return text.length > maxChars ? text.slice(0, maxChars).trim() + '…' : text;
 }
 
@@ -32,14 +30,14 @@ export function formatDate(isoDateStr) {
   const hour = String(date.getHours()).padStart(2, '0');
   const minute = String(date.getMinutes()).padStart(2, '0');
 
-  console.log(`formatDate() used`);
-
   return `${year}/${month}/${day} ${hour}:${minute}`;
 }
 
 /**
  * Scales canvas to device resolution for better clarity on retina/high-res screens
- * @param {HTMLCanvasElement} canvas
+ * @function scaleCanvasToDevice
+ * @param {HTMLCanvasElement} canvas - The canvas to scale
+ * @returns {void}
  */
 export function scaleCanvasToDevice(canvas) {
   const ratio = window.devicePixelRatio || 2;
@@ -52,13 +50,12 @@ export function scaleCanvasToDevice(canvas) {
 
   canvas.style.width = `${cssWidth}px`;
   canvas.style.height = `${cssHeight}px`;
-  console.log(`WordCloud canvas scaled to device`);
 }
 
 /**
  * Cleans up and returns the search query from an input element.
  * Removes special characters and trims whitespace.
- *
+ * @function getSearchQuery
  * @param {HTMLInputElement} input - The input element containing the raw query.
  * @returns {string} The cleaned and lowercase query.
  */
@@ -78,8 +75,8 @@ export function getSearchQuery(input) {
  * If no match is found, it returns null.
  *
  * @function extractCountryCode
- * @param {string} [location=''] - A user-defined location string to analyze
- * @returns {string|null} A lowercase ISO 3166-1 alpha-2 country code, or null if no match is found.
+ * @param {string} [location=''] A user-defined location string to analyze
+ * @returns {string|null} A two-letter country code, or null if no match
  */
 export function extractCountryCode(location = '') {
   if (!location) return null;

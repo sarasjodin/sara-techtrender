@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: .28px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-3, .cls-4 {
+        stroke: #646464;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        stroke-width: .49px;
+      }
+
+      .cls-4 {
+        stroke-width: .36px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" width="24" height="24"/>
+  <rect class="cls-4" x="4.38" y="3.04" width="15.23" height="17.93"/>
+  <g>
+    <line class="cls-3" x1="6.08" y1="5.84" x2="17.92" y2="5.84"/>
+    <line class="cls-1" x1="6.08" y1="8.22" x2="17.92" y2="8.22"/>
+    <line class="cls-1" x1="6.08" y1="10.6" x2="17.92" y2="10.6"/>
+    <line class="cls-1" x1="6.08" y1="12.98" x2="17.92" y2="12.98"/>
+    <line class="cls-1" x1="6.08" y1="15.36" x2="17.92" y2="15.36"/>
+    <line class="cls-1" x1="6.08" y1="17.74" x2="17.92" y2="17.74"/>
+  </g>
+</svg>

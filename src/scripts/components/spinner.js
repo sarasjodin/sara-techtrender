@@ -29,7 +29,7 @@ function setSpinnerLoading(source) {
       textSpan.textContent =
         source === 'github'
           ? 'GitHub repos loading...'
-          : 'HackerNews articles loading...';
+          : 'Hacker News articles loading...';
     }
   }
 }
@@ -53,7 +53,7 @@ function setSpinnerResult(source, hits) {
   }
 
   if (source === 'hackernews' && hnText) {
-    hnText.innerHTML = `<span class="status-label">HackerNews articles loaded:</span> ${hits}`;
+    hnText.innerHTML = `<span class="status-label">Hacker News articles loaded:</span> ${hits}`;
   }
 
   // For Wordcloud – different setup
@@ -104,6 +104,7 @@ function setSpinnerError(source) {
 
 /**
  * Exported spinner controller with loading, result and error states.
+ * All three functions exported "together"
  *
  * @constant
  * @type {Object}

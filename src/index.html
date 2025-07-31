@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="description"
       content="TechTrends is a student project by Sara Sjödin Scolari that visualizes trending tech topics using real-time API data from sources like GitHub and NewsAPI."
@@ -12,7 +12,7 @@
     <meta name="robots" content="index, follow" />
     <meta
       property="og:title"
-      content="Saras TechTrends – Explore API-driven tech insights"
+      content="Saras TechTrends - Explore API-driven tech insights"
     />
     <meta
       property="og:description"
@@ -29,7 +29,7 @@
       rel="stylesheet"
     />
     <title>Home | My TechTrends MashUp</title>
-    <script type="module" src="scripts/main.js" defer></script>
+    <script type="module" src="scripts/main.js"></script>
   </head>
   <body data-page="index">
     <div class="app-wrapper index-page">
@@ -45,7 +45,7 @@
               >
                 <img
                   src="assets/images/sara_the_programmer.svg"
-                  alt="App icon"
+                  alt="Illustration of a modern female developer wearing a black T-shirt with a white code symbol (&lt;/&gt;)"
                   width="1"
                   height="1"
                 />
@@ -81,15 +81,16 @@
           </header>
         </div>
 
-        <section>
+        <section class="wc-section">
           <div class="wordcloud-container">
             <h2>
               <img
                 src="assets/images/star_black.svg"
-                alt="Star icon for Popular repos"
+                alt=""
                 width="24"
                 height="24"
                 class="icon"
+                aria-hidden="true"
               />
               Trending concepts
             </h2>
@@ -106,7 +107,6 @@
                 height="24"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
               >
                 <circle
                   cx="12"
@@ -133,15 +133,22 @@
             </div>
 
             <!-- Word Cloud Canvas -->
-            <figure>
+            <figure aria-labelledby="wordcloud-caption wordcloud-description">
               <canvas
+                role="img"
+                aria-describedby="wordcloud-caption wordcloud-description"
                 class="wordcloud-canvas"
-                aria-label="Word cloud generated from GitHub and Hacker News trends"
               ></canvas>
-              <figcaption class="hidden" id="wordcloud-caption">
+              <figcaption id="wordcloud-caption">
                 Popular tech terms collected in real time from GitHub & Hacker
                 News
               </figcaption>
+              <p id="wordcloud-description" class="visually-hidden">
+                This word cloud shows the most commonly used technical terms
+                found today on GitHub and Hacker News. Larger words appear more
+                frequently and reflect what's trending right now in developer
+                discussions and open-source activity.
+              </p>
             </figure>
           </div>
         </section>
@@ -149,19 +156,18 @@
           <h2>
             <img
               src="assets/images/magnifier_search.svg"
-              alt="Search icon"
+              alt=""
               width="24"
               height="24"
               class="icon"
+              aria-hidden="true"
             />Search repos and articles
           </h2>
           <p>Discover the latest tech trends</p>
 
           <!-- Search bar -->
           <form id="search-form" class="search-bar" role="search">
-            <label for="search-input" class="visually-hidden"
-              >Search term</label
-            >
+            <label for="searchinput" class="visually-hidden">Search term</label>
             <input
               type="text"
               id="searchinput"
@@ -214,18 +220,25 @@
             >
           </p>
         </section>
-        <section
-          id="status-section"
-          class="hidden"
-          aria-hidden="true"
-          aria-live="polite"
-        >
+        <section id="status-section" hidden>
+          <h2>Search hits and info</h2>
           <!-- Default intro message -->
-          <p id="status-message-default"></p>
+          <!-- <p id="status-message-default"></p> -->
+          <p
+            id="status-message--default"
+            class="message-region wordlist-updated"
+            aria-live="polite"
+          >
+            <!-- Loading messages with spinners -->
+          </p>
 
-          <!-- Loading messages with spinners -->
           <div class="spinner-wrapper" id="spinner-github">
-            <p id="status-message-loading-github" class="github">
+            <!-- <p id="status-message-loading-github" class="github"> -->
+            <p
+              id="status-message--loading--github"
+              class="message-region status-loading github"
+              aria-live="polite"
+            >
               <span class="spinner-inline github-spinner" aria-hidden="true">
                 <svg
                   class="spinner"
@@ -233,7 +246,6 @@
                   height="24"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
                 >
                   <circle
                     cx="12"
@@ -258,7 +270,12 @@
           </div>
 
           <div class="spinner-wrapper" id="spinner-hackernews">
-            <p id="status-message-loading-hackernews" class="hackernews">
+            <!-- <p id="status-message-loading-hackernews" class="hackernews"> -->
+            <p
+              id="status-message--loading--hackernews"
+              class="message-region status-loading hackernews"
+              aria-live="polite"
+            >
               <span
                 class="spinner-inline hackernews-spinner"
                 aria-hidden="true"
@@ -269,7 +286,6 @@
                   height="24"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
                 >
                   <circle
                     cx="12"
@@ -289,7 +305,7 @@
                   />
                 </svg>
               </span>
-              <span class="spinner-text">HackerNews articles loading...</span>
+              <span class="spinner-text">Hacker News articles loading...</span>
             </p>
           </div>
           <p id="status-message-tips">
@@ -300,121 +316,188 @@
           </p>
 
           <!-- Error summary -->
-          <p id="status-message-error-github" class="hidden" role="alert">
-            GitHub repos error: <span id="github-result">...</span>
+          <!-- <p id="status-message-error-github" class="hidden" role="alert"> -->
+          <p
+            id="status-message--error--github"
+            class="message-region status-error github"
+            role="alert"
+          >
+            GitHub repos error: <span id="github-result"></span>
           </p>
-          <p id="status-message-error-hackernews" class="hidden" role="alert">
-            HackerNews articles error: <span id="hackernews-result">...</span
+          <!-- <p id="status-message-error-hackernews" class="hidden" role="alert"> -->
+          <p
+            id="status-message--error--hackernews"
+            class="message-region status-error hackernews"
+            role="alert"
+          >
+            Hacker News articles error: <span id="hackernews-result"></span
             ><br />
           </p>
         </section>
-        <section>
-          <div
-            id="sourcetoggle"
-            class="source-toggle hidden"
-            role="radiogroup"
-            aria-label="Välj datakälla"
-          >
-            <label class="button-api button-github">
-              <input
-                type="radio"
-                name="source"
-                value="github"
-                id="github-data"
-                aria-hidden="false"
-                checked
-              />
-              <span class="content">
-                <span class="icon github-icon" aria-hidden="true">
-                  <svg fill="currentColor" class="icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0C5.37 0 0 5.373 0 12a12 12 0 0 0 8.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12 12 0 0 0 24 12c0-6.627-5.373-12-12-12"
-                    ></path>
-                  </svg>
-                </span>
-                <span class="label">GitHub</span>
-              </span>
-            </label>
-
-            <label class="button-api button-hn">
-              <input type="radio" name="source" value="hn" id="hn-data" />
-              <span class="content">
-                <span class="icon hn-icon"
-                  ><svg
-                    fill="currentColor"
-                    id="Layer_1"
-                    data-name="Layer 1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <defs>
-                      <style>
-                        .cls-1 {
-                          fill: #fff;
-                        }
-
-                        .cls-2 {
-                          fill: currentColor;
-                        }
-                      </style>
-                    </defs>
-                    <g>
+        <section id="source-data-section" hidden>
+          <div id="sourcetoggle" class="toggle-source-ui" hidden>
+            <fieldset aria-labelledby="source-label">
+              <legend id="source-label">
+                Choose your source of inspiration
+              </legend>
+              <label class="button-api button-github">
+                <input
+                  type="radio"
+                  name="source"
+                  value="github"
+                  id="radio-github"
+                  checked
+                />
+                <span class="content">
+                  <span class="icon github-icon" aria-hidden="true">
+                    <svg fill="currentColor" class="icon" viewBox="0 0 24 24">
                       <path
-                        class="cls-2"
-                        d="M12,23C5.93,23,1,18.07,1,12S5.93,1,12,1s11,4.93,11,11-4.93,11-11,11Z"
-                      />
-                      <path
-                        class="cls-1"
-                        d="M12,2c5.51,0,10,4.49,10,10s-4.49,10-10,10S2,17.51,2,12,6.49,2,12,2M12,0C5.37,0,0,5.37,0,12s5.37,12,12,12,12-5.37,12-12S18.63,0,12,0h0Z"
-                      />
-                    </g>
-                    <path
-                      class="cls-1"
-                      d="M13.28,13.98v4.4c0,.06-.02.12-.06.17-.04.05-.11.09-.21.13-.1.03-.23.06-.39.08s-.37.03-.61.03-.46-.01-.62-.03-.29-.04-.39-.08c-.1-.03-.17-.07-.21-.13s-.06-.11-.06-.17v-4.4l-3.42-6.82c-.12-.24-.2-.42-.24-.56-.04-.13-.02-.23.06-.3s.21-.11.41-.13c.2-.02.48-.02.83-.02.3,0,.53,0,.71.02.18.01.32.04.42.07.1.04.18.08.23.14s.1.13.14.22l1.39,3.07c.13.3.27.61.4.94s.27.67.4,1.03h.02c.12-.35.25-.69.38-1.01s.26-.64.38-.94l1.37-3.06c.03-.1.07-.18.12-.25.05-.06.12-.11.22-.15s.23-.06.4-.08c.17-.01.39-.02.67-.02.37,0,.65,0,.86.02s.34.06.42.13.09.17.05.31-.12.32-.23.55l-3.42,6.82h0Z"
-                    />
-                  </svg>
+                        d="M12 0C5.37 0 0 5.373 0 12a12 12 0 0 0 8.207 11.385c.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.082-.73.082-.73 1.205.086 1.84 1.24 1.84 1.24 1.07 1.835 2.807 1.305 3.492.997.11-.775.42-1.305.763-1.604-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.815 1.104.815 2.226v3.3c0 .32.192.694.8.576A12 12 0 0 0 24 12c0-6.627-5.373-12-12-12"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span class="label">GitHub</span>
                 </span>
-                <span class="label">Hacker News</span>
-              </span>
-            </label>
+              </label>
+              <label class="button-api button-hn">
+                <input
+                  type="radio"
+                  name="source"
+                  value="hackernews"
+                  id="radio-hackernews"
+                />
+                <span class="content">
+                  <span class="icon hn-icon"
+                    ><svg
+                      fill="currentColor"
+                      id="layer_2"
+                      data-name="layer 2"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                    >
+                      <defs>
+                        <style>
+                          .cls-0 {
+                            fill: #fff;
+                          }
+
+                          .cls-1 {
+                            fill: #fff;
+                          }
+
+                          .cls-2 {
+                            fill: black;
+                          }
+                        </style>
+                      </defs>
+                      <g>
+                        <path
+                          class="cls-2"
+                          d="M12,23C5.93,23,1,18.07,1,12S5.93,1,12,1s11,4.93,11,11-4.93,11-11,11Z"
+                        />
+                        <path
+                          class="cls-1"
+                          d="M12,2c5.51,0,10,4.49,10,10s-4.49,10-10,10S2,17.51,2,12,6.49,2,12,2M12,0C5.37,0,0,5.37,0,12s5.37,12,12,12,12-5.37,12-12S18.63,0,12,0h0Z"
+                        />
+                      </g>
+                      <path
+                        class="cls-0"
+                        d="M13.28,13.98v4.4c0,.06-.02.12-.06.17-.04.05-.11.09-.21.13-.1.03-.23.06-.39.08s-.37.03-.61.03-.46-.01-.62-.03-.29-.04-.39-.08c-.1-.03-.17-.07-.21-.13s-.06-.11-.06-.17v-4.4l-3.42-6.82c-.12-.24-.2-.42-.24-.56-.04-.13-.02-.23.06-.3s.21-.11.41-.13c.2-.02.48-.02.83-.02.3,0,.53,0,.71.02.18.01.32.04.42.07.1.04.18.08.23.14s.1.13.14.22l1.39,3.07c.13.3.27.61.4.94s.27.67.4,1.03h.02c.12-.35.25-.69.38-1.01s.26-.64.38-.94l1.37-3.06c.03-.1.07-.18.12-.25.05-.06.12-.11.22-.15s.23-.06.4-.08c.17-.01.39-.02.67-.02.37,0,.65,0,.86.02s.34.06.42.13.09.17.05.31-.12.32-.23.55l-3.42,6.82h0Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="label">Hacker News</span>
+                </span>
+              </label>
+            </fieldset>
+            <div class="spacer"></div>
+            <fieldset
+              id="wiki-wordlist-fieldset"
+              aria-labelledby="wiki-wordlist-label"
+              hidden
+            >
+              <legend id="wiki-wordlist-label">View Saved searches</legend>
+              <label
+                id="open-techlist"
+                class="button-api button-wiki"
+                role="button"
+                tabindex="0"
+              >
+                <span class="content">
+                  <span class="icon wiki-icon"
+                    ><svg
+                      id="layer_4"
+                      data-name="Layer 4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 35 35"
+                    >
+                      <g>
+                        <circle
+                          cx="25.12"
+                          cy="17.75"
+                          r="12"
+                          class="circle-fill"
+                          style="fill: white"
+                        />
+                        <path
+                          d="M22.21,9c2.97,0,5.38,2.41,5.38,5.36s-2.41,5.36-5.38,5.36-5.38-2.41-5.38-5.36,2.41-5.36,5.38-5.36M22.21,6.5c-4.35,0-7.88,3.52-7.88,7.86s3.53,7.86,7.88,7.86,7.88-3.52,7.88-7.86-3.53-7.86-7.88-7.86h0Z"
+                          class="w-fill"
+                        />
+                        <line
+                          x1="33.36"
+                          y1="25.53"
+                          x2="26.61"
+                          y2="18.76"
+                          style="
+                            fill: none;
+                            stroke: #3a3a3a;
+                            stroke-miterlimit: 10;
+                            stroke-width: 2.5px;
+                          "
+                          class="stroke-fill"
+                        />
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="label">My word list</span>
+                </span>
+              </label>
+            </fieldset>
           </div>
 
           <!-- Titles: One title at a time -->
-          <h2 class="icon-heading hidden" id="githubheading">
-            <span class="icon" aria-hidden="true"
-              ><img
-                src="assets/images/repo-icon-wo-bkg.svg"
-                alt="Repo icon"
-                width="24"
-                height="24"
-                class="icon"
-                loading="lazy" /></span
-            >Recently pushed Repositories
-          </h2>
-          <h2 id="hackerheading" class="icon-heading hidden">
-            <span class="icon" aria-hidden="true"
-              ><img
-                src="assets/images/news.svg"
-                alt="Hacker News"
-                class="icon"
-                width="24"
-                height="24"
-                loading="lazy"
-            /></span>
-            Trending Articles
-          </h2>
-
-          <div id="githubdata" class="data-section hidden" aria-hidden="true">
-            <!-- Show GitHub-data here -->
+          <div id="selected-github-data">
+            <h2 id="github-heading" class="icon-heading" tabindex="-1">
+              <span class="icon"
+                ><img
+                  src="assets/images/repo-icon-wo-bkg.svg"
+                  alt=""
+                  width="48"
+                  height="48"
+                  class="icon"
+                  aria-hidden="true" /></span
+              >Recently pushed Repositories
+            </h2>
+            <div id="github-data-section" class="data-section">
+              <!-- Show GitHub-data here -->
+            </div>
           </div>
-
-          <div
-            id="hackernewsdata"
-            class="data-section hidden"
-            aria-hidden="true"
-          >
-            <!-- Show Hacker News-data here -->
+          <div id="selected-hackernews-data" hidden>
+            <h2 id="hackernews-heading" class="icon-heading" tabindex="-1">
+              <span class="icon"
+                ><img
+                  src="assets/images/news.svg"
+                  alt=""
+                  width="48"
+                  height="48"
+                  class="icon"
+                  aria-hidden="true"
+              /></span>
+              Trending Articles
+            </h2>
+            <div id="hackernews-data-section" class="data-section">
+              <!-- Show Hacker News-data here -->
+            </div>
           </div>
         </section>
       </div>
@@ -426,10 +509,10 @@
             <a href="index.html" class="logo-link" aria-label="Go to homepage">
               <img
                 src="assets/images/sara_the_programmer.svg"
-                alt="App icon"
-                class="footer-icon"
+                alt="Illustration of a modern female developer wearing a black T-shirt with a white code symbol (&lt;/&gt;)"
                 width="1"
                 height="1"
+                class="footer-icon"
                 loading="lazy"
             /></a>
             <p class="footer-app-name">
@@ -437,37 +520,43 @@
               <br />
               © <span id="current-year"></span> Sara Sjödin Scolari
             </p>
-            <h3>More Porfolio work</h3>
-            <ul>
-              <li>
-                <a
-                  class="portfolio-links"
-                  href="https://sarasjodin.github.io/my-todo-app/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  My Vite Todo app
-                </a>
-              </li>
-              <li>
-                <a
-                  class="portfolio-links"
-                  href="https://my-angular-api-requests-lab.netlify.app/home"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  >My Angular API course app</a
-                >
-              </li>
-              <li>
-                <a
-                  class="portfolio-links"
-                  href="https://saras-portfolio.netlify.app/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  >Some older portfolio work</a
-                >
-              </li>
-            </ul>
+            <nav aria-label="Other portfolio projects">
+              <h3>More Porfolio work</h3>
+              <ul>
+                <li>
+                  <a
+                    class="portfolio-links"
+                    href="https://sarasjodin.github.io/my-todo-app/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    aria-label="My Vite Todo app – opens in new tab"
+                  >
+                    > My Vite Todo app
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="portfolio-links"
+                    href="https://my-angular-api-requests-lab.netlify.app/home"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    aria-label="My Vite Todo app – opens in new tab"
+                  >
+                    >My Angular API course app</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="portfolio-links"
+                    href="https://saras-portfolio.netlify.app/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    aria-label="Sara's older portfolio - opens in new tab"
+                    >Some older portfolio work</a
+                  >
+                </li>
+              </ul>
+            </nav>
           </div>
 
           <!-- Middle column -->
@@ -493,9 +582,14 @@
               <a
                 href="mailto:sara@sarasjodin.com"
                 class="icon-wrapper"
-                aria-label="Email"
+                aria-label="Send me an email"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  focusable="false"
+                >
                   <g class="mailbkg">
                     <rect width="32" height="32" />
                   </g>
@@ -542,6 +636,8 @@
                   class="github-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  focusable="false"
                 >
                   <path
                     class="gh-logo"

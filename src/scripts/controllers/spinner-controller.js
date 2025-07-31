@@ -7,13 +7,14 @@
  * @author Sara Sjödin
  */
 
-import { renderWordCloud } from '../render/wordcloud.js';
 import { spinner } from '../components/spinner.js';
 import { fetchWordCloudData } from '../api/wordcloud-api.js';
-import { fetchGithubRepos } from '../api/github-api.js';
-import { fetchHackerNewsArticles } from '../api/hackernews-api.js';
-import { renderGithubCards } from '../render/render-github.js';
-import { renderHackerNewsList } from '../render/hackernews.js';
+import { renderWordCloud } from '../api/wordcloud-api.js';
+import { fetchGithubRepos, renderGithubCards } from '../api/github-api.js';
+import {
+  fetchHackerNewsArticles,
+  renderHackerNewsList
+} from '../api/hackernews-api.js';
 
 /**
  * Handles spinner + data fetch + render for a specific data source.
@@ -21,13 +22,12 @@ import { renderHackerNewsList } from '../render/hackernews.js';
  * @async
  * @function showSpinnerSource
  * @param {'wordcloud' | 'github' | 'hackernews'} source - The data source to load
- * @param {string} [query=''] - Optional search term used by GitHub and HackerNews
+ * @param {string} [query=''] - Optional search term used by GitHub and Hacker News
  * @returns {Promise<void>} A Promise that resolves when loading and rendering is complete
  */
 export async function showSpinnerSource(source, query = '') {
   try {
     spinner.loading(source);
-    console.log(`Spinner loading: ${source}`);
 
     switch (source) {
       case 'wordcloud': {
@@ -70,6 +70,7 @@ export async function showSpinnerSource(source, query = '') {
   }
 }
 
+
 /**
  * Shows the status section where result info and errors are shown.
  * @function showStatusSection
@@ -98,7 +99,7 @@ function showFigcaption(wordCount) {
 }
 
 /**
- * Loads both GitHub and HackerNews data in parallel and shows their spinners and content.
+ * Loads both GitHub and Hacker News data in parallel and shows their spinners and content
  *
  * @async
  * @function showAllSources

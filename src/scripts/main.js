@@ -18,12 +18,10 @@
  */
 
 import { generateQuote } from './components/quotes.js';
-import { setupSearch, initSearchUI } from './controllers/search-controller.js';
 import { setCurrentYear } from './controllers/footer-controller.js';
+import { initSearchUI, setupSearch } from './controllers/search-controller.js';
 import { showSpinnerSource } from './controllers/spinner-controller.js';
-import { setupToggleButtons } from './controllers/view-controller.js';
-
-console.log('main.js is running');
+import { resetUIOnLoad } from './controllers/ui-controller.js';
 
 // Global setup – safe to run regardless of page context
 // No need for being placed inside "DOMContentLoaded"
@@ -36,13 +34,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (page === 'index') {
     initSearchUI(); // Sets responsive placeholder based on screen size
-    setupSearch(); // Sets up search input, button and result behavior
+    resetUIOnLoad(); // Makes sure the right elements are hidden/shown before search
+    setupSearch(); // All the combined search logic
   }
 
   // Show spinner placeholder in canvas if wordcloud exists
   if (document.querySelector('.wordcloud-canvas')) {
     showSpinnerSource('wordcloud');
   }
-
-  setupToggleButtons(); // Enable UI controls for switching data source visibility
 });

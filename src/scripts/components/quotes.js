@@ -1,6 +1,6 @@
 /**
  * @file quotes.js
- * @description Generates and displays a random tech-related search suggestion inside an element with the class .citat.
+ * @description Generates and displays a random tech-related search suggestion inside an element with the class .citat
  * This function selects a random message from a predefined list and updates the UI.
  *
  * To help users with ideas on what to search for
@@ -45,6 +45,5 @@ export function generateQuote() {
   if (citat) {
     const index = Math.floor(Math.random() * questions.length);
     citat.textContent = questions[index];
-    console.log(`Randomgenererad fråga: ${questions[index]}`);
   }
 }

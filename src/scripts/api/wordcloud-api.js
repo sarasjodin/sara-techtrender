@@ -1,8 +1,12 @@
 /**
  * @file wordcloud-api.js
- * @description Fetches GitHub and Hacker News data for a combined wordcloud
+ * @description Fetches GitHub and Hacker News data and render a combined wordcloud
+ * utilizing an external library wordcloud (wordcloud2.js)
  * @author Sara Sjödin Scolari
  */
+
+import WordCloud from 'wordcloud';
+import { scaleCanvasToDevice } from '../utils.js';
 
 /**
  * Fetches and combines GitHub repo descriptions and HN article titles
@@ -28,11 +32,40 @@ export async function fetchWordCloudData() {
     const hackerNewsText = (hackerNewsData.hits || [])
       .map((hit) => hit.title || '')
       .join(' ');
-    console.log('fetched WordCloudData from GitHub and HN');
 
     return githubText + ' ' + hackerNewsText;
   } catch (error) {
     console.error('Error fetching WordCloud data:', error);
     return '';
   }
+}
+
+/**
+ * @function renderWordCloud
+ * @param {string} text - Combined plain text from GitHub descriptions and Hacker News titles
+ * = Text used to generate the word cloud with utilizing an external library wordcloud (wordcloud2.js)
+ * @returns {number} Number of unique words rendered in the word cloud
+ */
+export function renderWordCloud(text) {
+  const canvas = document.querySelector('.wordcloud-canvas');
+  if (!text || !(canvas instanceof HTMLCanvasElement)) return;
+
+  canvas.classList.remove('hidden');
+
+  // High res of canvas before render
+  scaleCanvasToDevice(canvas);
+  const words = text.toLowerCase().match(/\b\w{4,}\b/g);
+  const freq = {};
+  words?.forEach((word) => (freq[word] = (freq[word] || 0) + 1));
+  const wordArray = Object.entries(freq);
+
+  WordCloud(canvas, {
+    list: wordArray,
+    gridSize: 8,
+    weightFactor: 30,
+    fontFamily: 'Arial',
+    color: 'random-dark',
+    backgroundColor: '#ffffff'
+  });
+  return wordArray.length;
 }

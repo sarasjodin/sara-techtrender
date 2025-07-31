@@ -29,7 +29,7 @@
       rel="stylesheet"
     />
     <title>About | My TechTrends MashUp</title>
-    <script type="module" src="scripts/main.js" defer></script>
+    <script type="module" src="scripts/main.js"></script>
   </head>
   <body data-page="about">
     <div class="app-wrapper about-page">
@@ -135,14 +135,45 @@
                   loading="lazy"
                 />
               </li>
+              <li>
+                MediaWiki Action API
+                <img
+                  src="assets/images/wikipedia-w.svg"
+                  alt="Wikipedia logotype"
+                  width="35"
+                  height="35"
+                  class="icon wiki"
+                  loading="lazy"
+                />
+              </li>
             </ul>
           </div>
           <div class="auto-container">
             <p class="auto-columns">
-              <strong>GitHub</strong> is a platform where developers share and
-              collaborate on code. <br />
-              <strong>Hacker News</strong> is a tech-focused news site where
-              people share and discuss trends in programming and startups.
+              <strong>GitHub</strong> is the world’s largest platform for
+              developers to host, review, and collaborate on code. It provides
+              access to millions of repositories and open source projects. Using
+              the <em>GitHub REST API</em>, we can fetch real-time data such as
+              trending repositories, author details, programming languages, and
+              star counts.
+
+              <br /><br />
+
+              <strong>Hacker News</strong> is a social news platform focused on
+              technology, startups, and programming. It is run by Y Combinator
+              and allows users to post, upvote, and comment on tech-related
+              articles. With the <em>Hacker News Firebase API</em>, we can
+              retrieve posts, comments, timestamps, and article metadata in real
+              time.
+
+              <br /><br />
+
+              <strong>Wikipedia</strong> is a free, collaborative online
+              encyclopedia with content created and maintained by volunteers. It
+              contains structured and unstructured information across nearly
+              every topic. I used the <em>MediaWiki Action API</em> to query
+              repo data and search phrases previously used or detected in GitHub
+              search result.
             </p>
           </div>
         </section>
@@ -199,8 +230,8 @@
             <div class="flowcharts">
               <figure>
                 <img
-                  src="assets/images/general-techtrends-flowchart.png"
-                  alt="Flowchart showing how JavaScript modules are imported and executed in the app"
+                  src="assets/images/specific-modules-flowchart.png"
+                  alt="Flowchart showing how some JavaScript modules are imported and executed in the app"
                   loading="lazy"
                 />
                 <figcaption>

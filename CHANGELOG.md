@@ -9,10 +9,30 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [Unreleased] - date YYYY-MM-DD
 
 - Placeholder for upcoming changes and planned features
+- JavaScript Module Flow image created and updated and implemented on About page
+
+---
+
+## [2.1.0] – 2025-08-01
+
+### Added
+
+- **JSDoc comments:** For better code documentation and readability.
+
+- **Icons for cards:** Improved layout with focus on usability and accessibility.
+
+- **Flowchart:** Explaining the setup
+
+### Changed
+
+- **API Fetch Limits:** Increased the number of fetched GitHub repositories and Wikipedia articles to 20 each.
+- **Search UX:** Search input field now clears automatically after each search, improving the user experience.
+- **UI Enhancements:** Refined semantic HTML and improved responsive layout for article & repo cards.
 
 ---
 
 ## [2.0.0] – 2025-07-29
+
 ### Major Release – Complete Refactor and UI Overhaul
 
 A full architectural and visual refactoring of the application, focused on maintainability, accessibility, and performance.
@@ -46,16 +66,19 @@ Notes
 
 ---
 
-
 ## [1.0.3] – 2025-07-02
+
 ### Fixed
+
 - Upgraded `pbkdf2` to version 3.1.3 to address critical security vulnerabilities (CVE references pending).
 - Ensured bundling includes the correct (patched) version of `pbkdf2` by adding it as a direct dependency.
 
 ---
 
 ## [1.0.2] – 2025-06-28
+
 ### Added
+
 - Initial support for crypto operations in the browser using `crypto-browserify`.
 
 ---
