@@ -22,6 +22,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - The primary programming language of each repository now has an associated link that opens a modal displaying relevant data fetched from Wikipedia.
 
+- Added additional font family Inter
+
 **UI Enhancements:** Implemented UI animations based on task requests to enhance interactivity and visual appeal.
 
 ---
