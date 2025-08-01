@@ -87,6 +87,7 @@
 
   .title-col h1 {
     margin: 0;
+    animation: colorPulse 3s ease-in-out infinite;
 
     .title-small,
     .title-medium,
@@ -148,6 +149,12 @@ li {
   margin: 5px 20px 0;
 }
 
+.index-page li:nth-child(2) span.bullet,
+.about-page li:nth-child(1) span.bullet {
+  animation: lightEffect 3s ease-in-out infinite;
+}
+
+.nav-item a[aria-current='page'] .bullet,
 .nav-item a[aria-current='page'] .bullet {
   background-color: #1cdead;
   outline: 2px solid #969696;
@@ -182,6 +189,14 @@ nav ul li a:hover {
   border-radius: 50% 0;
 }
 
+div.footer-col.footer-left a {
+  border-radius: 8px;
+}
+
+div.footer-col.footer-left a:hover {
+  color: #ffffff;
+}
+
 .nav-item {
   display: inline-flex;
   align-items: center;
@@ -205,4 +220,17 @@ a:focus {
 
 .logo-link:focus {
   box-shadow: 3px 2px 0 2px #1cdead;
+}
+
+div.footer-col.footer-left ul,
+.about-page ul:not(nav ul) {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.5rem;
+}
+
+div.footer-col.footer-left li,
+.about-page li:not(nav li) {
+  list-style-type: disc;
+  display: list-item;
 }

@@ -9,7 +9,20 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [Unreleased] - date YYYY-MM-DD
 
 - Placeholder for upcoming changes and planned features
-- JavaScript Module Flow image created and updated and implemented on About page
+
+---
+
+## [2.2.0] – 2025-08-01
+
+### Added
+
+**Programming language functionality:**
+
+- Integrated an additional API fetch to retrieve programming language data for GitHub repositories.
+
+- The primary programming language of each repository now has an associated link that opens a modal displaying relevant data fetched from Wikipedia.
+
+**UI Enhancements:** Implemented UI animations based on user requests to enhance interactivity and visual appeal.
 
 ---
 
@@ -21,7 +34,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - **Icons for cards:** Improved layout with focus on usability and accessibility.
 
-- **Flowchart:** Explaining the setup
+- **Flowchart:** Explaining the setup: JavaScript Module Flow image created and updated and implemented on About page
 
 ### Changed
 

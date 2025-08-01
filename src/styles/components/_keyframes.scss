@@ -1,2 +1,89 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixin;
+
+@keyframes colorPulse {
+  0% {
+    color: #494949;
+  }
+  50% {
+    color: #000000;
+  }
+  100% {
+    color: #494949;
+  }
+}
+
+@keyframes lightEffect {
+  0% {
+    background: #e9c061; // Ursprunglig färg på knappen
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.7); // Ingen ljuseffekt
+  }
+
+  50% {
+    background: radial-gradient(
+      circle,
+      #ffffff 5%,
+      #e9c061 95%
+    ); // Ljus inifrån, färgändring
+    box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.7); // Ljus skugga
+  }
+
+  100% {
+    background: #e9c061; // Återgår till ursprunglig färg
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.7); // Ingen ljuseffekt
+  }
+}
+
+@keyframes rainbowShift {
+  0% {
+    filter: invert(1) sepia(1) saturate(10000%) hue-rotate(0deg);
+  }
+  100% {
+    filter: invert(1) sepia(1) saturate(10000%) hue-rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes invertCycle {
+  0% {
+    filter: invert(0) grayscale(0);
+  }
+  50% {
+    filter: invert(1) grayscale(0.3) brightness(1.4);
+  }
+  100% {
+    filter: invert(0) grayscale(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}

@@ -39,8 +39,6 @@ export async function showSpinnerSource(source, query = '') {
 
         const wordCount = renderWordCloud(text);
         spinner.result(source, wordCount);
-        console.log(`Spinner result laddas – textlängd: ${wordCount}`);
-        console.trace();
         showFigcaption(wordCount);
         break;
       }
@@ -69,7 +67,6 @@ export async function showSpinnerSource(source, query = '') {
     spinner.error(source);
   }
 }
-
 
 /**
  * Shows the status section where result info and errors are shown.

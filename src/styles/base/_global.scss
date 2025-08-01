@@ -15,19 +15,6 @@ body {
   min-height: 100vh;
 }
 
-.index-page ul:not(nav ul),
-.about-page ul:not(nav ul) {
-  display: flex;
-  flex-direction: column;
-  padding-left: 1.5rem;
-}
-
-.index-page li:not(nav li),
-.about-page li:not(nav li) {
-  list-style-type: disc;
-  display: list-item;
-}
-
 .hidden {
   display: none !important;
 }

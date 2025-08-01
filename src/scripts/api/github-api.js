@@ -6,7 +6,9 @@
 
 import { images } from '../../assets/images.js';
 import { getFlagHtml } from '../data/flags.js';
+import { fetchWikipediaSummary } from '../api/wikipedia-api.js';
 import { spinner } from '../components/spinner.js';
+import { showModal } from '../components/modal.js';
 import { showAfterFetch } from '../controllers/ui-controller.js';
 import { extractCountryCode } from '../utils.js';
 
@@ -104,7 +106,9 @@ export async function renderGithubCards(cards) {
     const cardHTML = `
   <article class="repo-card">
     <div class="repo-header">
-      <img src="${images.gitHubBlackIcon}" alt="GitHub logo" width="32" />
+      <img src="${
+        images.gitHubInvertedIcon
+      }" alt="" aria-hidden="true" width="32" />
       <h3 class="repo-title">${card.name}</h3>
     </div>
 
@@ -135,9 +139,13 @@ export async function renderGithubCards(cards) {
         </div>
         <div class="info-row">
           <img src="${images.codeIcon}" alt="" aria-hidden="true" width="24"/>
-          <span><strong>Primary language:</strong> ${
-            card.language || 'N/A'
-          }</span>
+            <span><strong>Primary language:</strong>
+            ${
+              card.language
+                ? `<a href="#" class="language-link" data-language="${card.language}">${card.language}</a>`
+                : 'N/A'
+            }
+          </span>
         </div>
       </div>
     </div>
@@ -181,3 +189,21 @@ export async function renderGithubCards(cards) {
     githubcontainer.insertAdjacentHTML('beforeend', cardHTML);
   }
 }
+
+document.addEventListener('click', async (e) => {
+  if (e.target.classList.contains('language-link')) {
+    e.preventDefault();
+    const language = e.target.dataset.language;
+    const data = await fetchWikipediaSummary(language);
+
+    if (data) {
+      showModal(data.title, data.extract, data.image);
+    } else {
+      showModal(
+        'Not Found',
+        'No information found on Wikipedia for this term.',
+        null
+      );
+    }
+  }
+});

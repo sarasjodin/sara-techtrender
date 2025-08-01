@@ -7,6 +7,7 @@ import userProfileIconBlack from './images/user_profile_icon-black.svg';
 import externalIcon from './images/external_icon.svg';
 import hackerNewsIcon from './images/hacker-news_black.svg';
 import gitHubBlackIcon from './images/github-mark_black.svg';
+import gitHubInvertedIcon from './images/github-mark_inverted.svg';
 import dateUpdated from './images/date-updated.svg';
 import dateCreated from './images/date-created.svg';
 import articles from './images/article.svg';
@@ -20,6 +21,7 @@ export const images = {
   externalIcon,
   hackerNewsIcon,
   gitHubBlackIcon,
+  gitHubInvertedIcon,
   dateUpdated,
   dateCreated,
   articles,

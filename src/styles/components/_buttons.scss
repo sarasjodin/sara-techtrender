@@ -183,24 +183,9 @@
   flex-direction: column;
 }
 
-#open-techlist {
-  display: grid;
-  order: 2;
-  width: 100%;
-  margin-top: 0.5rem;
-  justify-content: flex-start;
-  justify-content: space-between;
-  width: auto;
-  justify-content: flex-end;
-}
-
 .api-buttons {
   justify-content: flex-start;
 }
-
-/* .spacer {
-  display: none !important;
-} */
 
 .icon.wiki-icon {
   align-items: baseline;
@@ -212,10 +197,6 @@
     display: flex;
     align-items: center;
   }
-
-  .spacer {
-    flex-grow: 1;
-  }
 }
 
 #open-techlist {
@@ -226,7 +207,7 @@
 
 #sourcetoggle {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   padding: 20px;
@@ -260,4 +241,13 @@ input[type='radio'] {
 
 input[type='radio']:checked + .content {
   font-weight: bolder;
+}
+
+.search-button {
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: #1cdeae38;
+  }
 }

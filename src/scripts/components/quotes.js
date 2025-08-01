@@ -20,6 +20,7 @@
 export function generateQuote() {
   const citat = document.querySelector('.citat');
   const questions = [
+    'Search for “C sharp” instead of “C#”, since some APIs don’t recognize symbols!',
     'Looking into “Rust”? Memory safety meets speed.',
     'What’s trending in “TypeScript” this week?',
     'Try “Svelte” – the rising frontend star.',

@@ -172,8 +172,9 @@
               encyclopedia with content created and maintained by volunteers. It
               contains structured and unstructured information across nearly
               every topic. I used the <em>MediaWiki Action API</em> to query
-              repo data and search phrases previously used or detected in GitHub
-              search result.
+              terms used in GitHub's repo data to get a new search result in a
+              popup/modal (see the rainbow-colored language button in almost any
+              GitHub repo card).
             </p>
           </div>
         </section>
@@ -330,54 +331,40 @@
   </code>
   </pre>
           </article>
-          <!-- <article aria-labelledby="so-api">
-            <h3 id="so-api">Stack Overflow</h3>
-            <pre>
-  <code>
-  📂 <a href="https://api.stackexchange.com/2.3/search?intitle=java&site=stackoverflow">StackOverflow API link searching for "Java"</a>
-  ├── items: (array of question objects)
-  │   ├── tags: (array of strings)
-  │   ├── owner: (object)
-  │   │   ├── user_id: (number)
-  │   │   ├── display_name: (string)
-  │   │   ├── profile_image: (string - avatar URL)
-  │   │   └── link: (string - profile URL)
-  │   ├── is_answered: (boolean)
-  │   ├── view_count: (number)
-  │   ├── answer_count: (number)
-  │   ├── score: (number)
-  │   ├── last_activity_date: (number - Unix timestamp)
-  │   ├── creation_date: (number - Unix timestamp)
-  │   ├── question_id: (number)
-  │   ├── title: (string)
-  │   └── link: (string - question URL)
-  ├── has_more: (boolean - if more results exist)
-  ├── quota_max: (number - max allowed requests)
-  └── quota_remaining: (number - remaining quota)
-  </code>
-  </pre>
-          </article>
-          <article aria-labelledby="ol-api">
-            <h3 id="ol-api">Open Library</h3>
-            <pre>
-  <code>
-  📂 <a href="https://openlibrary.org/search.json?q=java">Open Library API link searching for "Java"</a>
-  ├── numFound: (number - total results)
-  ├── start: (number - offset)
-  └── docs: (array of book objects)
-      ├── title: (string)
-      ├── author_name: (array of strings)
-      ├── first_publish_year: (number)
-      ├── edition_count: (number)
-      ├── subject: (array of strings)
-      ├── key: (string - e.g. "/works/OL12345W")
-      ├── isbn: (array of strings)
-      ├── publish_year: (array of numbers)
-      ├── publisher: (array of strings)
-      └── language: (array of strings - e.g. "eng")
-  </code>
-  </pre>
-          </article> -->
+        </section>
+        <section>
+          <h2>My conclusions</h2>
+          <div class="auto-container">
+            <div class="auto-columns">
+              Breaking up the code according to separate concerns helps with
+              clarity and maintenance, but can create challenges with state
+              management and dependencies. <br /><br />
+
+              The first time you create a certain type of site involves many
+              challenges, from design details to better understanding user
+              needs. <br />It’s all about adapting and iterating.<br /><br />
+
+              The time planning may not have been realistic, but it’s been an
+              incredibly valuable learning experience. Sure, it’s taken longer,
+              but the journey has been insightful and fun.<br /><br />
+            </div>
+          </div>
+
+          <h3>Behind the scenes</h3>
+          <div class="auto-container">
+            <div class="auto-columns">
+              I gained valuable insights into how and when a web application
+              loads its resources, especially after working on flowcharts (se
+              <a href="#flowchart-overview">images above</a>) to better
+              understand the loading process and the flow of data. <br />
+              <br />
+              I’m also really pleased that I took the time to dive deeper into
+              planning ARIA attributes, inline SVG animations, social meta tags,
+              and began expanding my knowledge of implementing modals. Not
+              everything is visible in the final product, but maybe in the next
+              one?
+            </div>
+          </div>
         </section>
       </div>
       <footer>
@@ -439,7 +426,8 @@
               This pro&shy;ject was creat&shy;ed as part of my web
               develop&shy;ment stud&shy;ies at
               <strong>Mid Sweden Uni&shy;versi&shy;ty</strong>, this course
-              focus was on mash&shy;ups and API-inte&shy;grat&shy;ion.
+              focus was on front&shy;end de&shy;sign, mash&shy;ups and
+              API-inte&shy;grat&shy;ion.
             </p>
             <h2>Technology stack</h2>
             <p>

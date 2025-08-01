@@ -24,3 +24,20 @@ figure {
   align-items: center;
   text-align: center;
 }
+
+.about-page a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    color: #1cdead;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 1px;
+    text-decoration: underline;
+    color: #000000;
+  }
+}

@@ -32,7 +32,7 @@
     <script type="module" src="scripts/main.js"></script>
   </head>
   <body data-page="index">
-    <div class="app-wrapper index-page">
+    <div class="app-wrapper index-page background-element">
       <div class="main-container">
         <div class="header-container">
           <header class="site-header">
@@ -155,7 +155,7 @@
         <section id="search-section">
           <h2>
             <img
-              src="assets/images/magnifier_search.svg"
+              src="assets/images/magnifier_search_transparent.svg"
               alt=""
               width="24"
               height="24"
@@ -529,9 +529,8 @@
                     href="https://sarasjodin.github.io/my-todo-app/"
                     rel="noopener noreferrer"
                     target="_blank"
-                    aria-label="My Vite Todo app – opens in new tab"
                   >
-                    > My Vite Todo app
+                    My Vite Todo app
                   </a>
                 </li>
                 <li>
@@ -540,8 +539,6 @@
                     href="https://my-angular-api-requests-lab.netlify.app/home"
                     rel="noopener noreferrer"
                     target="_blank"
-                    aria-label="My Vite Todo app – opens in new tab"
-                  >
                     >My Angular API course app</a
                   >
                 </li>
@@ -551,7 +548,6 @@
                     href="https://saras-portfolio.netlify.app/"
                     rel="noopener noreferrer"
                     target="_blank"
-                    aria-label="Sara's older portfolio - opens in new tab"
                     >Some older portfolio work</a
                   >
                 </li>
@@ -566,7 +562,8 @@
               This pro&shy;ject was creat&shy;ed as part of my web
               develop&shy;ment stud&shy;ies at
               <strong>Mid Sweden Uni&shy;versi&shy;ty</strong>, this course
-              focus was on mash&shy;ups and API-inte&shy;grat&shy;ion.
+              focus was on front&shy;end de&shy;sign, mash&shy;ups and
+              API-inte&shy;grat&shy;ion.
             </p>
             <h2>Technology stack</h2>
             <p>
@@ -662,6 +659,19 @@
           </div>
         </div>
       </footer>
+    </div>
+    <div
+      id="wiki-modal"
+      class="modal-container"
+      role="dialog"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">×</button>
+        <h2 id="modal-title">Modal Title</h2>
+        <p>Modal content</p>
+      </div>
     </div>
   </body>
 </html>

@@ -1,0 +1,49 @@
+.modal-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  &.visible {
+    display: flex;
+  }
+
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    max-height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: thin; /* För Firefox */
+    scrollbar-color: #888 #ddd; /* För Firefox */
+
+    .modal-image {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+  }
+}
+
+.background-element {
+  position: relative;
+  z-index: 1;
+}
