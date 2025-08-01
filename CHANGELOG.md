@@ -12,6 +12,16 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [2.2.1] – 2025-08-01
+
+### Added
+
+- README-file
+- SECURITY-file
+- LICENSE-file
+
+---
+
 ## [2.2.0] – 2025-08-01
 
 ### Added
