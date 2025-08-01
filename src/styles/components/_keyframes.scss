@@ -36,10 +36,10 @@
 
 @keyframes rainbowShift {
   0% {
-    filter: invert(1) sepia(1) saturate(10000%) hue-rotate(0deg);
+    filter: invert(100%) sepia(100%) saturate(10000%) hue-rotate(0deg);
   }
   100% {
-    filter: invert(1) sepia(1) saturate(10000%) hue-rotate(360deg);
+    filter: invert(100%) sepia(100%) saturate(10000%) hue-rotate(360deg);
   }
 }
 
@@ -54,13 +54,13 @@
 
 @keyframes invertCycle {
   0% {
-    filter: invert(0) grayscale(0);
+    filter: invert(0%) grayscale(0%);
   }
   50% {
-    filter: invert(1) grayscale(0.3) brightness(1.4);
+    filter: invert(100%) grayscale(0.3) brightness(1.4);
   }
   100% {
-    filter: invert(0) grayscale(0);
+    filter: invert(0%) grayscale(0%);
   }
 }
 
