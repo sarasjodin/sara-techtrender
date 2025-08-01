@@ -20,6 +20,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - SECURITY-file
 - LICENSE-file
 
+### Changed
+
+- Corrected some HTML and CSS after W3C validation
+
 ---
 
 ## [2.2.0] – 2025-08-01

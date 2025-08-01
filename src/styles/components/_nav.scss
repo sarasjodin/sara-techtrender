@@ -58,7 +58,7 @@
   border-radius: 30px 30px 0 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.1);
 
-  @media (min-width: 390px) {
+  @media (min-width: 460px) {
     border-radius: 25px 140px 0 0;
   }
 
@@ -223,14 +223,16 @@ a:focus {
 }
 
 div.footer-col.footer-left ul,
-.about-page ul:not(nav ul) {
+.about-page ul:not(nav ul),
+.index-page ul:not(nav ul) {
   display: flex;
   flex-direction: column;
   padding-left: 1.5rem;
 }
 
 div.footer-col.footer-left li,
-.about-page li:not(nav li) {
+.about-page li:not(nav li),
+.index-page li:not(nav li) {
   list-style-type: disc;
   display: list-item;
 }

@@ -29,7 +29,7 @@ h6 {
 }
 
 .button-api {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-weight: 500;
 }
 
@@ -149,7 +149,6 @@ footer p {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding-left: -1.5rem;
 }
 
 #source-label {
@@ -158,5 +157,3 @@ footer p {
   margin-bottom: clamp(0.3rem, 1vw, 0.4rem);
   color: #5d5d5d;
 }
-
-
