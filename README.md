@@ -4,6 +4,8 @@
 Open Live Demo
 </a> <br><br>
 
+This project was created as part of my web development studies at Mid Sweden University. The focus was on mashups and API integration. Powered by JavaScript, SCSS, Parcel, and Git. It features responsive design, API mashups and automated deployment. 
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/92774c8f-38c0-4fc1-8780-93acb622b191/deploy-status)](https://app.netlify.com/projects/sara-tech-trends/deploys)
 
 ---
