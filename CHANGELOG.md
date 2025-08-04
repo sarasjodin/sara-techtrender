@@ -12,6 +12,14 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [2.3.1] - date 2025-08-04
+
+### Changed
+
+- Improved explanation of what a word cloud is, both visually and for screen readers
+
+---
+
 ## [2.3.0] – 2025-08-04
 
 ### Added

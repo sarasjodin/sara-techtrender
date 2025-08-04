@@ -90,7 +90,7 @@ function showFigcaption(wordCount) {
   const caption = document.getElementById('wordcloud-caption');
   if (caption) {
     const count = typeof wordCount === 'number' ? wordCount : '?';
-    caption.textContent = `${count} popular tech terms collected in real time from GitHub & Hacker News`;
+    caption.innerHTML = `${count} popular tech terms collected in real time from GitHub & Hacker News with a Word Cloud.<br />Word size shows how common the concept is.`;
     caption.classList.remove('hidden');
   }
 }
