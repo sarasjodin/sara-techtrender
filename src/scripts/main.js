@@ -21,7 +21,10 @@ import { generateQuote } from './components/quotes.js';
 import { setCurrentYear } from './controllers/footer-controller.js';
 import { initSearchUI, setupSearch } from './controllers/search-controller.js';
 import { showSpinnerSource } from './controllers/spinner-controller.js';
-import { resetUIOnLoad } from './controllers/ui-controller.js';
+import {
+  resetUIOnLoad,
+  setupSourceToggleKeyboardSupport
+} from './controllers/ui-controller.js';
 
 // Global setup – safe to run regardless of page context
 // No need for being placed inside "DOMContentLoaded"
@@ -42,4 +45,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (document.querySelector('.wordcloud-canvas')) {
     showSpinnerSource('wordcloud');
   }
+
+  setupSourceToggleKeyboardSupport();
 });

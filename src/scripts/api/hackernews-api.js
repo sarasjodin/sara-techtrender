@@ -133,15 +133,17 @@ export async function renderHackerNewsList(articles) {
               href="${article.url || '#'}"
               class="action-button"
               target="_blank" rel="noopener noreferrer"
-              aria-label="View article ${article.title} on Hacker News"
+              aria-label="View article ${
+                article.title
+              } on Hacker News (opens in new tab)"
             >
             <span class="icon-left"><img src="${
               images.repoIcon
             }" class="hackerikon" alt="" aria-hidden="true" width="24" height="24" /></span>
-  <span class="button-text">View on Hacker News</span>
-  <span class="icon-right"><img src="${
-    images.externalIcon
-  }" class="externalikon" alt="External link, opens in new tab" width="24" /></span>
+              <span class="button-text">View on Hacker News</span>
+              <span class="icon-right"><img src="${
+                images.externalIcon
+              }" class="externalikon" alt="" aria-hidden="true" width="24" height="24" /></span>
             </a>
           </div>
         </article>

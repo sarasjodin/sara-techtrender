@@ -17,6 +17,11 @@ let lastFocusedElement;
  */
 export function showModal(title, text, imageUrl) {
   const modal = document.getElementById('wiki-modal');
+  // Make the modal visible
+  modal.classList.add('visible');
+  const wikipediaUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(
+    title
+  )}`;
 
   modal.innerHTML = `
     <div class="modal-content" role="dialog" aria-labelledby="modal-title">
@@ -27,16 +32,20 @@ export function showModal(title, text, imageUrl) {
           ? `<img src="${imageUrl}" alt="${title}" class="modal-image" />`
           : ''
       }
-      <p>${text}</p>
+       <p>${text}</p>
+      <p class="modal-source">
+        Source: <a href="${wikipediaUrl}" target="_blank" rel="noopener noreferrer">
+          Wikipedia
+        </a>
+      </p>
     </div>
   `;
 
-  // Make the modal visible
-  modal.classList.add('visible');
   const closeButton = modal.querySelector('.modal-close');
 
   if (closeButton instanceof HTMLElement) {
     // Set focus on the close button
+    modal.setAttribute('aria-hidden', 'false');
     closeButton.focus();
 
     // Close modal when clicking the close button
@@ -50,52 +59,6 @@ export function showModal(title, text, imageUrl) {
     });
 
     // Close modal with the Escape key
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && modal.classList.contains('visible')) {
-        closeModal();
-      }
-    });
-  }
-}
-
-/**
- * @function openModal
- * @description Opens the modal and handles focus. It should also prevents interaction and scrolling with the background...
- * at least there are no accessability error messages in the console.
- *
- * @param {string} title - The title to be displayed in the modal
- * @param {string} text - The text (summary) to be displayed in the modal
- * @param {string|null} imageUrl - An optional image URL to display in the modal
- * @returns {void}
-
- * @function openModal
- */
-export function openModal(title, text, imageUrl) {
-  const modal = document.getElementById('wiki-modal');
-  const closeButton = modal.querySelector('.modal-close');
-
-  // Save the element that was focused before the modal opened
-  lastFocusedElement = document.activeElement;
-
-  if (closeButton instanceof HTMLElement) {
-    // Display the modal
-    showModal(title, text, imageUrl);
-
-    // Make modal visible and update accessibility attributes
-    modal.classList.add('visible');
-    modal.setAttribute('aria-hidden', 'false'); // Make the modal accessible for screen readers
-
-    // Block scrolling on the background
-    document.body.style.overflow = 'hidden'; // Should prevent scrolling on the background...
-
-    // Apply 'inert' to the background to prevent interaction
-    const background = document.querySelector('.background-element'); // Target the background element
-    background.setAttribute('inert', ''); // // Block background interaction
-
-    // Set focus on the close button once modal is visible
-    closeButton.focus();
-
-    // Listen for the Escape key to close the modal
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && modal.classList.contains('visible')) {
         closeModal();
@@ -132,5 +95,6 @@ function closeModal() {
 
     // Hide modal from screen readers
     modal.setAttribute('aria-hidden', 'true'); // Make the modal inaccessible for screen readers
+    modal.innerHTML = '';
   }
 }

@@ -5,14 +5,10 @@
  */
 
 import { images } from '../../assets/images.js';
-import { getFlagHtml } from '../data/flags.js';
-import { fetchWikipediaSummary } from '../api/wikipedia-api.js';
+import { fetchWikipediaSummary } from './wikipedia-api.js';
 import { spinner } from '../components/spinner.js';
 import { showModal } from '../components/modal.js';
 import { showAfterFetch } from '../controllers/ui-controller.js';
-import { extractCountryCode } from '../utils.js';
-
-const GITHUB_TOKEN = process.env.GITHUB_KEY_1;
 
 /**
  * Fetches GitHub repositories by search term.
@@ -47,19 +43,20 @@ export async function fetchGithubRepos(query) {
  * @returns {Promise<string|null>}
  */
 export async function getUserLocation(query) {
-  const response = await fetch(query, {
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN}`
-    }
-  });
+  try {
+    const response = await fetch(query); // No token = no CORS problem
 
-  if (!response.ok) {
-    console.error('GitHub API error:', response.status);
+    if (!response.ok) {
+      console.error('GitHub API error:', response.status);
+      return null;
+    }
+
+    const data = await response.json();
+    return data.location || null;
+  } catch (error) {
+    console.error('Error fetching user location:', error);
     return null;
   }
-
-  const data = await response.json();
-  return data.location || null;
 }
 
 /**
@@ -83,119 +80,142 @@ export async function renderGithubCards(cards) {
   const githubcontainer = document.getElementById('github-data-section');
   githubcontainer.innerHTML = '';
 
-  githubcontainer.innerHTML = '';
-
   for (const card of cards) {
     const name = card.name || 'No name provided.';
     const owner = card.owner.login;
     const avatar = card.owner.avatar_url;
-    const description = card.description || 'No description provided.';
+    /* const description = card.description || 'No description provided.'; */
     const repoUrl = card.html_url;
 
-    let location = null;
+    let location;
+
     try {
       location = await getUserLocation(card.owner.url);
-    } catch (err) {
-      /* console.warn(Kunde inte hämta plats för ${owner}, err); */
+    } catch (error) {
+      // Try to read the HTTP status if possible
+      const status = error?.response?.status || error?.status;
+
+      // Optional: handle different scenarios if needed
+      if (status === 403) {
+        // Rate limit exceeded
+        // Optionally, show "Limited" or just fallback silently
+        location = null;
+      } else if (status === 404) {
+        // User not found
+        location = null;
+      } else if (status >= 500) {
+        // Server error
+        location = null;
+      } else {
+        location = null; // All other unknown errors
+      }
     }
 
     showAfterFetch();
 
-    getFlagHtml(location, extractCountryCode);
-
     const cardHTML = `
-  <article class="repo-card">
-    <div class="repo-header">
-      <img src="${
-        images.gitHubInvertedIcon
-      }" alt="" aria-hidden="true" width="32" />
-      <h3 class="repo-title">${card.name}</h3>
-    </div>
+    <article class="repo-card">
+      <div class="repo-header">
+        <img src="${
+          images.gitHubInvertedIcon
+        }" alt="" aria-hidden="true" width="32" height="32" />
+        <h3 class="repo-title">${name}</h3>
+      </div>
 
-    <div class="repo-sections">
-      <div class="repo-owner-section">
-        <h4>Owner</h4>
-        <div class="info-row">
+      <div class="repo-sections">
+        <div class="repo-owner-section">
+          <h4>Owner</h4>
+          <div class="info-row">
+            <img src="${avatar}" alt="" aria-hidden="true" class="avatar" width="24"  height="24" />
+            <span><strong>User name:</strong> ${owner}</span>
+          </div>
+          <div class="info-row">
           <img src="${
-            card.owner.avatar_url
-          }" alt="" aria-hidden="true" class="avatar" width="24" />
-          <span><strong>User name:</strong> ${card.owner.login}</span>
-        </div>
-        <div class="info-row">
-          <img src="${
-            images.geoCodeIcon || ''
-          }" alt="" aria-hidden="true" width="24"/>
+            images.geoCodeIcon
+          }" alt="" aria-hidden="true" class="avatar" width="24"  height="24" />
           <span><strong>Geographic location:</strong> ${
             location || 'N/A'
           }</span>
+          </div>
         </div>
-      </div>
-
-      <div class="repo-repository-section">
-        <h4>Repository</h4>
-        <div class="info-row">
-          <img src="${images.starIcon}" alt="" aria-hidden="true" width="24"/>
-          <span><strong>Stars:</strong> ${card.stargazers_count}</span>
-        </div>
-        <div class="info-row">
-          <img src="${images.codeIcon}" alt="" aria-hidden="true" width="24"/>
-            <span><strong>Primary language:</strong>
+        <div class="repo-repository-section">
+          <h4>Repository</h4>
+          <div class="info-row">
+            <img src="${
+              images.starIcon
+            }" alt="" aria-hidden="true" width="24" height="24"/>
+            <span><strong>Stars:</strong> ${card.stargazers_count}</span>
+          </div>
+          <div class="info-row">
+            <img src="${
+              images.codeIcon
+            }" alt="" aria-hidden="true" width="24" height="24" />
+            <div class="language-info">
+              <strong>Primary language:</strong>
             ${
               card.language
-                ? `<a href="#" class="language-link" data-language="${card.language}">${card.language}</a>`
+                ? `<button
+                      type="button"
+                      class="language-button"
+                      data-language="${card.language}"
+                      aria-label="View details about ${card.language}">
+                      ${card.language}
+                  </button>`
                 : 'N/A'
             }
-          </span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="action-buttons profile">
-      <a href="${
-        card.owner.html_url
-      }" class="action-button profile" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile of ${
-      card.owner.login
-    }">
-        <span class="icon-left">
+      <div class="action-buttons profile">
+        <a href="${
+          card.owner.html_url
+        }" class="action-button profile" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile of ${owner} (opens in new tab)">
+          <span class="icon-left">
+            <img src="${
+              images.userProfileIcon
+            }" alt="" aria-hidden="true" class="avatar" width="24" height="24" />
+          </span>
+          <span class="button-text">View GitHub Profile page</span>
+          <span class="icon-right">
+                <img src="${
+                  images.externalIcon
+                }" alt="" aria-hidden="true" width="24" height="24" />
+          </span>
+        </a>
+        <a href="${repoUrl}" class="action-button" target="_blank" rel="noopener noreferrer" aria-label="View repository ${name} on GitHub">
+          <span class="icon-left">
           <img src="${
-            images.userProfileIcon
-          }" alt="" aria-hidden="true" class="avatar" width="24" />
-        </span>
-        <span class="button-text">GitHub Profile page</span>
-        <span class="icon-right">
-              <img src="${
-                images.externalIcon
-              }" alt="External link, opens in new tab" width="24" />
-        </span>
-      </a>
-      <a href="${
-        card.html_url
-      }" class="action-button" target="_blank" rel="noopener noreferrer" aria-label="View repository ${
-      card.name
-    } on GitHub">
-    <span class="icon-left">
-        <img src="${
-          images.repoIcon
-        }" alt="" aria-hidden="true" class="repoikon" width="24" /></span>
-        <span class="button-text">GitHub Repository</span>
-        <span class="icon-right"><img src="${
-          images.externalIcon
-        }" alt="External link, opens in new tab" width="24" /></span>
-      </a>
-    </div>
-  </article>
-`;
+            images.repoIcon
+          }" alt="" aria-hidden="true" class="repoikon" width="24" height="24" /></span>
+          <span class="button-text">View GitHub Repository</span>
+          <span class="icon-right"><img src="${
+            images.externalIcon
+          }" alt="" aria-hidden="true" width="24" height="24" /></span>
+        </a>
+      </div>
+    </article>
+    `;
 
     githubcontainer.insertAdjacentHTML('beforeend', cardHTML);
   }
 }
 
+/**
+ * Handles clicks on language buttons and shows a Wikipedia summary modal.
+ * Triggered when a button with class "language-button" is clicked.
+ */
 document.addEventListener('click', async (e) => {
-  if (e.target.classList.contains('language-link')) {
-    e.preventDefault();
-    const language = e.target.dataset.language;
+  const target = e.target.closest('.language-button');
+
+  if (target) {
+    const language = target.dataset.language;
+
+    // Fetch data from Wikipedia API
     const data = await fetchWikipediaSummary(language);
 
+    // Show modal with fetched data or fallback message
     if (data) {
       showModal(data.title, data.extract, data.image);
     } else {

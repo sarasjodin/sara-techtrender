@@ -71,7 +71,6 @@ export function toggleDataSource(source) {
     console.warn('toggleDataSource: UI-element missing in DOM.');
     return;
   }
-  console.trace('toggleDataSource triggered');
   if (source === 'github') {
     ghDiv.removeAttribute('hidden');
     hnDiv.setAttribute('hidden', '');
@@ -106,19 +105,16 @@ export function showAfterFetch() {
   showElement('source-data-section');
   showElement('sourcetoggle');
   showElement('selected-github-data');
-}
 
-/**
- * Shows the status section and sets a default message
- * @function showStatusSection
- * @returns {void}
- */
-export function showStatusSection() {
-  const section = document.getElementById('status-section');
-  if (section) section.removeAttribute('hidden');
+  const githubRadio = document.getElementById('radio-github');
+  if (githubRadio instanceof HTMLInputElement) {
+    githubRadio.checked = true;
+  }
 
-  const defaultMsg = document.getElementById('status-message--default');
-  if (defaultMsg) defaultMsg.textContent = 'Searching...';
+  const githubButton = document.querySelector('.button-api.button-github');
+  if (githubButton instanceof HTMLElement) {
+    githubButton.focus();
+  }
 }
 
 /**
@@ -149,5 +145,32 @@ export function updateAriaHidden(id, isHidden) {
   const element = document.getElementById(id);
   if (element) {
     element.setAttribute('aria-hidden', isHidden ? 'true' : 'false');
+  }
+}
+
+export function setupSourceToggleKeyboardSupport() {
+  const githubLabel = document.querySelector('label.button-github');
+  const hnLabel = document.querySelector('label.button-hn');
+  const githubRadio = document.getElementById('radio-github');
+  const hnRadio = document.getElementById('radio-hackernews');
+
+  if (githubLabel && githubRadio) {
+    githubLabel.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault(); // för att inte scrolla
+        githubRadio.checked = true;
+        githubRadio.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+  }
+
+  if (hnLabel && hnRadio) {
+    hnLabel.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        hnRadio.checked = true;
+        hnRadio.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
   }
 }

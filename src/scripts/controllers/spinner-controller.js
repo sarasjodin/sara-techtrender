@@ -73,7 +73,7 @@ export async function showSpinnerSource(source, query = '') {
  * @function showStatusSection
  * @returns {void}
  */
-function showStatusSection() {
+export function showStatusSection() {
   const section = document.getElementById('status-section');
   section?.classList.remove('hidden');
   section?.setAttribute('aria-hidden', 'false');

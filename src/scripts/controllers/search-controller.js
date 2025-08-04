@@ -12,7 +12,6 @@ import {
   renderHackerNewsList
 } from '../api/hackernews-api.js';
 import {
-  showStatusSection,
   prepareForSearch,
   showAfterFetch,
   toggleDataSource
@@ -103,25 +102,5 @@ function updatePlaceholder() {
     input.placeholder = 'Search...';
   } else {
     input.placeholder = 'Search tech words like Python, React, or AI';
-  }
-}
-
-/**
- * Updates the UI after a search - showing the status and resetting the input.
- * @function updateUIAfterSearch
- * @param {string} term - The search term to save
- * @returns {Promise<void>}
- */
-export function updateUIAfterSearch(term) {
-  const input = document.querySelector('#searchinput');
-
-  // Screenreaders have been included
-  showStatusSection();
-
-  if (input) input.value = '';
-
-  if (!term || typeof term !== 'string' || term.trim().length === 0) {
-    console.warn('[updateUIAfterSearch] No valid term, skipping UI update');
-    return;
   }
 }

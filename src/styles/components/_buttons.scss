@@ -235,8 +235,19 @@ label {
   margin: 0.5rem;
 }
 
-input[type='radio'] {
+/* input[type='radio'] {
   display: none;
+} */
+
+input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+input[type='radio']:focus + .content {
+  outline-offset: 4px;
+  border-radius: 9999px;
 }
 
 input[type='radio']:checked + .content {
@@ -249,5 +260,22 @@ input[type='radio']:checked + .content {
   &:hover {
     transform: scale(1.1);
     background-color: #1cdeae38;
+  }
+}
+
+.button-api {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 6px 10px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    background-color: #222;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15), 0 8px 14px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+    transform: translateY(1px);
   }
 }

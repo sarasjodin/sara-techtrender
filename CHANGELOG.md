@@ -12,6 +12,29 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [2.3.0] – 2025-08-04
+
+### Added
+
+- Wikipedia is now shown as the source in the modal window when information is fetched via the Wikipedia API.
+- A Read more on "Wikipedia-link" has been added to the modal, opening in a new tab with `target="_blank"` and `rel="noopener noreferrer"`.
+
+### Changed
+
+- Harmonized innerHTML rendering for GitHub and Hacker News cards to improve markup consistency, accessibility, and UI behavior (mainly in JavaScript).
+
+- Improved keyboard navigation and focus styling across HTML, SCSS, and JavaScript for better usability and accessibility.
+
+- Updated social media meta tags on `about.html` to better reflect the page when shared.
+
+### Removed
+
+- Removed old code related to flag display functionality, including unused flag icons and logic.
+
+- Removed partially implemented word list feature to clean up the codebase.
+
+---
+
 ## [2.2.1] – 2025-08-01
 
 ### Added
@@ -65,7 +88,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Major Release – Complete Refactor and UI Overhaul
 
 A full architectural and visual refactoring of the application, focused on maintainability, accessibility, and performance.
-Added
+
+### Added
 
 - **Navigation Bar:** New responsive and accessible navigation added with support for small screens.
 
@@ -75,7 +99,7 @@ Added
 
 - **JSdoc Comments:** All exported functions now include clean English JSDoc for improved developer understanding.
 
-Changed
+### Changed
 
 - **Code Refactoring:** Major rewrite of all logic using plain JavaScript modules with improved readability and reusability.
 
@@ -89,7 +113,7 @@ Changed
 
 - **Automation:** Improved build process using Parcel v2, with support for SCSS, image optimization, and HTML minification.
 
-Notes
+### Notes
 
 - No frontend frameworks were used (e.g. React/Vue) – this app is built with vanilla JS, SCSS, and modern tooling only.
 

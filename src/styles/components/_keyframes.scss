@@ -1,18 +1,6 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixin;
 
-@keyframes colorPulse {
-  0% {
-    color: #494949;
-  }
-  50% {
-    color: #000000;
-  }
-  100% {
-    color: #494949;
-  }
-}
-
 @keyframes lightEffect {
   0% {
     background: #e9c061; // Ursprunglig färg på knappen

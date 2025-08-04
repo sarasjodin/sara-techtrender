@@ -2,7 +2,7 @@
 
 #github-data-section {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 180px, 1fr;
   gap: 1rem;
   max-width: 100%;
   width: 100%;
@@ -22,6 +22,7 @@
   max-width: 800px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   background: #fff;
+  box-sizing: border-box;
 }
 
 .repo-header {
@@ -53,6 +54,7 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   margin-bottom: 1rem;
+  flex-grow: 1;
 }
 
 .repo-section {
@@ -83,7 +85,6 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 1rem;
   margin-top: auto;
 
   @media (min-width: 600px) {
@@ -149,6 +150,7 @@
 
 .action-button.profile {
   background: #444;
+  padding-top: 1rem;
 }
 
 .action-button:hover {
@@ -201,11 +203,10 @@
 
 .article-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   h3.article-title {
     white-space: normal;
@@ -348,7 +349,8 @@ section.wordcloud-section {
   height: 48px;
 }
 
-.language-link {
+.language-button {
+  margin-left: 0.5rem;
   position: relative;
   font-weight: bold;
   text-decoration: none;
@@ -373,22 +375,20 @@ section.wordcloud-section {
   letter-spacing: 2px;
 }
 
-/* Regnbågsanimation när användaren hovrar över länken */
-.language-link:hover {
-  color: white; /* Eller annan textfärg */
+.language-button:hover {
+  color: white;
   background-position: 100%;
 }
 
-/* Regnbågsanimation när länken är i fokus (t.ex. med tabbning) */
-.language-link:focus {
-  outline: none; /* Ta bort standard fokusram */
+.language-button:focus {
+  outline: 2px solid black;
+  outline-offset: 2px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
     0 0 15px rgba(255, 255, 255, 0.8);
-  animation: rainbow 1.5s linear infinite; /* Regnbågsanimation för fokus */
+  animation: rainbow 1.5s linear infinite;
 }
 
-/* Extra effekt för hover för att göra det mer levande */
-.language-link:hover::after {
+.language-button:hover::after {
   position: absolute;
   top: 50%;
   left: 100%;

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="description"
-      content="TechTrends is a student project by Sara Sjödin Scolari that visualizes trending tech topics using real-time API data from sources like GitHub and NewsAPI."
+      content="TechTrends is a student project by Sara Sjödin Scolari that visualizes trending tech topics using real-time API data from sources like GitHub, Hacker News and Wikipedia API."
     />
     <meta name="author" content="Sara Sjödin Scolari" />
     <meta name="robots" content="index, follow" />
@@ -340,13 +340,13 @@
               <legend id="source-label">
                 Choose your source of inspiration
               </legend>
-              <label class="button-api button-github">
+              <label class="button-api button-github" tabindex="0">
                 <input
                   type="radio"
                   name="source"
                   value="github"
                   id="radio-github"
-                  checked
+                  hidden
                 />
                 <span class="content">
                   <span class="icon github-icon" aria-hidden="true">
@@ -359,12 +359,13 @@
                   <span class="label">GitHub</span>
                 </span>
               </label>
-              <label class="button-api button-hn">
+              <label class="button-api button-hn" tabindex="0">
                 <input
                   type="radio"
                   name="source"
                   value="hackernews"
                   id="radio-hackernews"
+                  hidden
                 />
                 <span class="content">
                   <span class="icon hn-icon"
