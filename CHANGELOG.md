@@ -12,7 +12,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
-## [2.3.1] - date 2025-08-04
+## [2.3.2] - 2025-08-05
+
+### Changed
+
+- Improved responsive SCSS for mobiles: Adjusted `minmax` value from `250px` to `220px` in `_cards.scss` to better fit smaller screens down to 320px width.
+
+---
+
+## [2.3.1] - 2025-08-04
 
 ### Changed
 
