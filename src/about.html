@@ -181,14 +181,42 @@
           </div>
           <div class="flowcharts">
             <figure>
-              <img
-                class="flowcharts"
-                src="assets/images/app-internet-api-db.svg"
-                alt="App overview - data flow between client, internet, external APIs, webbservers and databases"
-                width="983"
-                height="600"
-                loading="lazy"
-              />
+              <picture>
+                <!-- AVIF -->
+                <source
+                  srcset="
+                    ./assets/images/app-internet-api-db-480.avif 480w,
+                    ./assets/images/app-internet-api-db-768.avif 768w,
+                    ./assets/images/app-internet-api-db-983.avif 983w
+                  "
+                  type="image/avif"
+                />
+
+                <!-- WebP -->
+                <source
+                  srcset="
+                    ./assets/images/app-internet-api-db-480.webp 480w,
+                    ./assets/images/app-internet-api-db-768.webp 768w,
+                    ./assets/images/app-internet-api-db-983.webp 983w
+                  "
+                  type="image/webp"
+                />
+
+                <!-- PNG fallback -->
+                <img
+                  src="./assets/images/app-internet-api-db-983.png"
+                  srcset="
+                    ./assets/images/app-internet-api-db-480.png 480w,
+                    ./assets/images/app-internet-api-db-768.png 768w,
+                    ./assets/images/app-internet-api-db-983.png 983w
+                  "
+                  sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 983px"
+                  alt="Overview of the app interface"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+
               <figcaption>
                 App overview - data flow between client, internet, external
                 APIs, webbservers and databases.

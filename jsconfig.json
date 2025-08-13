@@ -4,10 +4,12 @@
     "allowJs": true, // Tillåt JS-filer i projektet (ej bara TS)
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["es2015", "dom"]
+    "lib": ["ES2020", "DOM"],
+    "module": "ESNext",
+    "target": "ES2020",
+    "moduleResolution": "Bundler",
+    "types": []
   },
-  "include": [
-    "./", // Inkludera alla filer i projektroten
-    "src/**/*" // Inkludera alla filer i src-mappen
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", ".parcel-cache"]
 }
