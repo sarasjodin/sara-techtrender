@@ -12,6 +12,14 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [2.3.4] - 2025-08-13
+
+### Fixed
+
+- Replaced SVG with responsive `<picture>` element for app overview image to `about` page.
+
+---
+
 ## [2.3.3] - 2025-08-13
 
 ### Added

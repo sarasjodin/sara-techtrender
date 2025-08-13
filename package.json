@@ -1,6 +1,6 @@
 {
   "name": "sara-techtrender",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "A study project for a university program in web development at Mid Sweden University. With focus on mashups and API integration. Powered by JavaScript, SCSS, Parcel, and Git. It features responsive design, API mashups and automated deployment. ",
   "type": "module",
   "scripts": {
