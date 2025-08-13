@@ -12,6 +12,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [2.3.3] - 2025-08-13
+
+### Added
+
+- Added App overview image to `about` page.
+- Added attribution to [CSS Pattern Gallery](https://css-pattern.com/) for the pattern background in `_footer.scss` and `_header.scss`.
+
+---
+
 ## [2.3.2] - 2025-08-05
 
 ### Changed
